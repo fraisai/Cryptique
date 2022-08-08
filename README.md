@@ -1,0 +1,2 @@
+# Cryptique
+Cryptocurrency wallet

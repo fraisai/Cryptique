@@ -1,0 +1,36 @@
+#root {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    color: #3D4852;
+}
+.homepage-grid-resize {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 6px;
+    grid-row-gap: 14px;
+}
+
+// style={{ width: 370, margin: 'auto', display: 'flex', flexDirection: 'column' }}
+.coin-card-width {
+    width: 370px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 390px) {
+    .homepage-grid-resize {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 6px;
+        grid-row-gap: 14px;
+    }
+
+    .coin-card-width {
+        width: 320px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}

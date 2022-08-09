@@ -1,0 +1,50 @@
+{
+  "name": "proj",
+  "version": "1.0.0",
+  "private": true,
+  "proxy": {
+    "/*": {
+      "target": "http://localhost:5000"
+    }
+  },
+  "description": "Raisa Solo Project",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot --history-api-fallback",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mantine/core": "^4.2.8",
+    "@mantine/hooks": "^4.2.8",
+    "@mui/icons-material": "^5.8.3",
+    "@mui/material": "^5.8.3",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.1.3",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.17.0",
+    "react": "^18.1.0",
+    "react-bootstrap": "^2.4.0",
+    "react-chartjs-2": "^4.2.0",
+    "react-dom": "^18.1.0",
+    "react-router-dom": "^6.3.0",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/plugin-transform-runtime": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "babel-loader": "^8.2.5",
+    "html-webpack-plugin": "^5.5.0",
+    "sass": "^1.52.3",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.1"
+  }
+}

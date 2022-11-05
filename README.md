@@ -1,2 +1,2 @@
 # Cryptique
-Cryptocurrency wallet
+Fullstack dashboard and cryptocurrency monitoring tool.

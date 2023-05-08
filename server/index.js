@@ -60,7 +60,6 @@ app.post('/cryptotodo', async(req,res) => {
     try {
         const name = req.body.name;
         // console.log(req.body, "name: ", name)
-        // await pool.query("INSERT INTO tableName(column) VALUES($placeholder) RETURNING *", [variableName from req.body])
 
         // you are inserting into the column for description in the table named 'todo' (located in the database 'perntodo') the object description (from req.body)
         const newTodo = await pool.query(`INSERT INTO cryptoToDo(name) VALUES($1) RETURNING *`, [name]);
@@ -213,6 +212,3 @@ then it created a table called 'top7coins' in database 'trendingcoins_practice' 
                 "score": 0
             };
             */
-
-// awwait means that it will take some time
-        // $1 = placeholder and [description] = value of $1

@@ -32,7 +32,8 @@ app.use(express.json()); // this gives us access to req.body and then we can get
 app.post('/twitter/:id', async (req, res) => {
     const T = new Twit(
         {
-            consumer_key: 'qPHlIQJDHzVh9ik3H0kPu2Ds3',
+            // consumer_key: 'qPHlIQJDHzVh9ik3H0kPu2Ds3',
+            consumer_key: process.env.CONSUMER_KEY,
             consumer_secret: 'P7A3JH3yBFHDa4iHCsYunLUPB8gBHt97TI2LtWNHdZN3RuzZlc',
             access_token: '1453926189953953794-sEE9AFyNIPDeR0KhRfiLQTu2z3KrXP',
             access_token_secret: 'IUgkm4WmeWPiiN3Tkd7Jk834ykm4uO3uopEcrD3shjfC6'

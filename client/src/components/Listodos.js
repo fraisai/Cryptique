@@ -9,7 +9,7 @@ const Listodos = () => {
 
   const getList = async () => {
     await axios
-      .get('/cryptotodo2')
+      .get('/v1/api/cryptodo/get')
       .then((response) => {
         setList(response.data);
       })
@@ -26,7 +26,8 @@ const Listodos = () => {
   
   const deleteTodo = async (id) => {
     try {await axios
-      .delete(`/cryptotodo/${id}`)
+      // .delete(`/cryptotodo/${id}`)
+      .delete(`/v1/api/cryptodo/${id}`)
       .then(res => console.log('Delete in Listodos.js'))
       .catch(error => console.log('Delete error in Listodos.js', error.message));
       window.location = '/cryptotodo';

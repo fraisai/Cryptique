@@ -1,12 +1,3 @@
-// TO START DATABASE
-/*
-psql r
-\c trendingcoins_practice
-
-to see the database in trendingcoins_practice: \dt
-SELECT * FROM cryptoToDo;
-*/
-
 const express = require('express');
 const app = express();
 const PORT = 5000;
@@ -14,19 +5,17 @@ const PORT = 5000;
 const cors = require('cors');
 const axios = require('axios');
 const path = require('path');
-const crudController = require('./controllers/crudController');
 const pool = require('./db.js'); // connect server to database aka connecting to the db.js file
 const Twit = require('twit');
 
-// const twitController = require('./tweetSearch');
-// const cryptoTodoRouter = require('./cryptoTodoRoute');
-// app.use('/cryptotodo', cryptoTodoRouter);
+// ROUTERS
+const cryptToDoRouter = require('./routes/cryptTodoRoutes.js');
 
 // MIDDLEWARE
-app.use(cors());
-// only way to get data from client side is by accessing req.body
+app.use(cors()); 
 app.use(express.json()); // this gives us access to req.body and then we can get json data
 // by using express.json, we can access the req.body
+
 
 // Twitter Route
 app.post('/twitter/:id', async (req, res) => {
@@ -54,27 +43,8 @@ app.post('/twitter/:id', async (req, res) => {
 
 
 // **************** CRUD ROUTES ******************
+app.use('/v1/api/cryptodo/', cryptToDoRouter);
 
-// POST When you press the 'Add' button in the cryptodo page, it sends a POST request here
-app.post('/cryptotodo', async(req,res) => {
-    try {
-        const name = req.body.name;
-        // console.log(req.body, "name: ", name)
-
-        // you are inserting into the column for description in the table named 'todo' (located in the database 'perntodo') the object description (from req.body)
-        const newTodo = await pool.query(`INSERT INTO cryptoToDo(name) VALUES($1) RETURNING *`, [name]);
-
-        res.status(200).json(newTodo)
-        // Essentially what happens:
-            /* when you go on website: localhost:5000/todos and post:
-                {
-                    "description": "BTC"
-                }
-                you update the database by inserting into database the description in pool.query()*/
-    } catch(err) {
-        console.error("Error in server: POST req for /cryptotodo", err.message)
-    }
-})
 
 // 2. GET: get all previous todos data and render it in ListTodos.js
 app.get('/cryptotodo2', async (req, res) => {
@@ -135,6 +105,16 @@ app.get('/home', async (req, res) => {
     res.end()
 })
 
+
+
+
+
+
+
+
+
+// in server.js
+
 app.get('/cryptotodo', (req, res) => {
     res.status(200).sendFile(path.resolve(__dirname, '../client/dist/index.html'));
 })
@@ -171,44 +151,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
 })
-
-// NOTES 
-// for get requests:     
-    // USE postman: localhost:PORT/todos and send a get request to see the list of all the todo items
-// POST
-// req = request from trending coins page
-// res = the response server will send back to the trending coins page (client)
-// app.post('/trending', async (req, res) => {
-//     try {
-//         res.send('post on trending')
-//     } catch(err) {
-//         console.error(err.message);
-//     }
-// })
-
-/*
-database.sql created a database called 'trendingcoins_practice'
-then it created a table called 'top7coins' in database 'trendingcoins_practice' with the following columns:
-    trending_id SERIAL PRIMARY KEY,
-    coin_name, = response.data.coins
-    symbol,
-    market_cap_rank,
-    large,
-    price_btc
-*/
-
-            /*
-            response.data.coins[0].item = {
-                "id": "optimism",
-                "coin_id": 25244,
-                "name": "Optimism",
-                "symbol": "OP",
-                "market_cap_rank": 158,
-                "thumb": "https://assets.coingecko.com/coins/images/25244/thumb/OP.jpeg?1651026279",
-                "small": "https://assets.coingecko.com/coins/images/25244/small/OP.jpeg?1651026279",
-                "large": "https://assets.coingecko.com/coins/images/25244/large/OP.jpeg?1651026279",
-                "slug": "optimism",
-                "price_btc": 0.000040525752580960674,
-                "score": 0
-            };
-            */

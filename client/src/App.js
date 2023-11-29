@@ -85,12 +85,14 @@ const App = () => {
       <div className="main" style={{margin: '12px', overflow: 'wrap', border: '1px solid black'}}>
         div2
         <Routes>
-          <Route path="/" element={<Homepage
-            coins={coins}
-            setCoins={setCoins}
-            search={search} 
-            setSearch={setSearch}
-           />}/>
+          <Route path="/" element={
+            <Homepage
+              coins={coins}
+              setCoins={setCoins}
+              search={search} 
+              setSearch={setSearch}
+           />}
+          />
           <Route path="/trending" element={<TrendingContainer
             trendingCoins={trendingCoins}
             setTrendingCoins={setTrendingCoins}

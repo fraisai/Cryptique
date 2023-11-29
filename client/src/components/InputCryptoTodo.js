@@ -20,9 +20,8 @@ const InputCryptoTodo = () => {
     const newObj = {
       name: nameValue
     }
-    // console.log("handleClick function, nameValue, newObj", nameValue, newObj);
 
-     await axios.post('/cryptotodo', newObj)
+    await axios.post('v1/api/cryptodo/post', newObj)
       .then((data) => {
         console.log('twitter post', data)
       })

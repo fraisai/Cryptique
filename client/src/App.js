@@ -16,12 +16,13 @@ const App = () => {
 
   const getCoinInfo = async () => {
     try {
-      await axios.get('/home')
+      await axios.get('/home55')
       .then((response) => {
-          setCoins(response.data);
+        console.log(response.data)
+        setCoins(response.data);
       })
       .catch((error) => {
-          console.log(error.message);
+        console.log(error.message);
       })
     } catch (error) {
       console.log(`Error in getCoinInfo GET request in App.js: ${error}`);
@@ -38,8 +39,9 @@ const App = () => {
   const [trendingCoins, setTrendingCoins] = useState([]);
 
   const getTrendingCoins = async () => {
-    await axios.get('/trending2')
+    await axios.get('trending2')
       .then((response) => {
+        console.log("getTrendingCoings", response)
         setTrendingCoins(response.data);
       })
       .catch((error) => {
@@ -52,7 +54,7 @@ const App = () => {
     getTrendingCoins();
   }, [])
 
-  // MARKETCHARTS.JS
+  // // MARKETCHARTS.JS
   // const [totalVol, setTotalVol] = useState([])
   // const volumeTradingUrl = `https://api.coingecko.com/api/v3/coins/${coins.name}/market_chart?vs_currency=usd&days=1`;
   // useEffect(() => {
@@ -83,7 +85,6 @@ const App = () => {
       </div>
 
       <div className="main" style={{margin: '12px', overflow: 'wrap', border: '1px solid black'}}>
-        div2
         <Routes>
           <Route path="/" element={
             <Homepage
@@ -91,7 +92,9 @@ const App = () => {
               setCoins={setCoins}
               search={search} 
               setSearch={setSearch}
-           />}
+           />
+           
+          }
           />
           <Route path="/trending" element={<TrendingContainer
             trendingCoins={trendingCoins}

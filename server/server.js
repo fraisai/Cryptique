@@ -20,6 +20,68 @@ app.use(express.json()); // this gives us access to req.body and then we can get
 app.use('/v1/api/cryptodo/', cryptToDoRouter);
 
 
+// Twitter Route
+app.post('/twitter/:id', async (req, res) => {
+    const T = new Twit(
+        {
+            consumer_key: process.env.CONSUMER_KEY,
+            consumer_secret: process.env.CONSUMER_SECRET,
+            access_token: process.env.ACCESS_TOKEN,
+            access_token_secret: process.env.ACCESS_TOKEN_SECRET
+        }
+    )
+    
+    try {
+        const term = req.params.id;
+
+        T.get('search/tweets', { q: `${term} since:2022-06-08`, tweet_mode:'extended',count: 10 }, function(err, data, response) {
+            res.status(200).send(data.statuses);
+        })
+    } catch (error) {
+        console.error("Error in server: POST req for /twitter/term", err.message)
+    }
+
+})
+
+
+
+app.get('/trending2', async (req, res) => {
+    const trendingLink = 'https://api.coingecko.com/api/v3/search/trending';
+    await axios
+        .get(trendingLink)
+        .then(response => {
+            console.log('response', response)
+            // setCoins(res.data);
+            const { coinsArr } = response.data.coins;
+            res.status(200).send(response.data.coins)
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+        res.end()
+});
+
+app.get('/home55', async (req, res) => {
+    const coinGeckoUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false';
+
+    try {
+        const response = await axios.get(coinGeckoUrl);
+        console.log("home:", response)
+        res.status(200).send(response.data)
+    } catch (error) {
+        console.log("get request for '/' in server", error.message);
+    }
+    res.end()
+})
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,6 +92,16 @@ app.use('/v1/api/cryptodo/', cryptToDoRouter);
 app.get('/cryptotodo', (req, res) => {
     res.status(200).sendFile(path.resolve(__dirname, '../client/dist/index.html'));
 })
+
+
+
+
+
+
+
+
+
+
 
 
 app.get('/trending', (req, res) => {

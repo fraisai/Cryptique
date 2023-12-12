@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { TextInput } from '@mantine/core';
 import Coin from './Coin';
+import MarketCharts from './MarketCharts';
 
 const Homepage = ({coins, setCoins, search, setSearch}) => {
   const handleChange = event => {
@@ -43,7 +44,6 @@ const Homepage = ({coins, setCoins, search, setSearch}) => {
     </div>
 
     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-      <h3>Search Cryptocurrency</h3>
       <TextInput
         placeholder="Enter name or symbol"
         label="Search Cryptocurrency"
@@ -57,6 +57,7 @@ const Homepage = ({coins, setCoins, search, setSearch}) => {
       style={{}}>
     {filteredCoinsMap()}
     </div>
+
   </>)
 }
 

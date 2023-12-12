@@ -48,3 +48,7 @@ then it created a table called 'top7coins' in database 'trendingcoins_practice' 
                 "score": 0
             };
             */
+
+
+
+    // "start": "webpack-dev-server --mode development --open --hot --history-api-fallback",

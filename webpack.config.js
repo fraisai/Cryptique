@@ -7,21 +7,22 @@ module.exports = {
 
     // entry point of our application
     entry: {
-        src: './src/index.js',
+        src: './client/src/index.js',
     },
 
     output: {
         filename: 'bundle.js',
-        path: path.join(__dirname, '/dist'),
+        path: path.resolve(__dirname, './client/dist'),
     },
     
     devServer: {
-        open: true,
+        port: 3000,
+        proxy: {
+            "/**": 5000
+        },
+        open: false,
         liveReload: true,
         historyApiFallback: true,
-        proxy: {
-            '/': 'http://localhost:5000/',
-        }
     },
     // resolver helps webpack find the module code that needs to be included in the bundle for every such require/import statement
     resolve: {
@@ -31,7 +32,7 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             title: 'Development',
-            template: './src/index.html'
+            template: './client/src/index.html'
         })
     ],
 
@@ -51,17 +52,7 @@ module.exports = {
                 use: [
                     'style-loader', 'css-loader', 'sass-loader'
                 ]
-            }
-            // {
-            //     test: /\.scss$/,
-            //     include: paths.appSrc,
-            //     loaders: [
-            //       require.resolve('style-loader'),
-            //       require.resolve('css-loader'),
-            //       require.resolve('sass-loader')
-            //     ]
-            //   }
-        
+            }        
         ]
     }
 }

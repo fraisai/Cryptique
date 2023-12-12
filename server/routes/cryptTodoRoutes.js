@@ -14,7 +14,7 @@ router.post('/post', crudController.addCrypto);
 
 
 // DELETE: /v1/api/cryptodo/:id
-router.delete('/:id', crudController.deleteCrypt);
+router.delete('/:id', crudController.deleteCrypto);
 
 
 // UPDATE aka PATCH: /v1/api/cryptodo/:id

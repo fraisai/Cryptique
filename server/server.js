@@ -66,7 +66,6 @@ app.get('/home55', async (req, res) => {
 
     try {
         const response = await axios.get(coinGeckoUrl);
-        console.log("home:", response)
         res.status(200).send(response.data)
     } catch (error) {
         console.log("get request for '/' in server", error.message);

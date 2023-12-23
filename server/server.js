@@ -13,8 +13,7 @@ const cryptToDoRouter = require('./routes/cryptTodoRoutes.js');
 
 // MIDDLEWARE
 app.use(cors()); 
-app.use(express.json()); // this gives us access to req.body and then we can get json data
-// by using express.json, we can access the req.body
+app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object 
 
 // CRUD ROUTES (get, post, delete, update/patch)
 app.use('/v1/api/cryptodo/', cryptToDoRouter);

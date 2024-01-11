@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 // import { Navbar, Homepage, Cryptocurrencies, Exchanges, News, Coins } from './components';
 import Homepage from './components/Homepage';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import InputCryptoTodo from './components/InputCryptoTodo';
 import { Button } from '@mantine/core';
 import React, {useState, useEffect, useMemo } from 'react'
@@ -81,25 +81,28 @@ const App = () => {
       </Button>
 
       <div style={{height: '100%', border: '1px solid black', margin: '10px'}}>
-        <Navbar />
+        {/* <Navbar /> */}
       </div>
 
       <div className="main" style={{margin: '12px', overflow: 'wrap', border: '1px solid black'}}>
         <Routes>
-          <Route path="/" element={
+          <Route 
+            path="/" element={
             <Homepage
               coins={coins}
               setCoins={setCoins}
               search={search} 
               setSearch={setSearch}
-           />
-           
-          }
+            />}
           />
-          <Route path="/trending" element={<TrendingContainer
-            trendingCoins={trendingCoins}
-            setTrendingCoins={setTrendingCoins}
-            />}/>
+
+          <Route 
+            path="/trending" element={
+              <TrendingContainer
+                trendingCoins={trendingCoins}
+                setTrendingCoins={setTrendingCoins}
+              />}
+          />
           <Route path="/cryptotodo" element={<InputCryptoTodo />}/>
         </Routes>
         

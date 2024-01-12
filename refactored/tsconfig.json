@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "ES6",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+        // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
+        "jsx": "react",                                      /* Transform JSX into React code - Specify what JSX code is generated. */
+    
+        "module": "commonjs",                                /* Specify what module code is generated. */
+        "rootDir": "./server",                                  /* Specify the root folder within your source files. */
+        "moduleResolution": "node",
+        "baseUrl": "src",
+        "outDir": "./build",                                   /* all compiled files will be placed in dist folder Specify an output folder for all emitted files. */
+        "sourceMap": true,
+        "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+
+        "strict": true,                                      /* Enable all strict type-checking options. */
+        // "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
+        "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+
+        },
+    "include": ["./server/**/*"],
+    "exclude": ["./lib/__tests__/**/*.test.ts"]
+}

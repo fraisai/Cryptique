@@ -9,4 +9,3 @@ import ConnectContainer from './containers/ConnectContainer';
 import TrendingContainer from './containers/TrendingContainer';
 
 export { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer };
-// export { Sidebar }

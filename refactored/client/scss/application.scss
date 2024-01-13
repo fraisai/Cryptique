@@ -1,4 +1,6 @@
-@import 'styles', 'variables', 'media', 'flowbite';
+/* eslint-disable */
+
+@import 'styles', 'variables', 'media', 'flowbite', 'flowbite.min.scss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

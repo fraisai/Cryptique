@@ -1,71 +1,70 @@
-import { Request, Response } from 'express'; 
+import { Request, Response } from 'express';
 import { random, authentication } from '../helpers/crypto';
 import { getUserByEmail, createUser } from '../models/usersModel';
-const CRYPTO_SECRET="RAY-REST-API"
+const CRYPTO_SECRET = 'RAY-REST-API';
 // type AuthControllerType = {
 //     register: (req: Request, res: Response) => Response
 // }
 
-export const registerUser = async(req: Request, res: Response) => {
-    return res.json("Checking /auth/register");
-}
+export const registerUser = async (req: Request, res: Response) => {
+  return res.json('Checking /auth/register');
+};
 
-export const login = async(req: Request, res: Response) => {
-    try {
-        const { email, password } = req.body;
-        
-        if (!email || !password ) return res.sendStatus(400);
+export const login = async (req: Request, res: Response) => {
+  try {
+    const { email, password } = req.body;
 
-        const user = await getUserByEmail(email).select('+authentication.salt +authentication.password');
+    if (!email || !password) return res.sendStatus(400);
 
-        if (!user) res.sendStatus(400);
+    const user = await getUserByEmail(email).select('+authentication.salt +authentication.password');
 
-        const expectedHash = authentication(user.authentication.salt, password);
+    if (!user) res.sendStatus(400);
 
-        if (user.authentication.password !== expectedHash) return res.sendStatus(403);
+    const expectedHash = authentication(user.authentication.salt, password);
 
-        const salt = random();
-        user.authentication.sessionToken = authentication(salt, user._id.toString());
+    if (user.authentication.password !== expectedHash) return res.sendStatus(403);
 
-        await user.save();
+    const salt = random();
+    user.authentication.sessionToken = authentication(salt, user._id.toString());
 
-        res.cookie(CRYPTO_SECRET, user.authentication.sessionToken, { domain: 'localhost', path: '/' });
+    await user.save();
 
-        return res.status(200).json(user).end();
-    } catch (error) {
-        console.log("authController.login Error: ", error);
-        return res.sendStatus(400);
+    res.cookie(CRYPTO_SECRET, user.authentication.sessionToken, { domain: 'localhost', path: '/' });
+
+    return res.status(200).json(user).end();
+  } catch (error) {
+    console.log('authController.login Error: ', error);
+    return res.sendStatus(400);
+  }
+};
+
+export const registerController = async (req: Request, res: Response) => {
+  try {
+    const { email, password, username } = req.body;
+
+    if (!email || !password || !username) {
+      return res.sendStatus(400);
     }
-}
 
-export const registerController = async(req: Request, res: Response) => {
-    try {
-        const { email, password, username } = req.body;
+    const existingUser = await getUserByEmail(email);
 
-        if (!email || !password || !username) {
-            return res.sendStatus(400);
-        }
-
-        const existingUser = await getUserByEmail(email);
-
-        if (existingUser) {
-            return res.sendStatus(400);
-        }
-
-        const salt = random();
-        const user = await createUser({
-            email,
-            username, 
-            authentication: {
-                salt,
-                password: authentication(salt, password)
-            }
-        })
-
-        return res.status(200).json(user).end();
-
-    } catch (error) {
-        console.log("authController Error: ", error);
-        return res.sendStatus(400);
+    if (existingUser) {
+      return res.sendStatus(400);
     }
-} 
+
+    const salt = random();
+    const user = await createUser({
+      email,
+      username,
+      authentication: {
+        salt,
+        password: authentication(salt, password),
+      },
+    });
+
+    return res.status(200).json(user).end();
+  } catch (error) {
+    console.log('authController Error: ', error);
+    return res.sendStatus(400);
+  }
+};

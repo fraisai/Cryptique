@@ -432,7 +432,7 @@
                     <h3 className="text-xl font-semibold dark:text-white">Alerts &amp; Notifications</h3>
                     <p className="text-sm font-normal text-gray-500 dark:text-gray-400">You can set up Themesberg to get notifications</p>
                     <div className="divide-y divide-gray-200 dark:divide-gray-700">
-                        <!-- Item 1 -->
+                        {/* <!-- Item 1 --> */}
                         <div className="flex items-center justify-between py-4">
                             <div className="flex flex-col flex-grow">
                                 <div className="text-lg font-semibold text-gray-900 dark:text-white">Company News</div>
@@ -443,7 +443,7 @@
                                 <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                             </label>
                         </div>
-                        <!-- Item 2 -->
+                        {/* <!-- Item 2 --> */}
                         <div className="flex items-center justify-between py-4">
                             <div className="flex flex-col flex-grow">
                                 <div className="text-lg font-semibold text-gray-900 dark:text-white">Account Activity</div>
@@ -454,7 +454,7 @@
                                 <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                             </label>
                         </div>
-                        <!-- Item 3 -->
+                        {/* <!-- Item 3 --> */}
                         <div className="flex items-center justify-between py-4">
                             <div className="flex flex-col flex-grow">
                                 <div className="text-lg font-semibold text-gray-900 dark:text-white">Meetups Near You</div>
@@ -465,7 +465,7 @@
                                 <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                             </label>
                         </div>
-                        <!-- Item 4 -->
+                        {/* <!-- Item 4 --> */}
                         <div className="flex items-center justify-between pt-4">
                             <div className="flex flex-col flex-grow">
                                 <div className="text-lg font-semibold text-gray-900 dark:text-white">New Messages</div>
@@ -488,7 +488,7 @@
                     <h3 className="text-xl font-semibold dark:text-white">Email Notifications</h3>
                     <p className="text-sm font-normal text-gray-500 dark:text-gray-400">You can set up Themesberg to get email notifications </p>
                     <div className="divide-y divide-gray-200 dark:divide-gray-700">
-                        <!-- Item 1 -->
+                        {/* <!-- Item 1 --> */}
                         <div className="flex items-center justify-between py-4">
                             <div className="flex flex-col flex-grow">
                                 <div className="text-lg font-semibold text-gray-900 dark:text-white">Rating reminders</div>
@@ -499,7 +499,7 @@
                                 <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                             </label>
                         </div>
-                        <!-- Item 2 -->
+                        {/* <!-- Item 2 --> */}
                         <div className="flex items-center justify-between py-4">
                             <div className="flex flex-col flex-grow">
                                 <div className="text-lg font-semibold text-gray-900 dark:text-white">Item update notifications</div>
@@ -510,7 +510,7 @@
                                 <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                             </label>
                         </div>
-                        <!-- Item 3 -->
+                        {/* <!-- Item 3 --> */}
                         <div className="flex items-center justify-between py-4">
                             <div className="flex flex-col flex-grow">
                                 <div className="text-lg font-semibold text-gray-900 dark:text-white">Item comment notifications</div>
@@ -521,7 +521,7 @@
                                 <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                             </label>
                         </div>
-                        <!-- Item 4 -->
+                        {/* <!-- Item 4 --> */}
                         <div className="flex items-center justify-between pt-4">
                             <div className="flex flex-col flex-grow">
                                 <div className="text-lg font-semibold text-gray-900 dark:text-white">Buyer review notifications</div>

@@ -17,7 +17,7 @@ const { btcMarketChart30Days, trendingCoinData, allMarketsCoinsData, marketChart
 
 // Markets: all coins
 // GET: crypt/coins/markets
-export const getCoinGeckoMarkets = async (req: Request, res: Response, next: NextFunction) => {
+export const getAllMarkets = async (req: Request, res: Response, next: NextFunction) => {
   try {
     return res.status(200).json(allMarketsCoinsData).end();
     // NEED TO PAY to use cg API so commented out for now and using past data:
@@ -34,7 +34,7 @@ export const getCoinGeckoMarkets = async (req: Request, res: Response, next: Nex
 // days can be 1, 7, 30, 365, max
 
 // /coins/{id}/market_chart
-export const getCoinGeckoMarketChart = async (req: Request, res: Response, next: NextFunction) => {
+export const getOneDayMarketChart = async (req: Request, res: Response, next: NextFunction) => {
   try {
     console.log("btcMarketChart30Days")
     return res.status(200).json(btcMarketChart30Days).end();
@@ -48,7 +48,7 @@ export const getCoinGeckoMarketChart = async (req: Request, res: Response, next:
 
 // Trending: Top-7 trending coins on CoinGecko as searched by users in the last 24 hours (Ordered by most popular first).
 // GET: crypt/coins/trending
-export const getCoinGeckoTrending = async (req: Request, res: Response, next: NextFunction) => {
+export const getTrending = async (req: Request, res: Response, next: NextFunction) => {
   try {
     return res.status(200).json(trendingCoinData).end();
     const response = await axios.request(coinGeckoTrendingOptions);

@@ -1,4 +1,5 @@
 import React from 'react'
+import { ErrorPage } from '../componentImports'
 
 const NewsContainer = () => {
   return (
@@ -11,7 +12,7 @@ const NewsContainer = () => {
             <main >
               <div className="px-6 pt-6" style={{width: '125%', margin: '0 auto'}}> {/* px-4 => padding-left && padding-right = 1rem = 16px, pt-6 => padding-top = 1.5rem = 24px */}
                 <div className="grid gap-4 xl:grid-cols-1 2xl:grid-cols-1"> {/* xl = responsive 1280px	@media (min-width: 1280px) { ... } */}
-                  NEWSCONTAINER
+                  <ErrorPage />
                 </div>
               </div>
             </main>

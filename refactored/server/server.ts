@@ -10,8 +10,11 @@ const app = express();
 // const SFUSignalingChannel = require('./SFUSignalingChannel')
 
 const PORT = 5000;
-const authenticationRouter = require('./routes/authenticationRoutes');
-const cryptApiRouter = require('./routes/cryptRoutes');
+
+// ROUTES
+const authRouter = require('./routes/authenticationRoutes'); // Routes
+const cryptRouter= require('./routes/cryptRoutes');
+const watchlistRouter = require('./routes/watchlistRoutes');
 
 // MIDDLEWARE
 app.use(
@@ -24,10 +27,31 @@ app.use(cookieParser());
 app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', authenticationRouter);
-app.use('/crypt', cryptApiRouter);
+app.use('/', authRouter);
+app.get('/crypt/hi', (req: Request, res: Response) => res.status(200).json("HEY"))
+app.use('/crypt', cryptRouter);
+// app.use('/watch', watchlistRoutes);
 
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // app.get('/crypt/coins', (req: Request, res: Response) => {
 //     return res.status(200).json('HEYY');

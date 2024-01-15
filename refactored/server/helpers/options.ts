@@ -13,6 +13,11 @@ export const coinGeckoMarketCharts24 = {
   url: 'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1',
 };
 
+module.exports = {
+  coinGeckoTrendingOptions,
+  coinGeckoMarketOptions,
+  coinGeckoMarketCharts24
+}
 const latestUrl = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
 const infoUrl = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info';
 

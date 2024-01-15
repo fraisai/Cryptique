@@ -9,17 +9,15 @@ import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContain
 const REACT_BASE_URL = 'http://localhost:5000';
 
 const App = () => {
-  const [trending, setTrending] = useState([]);
+  const [chartData, setChartData] = useState({});
 
   useEffect(() => {
-    const getTrendingData = async () => {
-      const trendingData = await axios.get('/api/crypt/coins/trending');
-      console.log(trendingData);
-      setTrending(trendingData.data.coins);
-    };
-    getTrendingData();
-  }, []);
-  console.log('trending: ', trending, chartData);
+    const getChartData = async () => {
+      const marketChartData = await axios.get('/api/crypt/coins/market-charts');
+      setChartData(marketChartData.data);
+    }
+    getChartData();
+  }, [])
 
   return (
     <>
@@ -34,9 +32,9 @@ const App = () => {
       </aside>
 
       {/* **************************** BODY & ROUTES **************************** */}
-      <body className="bg-gray-50 dark:bg-gray-800" cz-shortcut-listen="true">
+      <body className="bg-gray-50 dark:bg-gray-800">
         <Routes>
-          <Route path="/" element={<Dashboard trending={trending} />} />
+          <Route path="/" element={<Dashboard chartData={chartData} />} />
           <Route path="/all-coins" element={<CryptoContainer />} />
           <Route path="/trending" element={<TrendingContainer />} />
           <Route path="/investments" element={<InvestmentsContainer />} />

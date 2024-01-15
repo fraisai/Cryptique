@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
+  const [showSubmenu, setShowSubmenu] = useState(false)
+  function handleCryptoShow() {
+    setShowSubmenu(!showSubmenu)
+  }
+
   return (
     <div className="sm:flex relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
       <div className="sm:flex md:hidden lg:block flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
@@ -41,7 +46,7 @@ const Sidebar = () => {
 
             {/* CRYPTOCURRENCIES PAGE */}
             <li>
-              <button type="button" className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-layouts" data-collapse-toggle="dropdown-layouts">
+              <button type="button" onClick={handleCryptoShow} className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700" aria-controls="dropdown-layouts" data-collapse-toggle="dropdown-layouts">
                 <svg className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
                 </svg>
@@ -53,21 +58,26 @@ const Sidebar = () => {
               </button>
 
               {/* <!-- Dropdown menu --> */}
-              <ul id="dropdown-layouts" className=" py-2 space-y-2">
-                <Link to="/all-coins">
-                  <li>
-                    <a className="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Current Prices</a>
-                  </li>
-                </Link>
-
-                <Link to="/trending">
-                  <li>
-                    <a href="" className="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
-                      Trending
-                    </a>
-                  </li>
-                </Link>
-              </ul>
+              {showSubmenu ? 
+                            <ul id="dropdown-layouts" className=" py-2 space-y-2">
+                            <Link to="/all-coins">
+                              <li>
+                                <a className="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Current Prices</a>
+                              </li>
+                            </Link>
+            
+                            <Link to="/trending">
+                              <li>
+                                <a href="" className="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
+                                  Trending
+                                </a>
+                              </li>
+                            </Link>
+                          </ul>
+            
+              :
+              ''
+            }
             </li>
 
             {/* INVESTMENTS PAGE */}

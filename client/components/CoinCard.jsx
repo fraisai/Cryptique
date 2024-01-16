@@ -14,6 +14,9 @@ const CoinCard = ({
   const handleShowChartClick = () => setShowChart(!showChart);
   const largeImg = useRef({});
   let item = <></>;
+  function handleClick(e) {
+    console.log("e", e)
+  }
   
   if (index === 0) {
 
@@ -27,7 +30,7 @@ const CoinCard = ({
     return (
       <div className="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" style={{width: '300px', height: '350px'}}>
 
-        <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800 pb-8">
+        <ul className="flex flex-wrap pb-8 text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
           <li className="me-2">
             <button id="about-tab" type="button" className="inline-block p-4 text-blue-600 rounded-ss-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500" onClick={() => setIndex(0)}>
               Crypto
@@ -49,7 +52,7 @@ const CoinCard = ({
 
         {index === 0 ?
           <div className="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <img className="p-5 pt-6 rounded-xs pt-8" style={{ padding: '20px', margin: '0 auto', maxHeight: '150px'}} src={img} alt="" />
+            <img className="p-5 pt-6 pt-8 rounded-xs" style={{ padding: '20px', margin: '0 auto', maxHeight: '150px'}} src={img} alt="" />
           
             <div className="p-5 pt-6">
               <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h4>
@@ -57,7 +60,7 @@ const CoinCard = ({
 
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Market Price: {price}</p>
 
-              <button>
+              <button onClick={handleClick}>
                 <svg width="40px" height="36px" viewBox="1.5 2 30 19" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#1a56db"><g id="SVGRepo_bgCarrier" strokeWidth="2"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#1A56DB" strokeWidth="1.5"></circle> <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#1a56db" strokeWidth="1.5" strokeLinecap="round"></path> </g></svg>
               </button>
             </div>
@@ -77,7 +80,7 @@ const CoinCard = ({
 
 const chart = (name, price_7d) => {
   return (
-    <div style={{ margin: '0 auto', }} className='text-center p-4 pb-4'>
+    <div style={{ margin: '0 auto', }} className='p-4 pb-4 text-center'>
       {(price_7d) ? <CryptoOneWeekChart name={name} chartData={price_7d} maxH={'250px'} maxW ={'190px'} /> : <></>}
     </div>
   )

@@ -17,7 +17,7 @@ const OneDayChart = ({ name, chartData, maxH = '350px', maxW = '470px' }) => {
     labels: chartData.times,
     datasets: [
       {
-        label: "Prices of BTC",
+        label: `${name} Prices`,
         data: chartData.prices,
         fill: true,
         backgroundColor: "rgba(75,192,192,0.2)",

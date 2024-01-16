@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios'; // axios.defaults.baseURL = REACT_BASE_URL;
 
-import VideoCall from 'rtconnect';
-import VideoComponent from 'rtconnect';
-import SFUVideoConference from '../rtc-test-run/SFUVideoConference';
+// import VideoCall from 'rtconnect';
+// import VideoComponent from 'rtconnect';
+// import SFUVideoConference from '../rtc-test-run/SFUVideoConference';
 import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer } from './componentImports';
 const REACT_BASE_URL = 'http://localhost:5000';
 
@@ -27,7 +27,7 @@ const App = () => {
       </nav>
 
       {/* **************************** SIDEBAR **************************** */}
-      <aside id="sidebar" className="sm:invisible fixed top-0 left-0 z-20 flex flex-col flex-shrink-0  w-64 h-full pt-16 font-normal duration-75 lg:flex transition-width" aria-label="Sidebar">
+      <aside id="sidebar" className="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 w-64 h-full pt-16 font-normal duration-75 sm:invisible lg:flex transition-width" aria-label="Sidebar">
         <Sidebar />
       </aside>
 

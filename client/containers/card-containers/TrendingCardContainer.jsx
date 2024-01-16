@@ -11,12 +11,14 @@ const TrendingCardContainer = ({ trending }) => {
         <div className="responsive-three-columns">
             {trending.map(el => {
                 return (
-                    <div><CoinCard 
-                        img={el.item.large}
-                        key={el.item.id}
-                        name={el.item.name} 
-                        price={el.item.data.price} 
-                        data={ trending } />
+                    <div>
+                        <CoinCard 
+                            img={el.item.large}
+                            key={el.item.id}
+                            name={el.item.name} 
+                            price={el.item.data.price} 
+                            data={ trending } 
+                        />
                     </div>
                 )
             })}

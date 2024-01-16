@@ -1,0 +1,44 @@
+name: Cryptique CI
+
+on:
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+
+jobs:
+    build:
+
+        runs-on: ubuntu-latest
+
+        # strategy:
+        #     fail-fast: false
+        #     matrix:
+        #         node-version: [18.x, 19.x, 20.x]
+        #         # platform: [ubuntu-latest, macos-latest, windows-latest]
+        #         # platform: [ubuntu-latest]
+                
+        # steps:
+        # - uses: actions/checkout@v4        
+        # - name: use Node.js ${{matrix.node-version}}
+        # uses: actions/setup-node@v3 
+        # with: 
+        #     node-version: ${{ matrix.node-version }}
+        
+        # # - name: install dependencies
+        # # run: npm ci
+        # # # -   name: Rebuild build directory
+        # # run: npm run build
+
+        strategy:
+            matrix:
+              node-version: ['14.x', '16.x', '18.x']
+        steps:
+          - uses: actions/checkout@v4
+          - name: Use Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@v3
+            with:
+              node-version: ${{ matrix.node-version }}
+          - run: npm ci
+          - run: npm run build
+          - run: npm test

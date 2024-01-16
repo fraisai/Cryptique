@@ -1,3 +1,0 @@
-FROM postgres:12.8
-COPY ./server/sql-scripts /docker-entrypoint-initdb.d/
-    # copy sql script in server/sql-scripts to container and wehenever container spins up, database will get created and populated in the container

@@ -4,5 +4,6 @@ import '@testing-library/jest-dom';
 import { InvestmentsContainer } from '../../client/componentImports';
 
 test('Checking heading', () => {
-    render(<InvestmentsContainer/>)
+    render(<InvestmentsContainer/>);
+    const investTitle = screen.getByText(/Investments/i);
 })

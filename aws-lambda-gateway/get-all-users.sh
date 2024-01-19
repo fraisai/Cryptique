@@ -1,0 +1,1 @@
+aws dynamodb get-item --consistent-read --table-name Users

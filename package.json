@@ -1,11 +1,11 @@
 {
   "name": "cryptique",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "fullstack cryptocurrency dashboard",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "compile": "tsc --build",
-    "connect-sql": "node ./server/db/migrate.js",
+    "create-table": "node ./server/models/sqlModel.js",
     "dev": "concurrently \"NODE_ENV=development nodemon server/server.ts\" \"NODE_ENV=development webpack serve --hot --open\"",
     "pretty-check": "prettier --check .",
     "pretty-write-back": "prettier --write ./server/controllers/ ./server/helpers ./server/models ./server/routes ./server/server.ts ./server/SFUSignalingChannel.ts",
@@ -59,6 +59,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.11",
+    "@types/pg": "^8.10.9",
     "babel-loader": "^8.2.5",
     "concurrently": "^6.5.1",
     "cross-env": "^7.0.3",

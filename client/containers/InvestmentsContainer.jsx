@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Table } from 'react-bootstrap';
 import CRUDProducts from './CRUDProducts';
-
+import SearchBar from '../components/SearchBar';
 const name = "BTC";
 
 const InvestmentsContainer = () => {
-  useEffect(() => {
-    const getWatchlist = () => {
-
-    }
-  })
-
   const [list, setList] = useState([]);
   const [tweet, setTweet] = useState([]);
 
+  useEffect(() => {
+    const getWatchlist = async () => {
+      const res = await axios.get('api/watch/get');
+      setList(res)
+      console.log(res)
+    }
+  })
+
+
   const getList = async () => {
     await axios
-      .get('/v1/api/cryptodo/get')
+      .get('/api/watch/get')
       .then((response) => {
         setList(response.data);
       })
@@ -62,6 +66,7 @@ const InvestmentsContainer = () => {
         <div className="fixed inset-0 z-10 hidden bg-gray-900/50 dark:bg-gray-900/90" id="sidebarBackdrop"></div>
 
         <div id="main-content" className="relative w-1/2 h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900" style={{paddingLeft: '19%', paddingRight: '19%', width: '150%'}}>
+          
             {/* MAIN */}
             <main >
               <div className="px-6 pt-6" style={{width: '125%', margin: '0 auto'}}> {/* px-4 => padding-left && padding-right = 1rem = 16px, pt-6 => padding-top = 1.5rem = 24px */}
@@ -71,16 +76,12 @@ const InvestmentsContainer = () => {
                   
                 </div>
                 <div>
+                  
                   <table style={{margin: '0 auto'}}>
                     <thead>
-                      <tr>
-                          <th>Term to Search</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
-                      </tr>
                       </thead>
                       <tbody>
-                        {list.map(el => {
+                      {list.map(el => {
                           return(
                             <tr>
                               <td><button variant="white" color="pink">{el.name}</button></td>
@@ -105,21 +106,8 @@ const InvestmentsContainer = () => {
                             </tr>
                           )
                         })}
-                      </tbody>
-                  </table>
-      
-      
-                  <Table striped bordered hover variant="dark">
-                    <thead>
-                      <tr>
-                        <th>Screenname</th>
-                        <th>Tweet</th>
-                        <th># of Followers</th>
-                        <th># of Retweets</th>
-                      </tr>
-                    </thead>
 
-                    <tbody style={{outline: '1px solid black', padding: '16px'}}>
+
                       {tweet.map(el => {
                         {/* <img src={`${el.Media[0].media_url}`}/> */}
                         return (
@@ -131,8 +119,9 @@ const InvestmentsContainer = () => {
                           </tr>
                         )
                       })}
-                    </tbody>
-                  </Table>
+
+                      </tbody>
+                  </table>
                 </div>
               </div>
             </main>

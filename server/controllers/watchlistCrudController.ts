@@ -1,14 +1,15 @@
 // in Crypto Cards => Add to Watchlist => 
 import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 const pool = require('../models/sqlModel'); // connect server to database aka connecting to the db.js file
-
+const watchlist_card = require('../data/watchlist_card.csv');
 
 // Get all watchlist cards
 export const getCard = async(req: Request, res: Response, next: NextFunction) => { // GET: /watch/get
     try {
         // you are selecting all the data from the table 'todo' located inside of the database you initially created called 'perntodo'
-        const allTodos = await pool.query('SELECT * FROM watchlist_card'); // SELECT ALL FROM TABLE TODO
+        const allTodos = await pool.query('SELECT * FROM watchlist_card;'); // SELECT ALL FROM TABLE TODO
         console.log('hello', allTodos)
+        return res.status(200).json(watchlist_card);
         res.status(200).json(allTodos.rows); // aka sending back on the response object
         next();
     } catch(err: any | ErrorRequestHandler) {

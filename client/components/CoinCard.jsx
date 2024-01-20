@@ -14,6 +14,7 @@ const CoinCard = ({
   const handleShowChartClick = () => setShowChart(!showChart);
   const largeImg = useRef({});
   let item = <></>;
+  
   function handleClick(e) {
     console.log("e", e);
     e.preventDefault();

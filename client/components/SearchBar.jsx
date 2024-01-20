@@ -3,51 +3,56 @@ import axios from 'axios';
 
 
 const SearchBar = () => {
-    const queryRef = useRef('');
-    const [items, setItems] = useState([]);
-    const filteredList = useMemo(() => {
-        return items.filter((el, ind) => {
-            if (el.name.toLowerCase().includes(queryRef.current.toLowerCase())) {
-                return (<option key={ind} value={el.name} />)
-            }
-        })
-
-    }, [items, queryRef.current])
-
-    const getItems = async () => {
-        try {
-            const res = await axios.get(`https://rickandmortyapi.com/api/location/?name=${query}`);
-            setItems(data.data.results);
-            queryRef.current = ''
-        } catch (error) {
-            console.log('Error in SearchBar', error)
+    const [query, setQuery] = useState("");
+    // state that hold API data
+    const [suggestion, setSuggestion] = useState([]);
+   
+    const getLocations = (e) => {
+      setQuery(e.target.value);
+      axios.get(`https://rickandmortyapi.com/api/location/?name=${query}`)
+        .then((data) => setSuggestion(data.data?.results))
+        .catch((err) => {
+          if (err.response && err.response.status === 404) {
+            setSuggestion(null);
+            console.clear();
         }
+      });
+    };
+   
+    function debounce(callback, wait) {
+      let timerId;
+      return function (...args) {
+        const context = this;
+        if(timerId) clearTimeout(timerId)
+        timerId = setTimeout(() => {
+          timerId = null
+          callback.apply(context,  args)
+        }, wait);
+      };
     }
-
-    function debounceResults() {
-
-    }
+   
+    const debouncedResults = useMemo(() => debounce(getLocations, 300), []);
+   
     return (
-        <form>
-            <input 
-                type='search'
-                placeholder='Search'
-                value={queryRef}
-                onChange={(e) => {
-                    setQuery(e.target.value)
-                    getItems()
-                }}
-            />
-            <datalist>
-                {queryRef.current.length > 0 ?
-                    filteredList() 
-                    : 
-                    ''
-                }
-            </datalist>
-
-        </form>
-  )
-}
+      <form>
+        <input
+          type="text"
+          placeholder="Type location"
+          name="query"
+          onChange={debouncedResults}
+          list="locations"
+        />
+        <datalist id="locations">
+          {query.length > 0 && // // required to avoid the dropdown list to display the locations fetched before
+            suggestion?.map((el, index) => {
+              if (el.name.toLowerCase().includes(query)) {
+                return <option key={index} value={el.name} />;
+              }
+              return "";
+            })}
+        </datalist>
+      </form>
+    );
+   }
 
 export default SearchBar

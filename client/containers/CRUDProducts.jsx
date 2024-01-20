@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import SearchBar from '../components/SearchBar'
 const CRUDProducts = (props) => {
   return (
     <div>
@@ -11,6 +11,7 @@ const CRUDProducts = (props) => {
                     
                     <div className="items-center justify-between block sm:flex md:divide-x md:divide-gray-100 dark:divide-gray-700">
                         <div className="flex items-center mb-4 sm:mb-0">
+                            <SearchBar />
                             <form className="sm:pr-3" action="#" method="GET">
                                 <label for="products-search" className="sr-only">Search</label>
                                 <div className="relative w-48 mt-1 sm:w-64 xl:w-96">

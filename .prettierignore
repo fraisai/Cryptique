@@ -1,0 +1,11 @@
+./.github
+./build/*
+./client/containers/Settings.jsx
+./client/containers/Dump.jsx
+
+./node_modules
+./package*.json
+./tsconfig.json
+**/*.json
+./server/data/**/*
+.babelrc

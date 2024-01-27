@@ -4,7 +4,7 @@ import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-const OneDayChart = ({ name, chartData, maxH = '350px', maxW = '470px' }) => {
+const OneDayChart = ({ name, labelName, chartData, maxH = '350px', maxW = '470px' }) => {
   let prices = []
   if (chartData.prices && chartData.prices.lenght > 0){
     prices = chartData.prices.filter((el, ind) => {
@@ -17,7 +17,7 @@ const OneDayChart = ({ name, chartData, maxH = '350px', maxW = '470px' }) => {
     labels: chartData.times,
     datasets: [
       {
-        label: `${name} Prices`,
+        label: `${labelName}`,
         data: chartData.prices,
         fill: true,
         backgroundColor: "rgba(75,192,192,0.2)",

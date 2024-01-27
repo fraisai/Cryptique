@@ -44,7 +44,9 @@ const App = () => {
       </body>
 
       {/* **************************** FOOTER **************************** */}
-      <Footer />
+      <footer className="bg-gray-50 dark:bg-gray-800">
+        <Footer />
+      </footer>
 
       {/* **************************** RTC TEST RUN **************************** */}
       {/* SFU VIDEO COMPONENT */}

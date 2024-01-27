@@ -5,7 +5,7 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 
-const OneDayBar = ({ chartData }) => {
+const OneDayPieChart = ({ chartData }) => {
 
   const data = {
     labels: [
@@ -36,4 +36,4 @@ const OneDayBar = ({ chartData }) => {
   )
 }
 
-export default OneDayBar
+export default OneDayPieChart

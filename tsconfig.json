@@ -18,5 +18,6 @@
 
         },
     "include": ["./server/**/*"],
-    "exclude": ["./lib/__tests__/**/*.test.ts"]
+    "exclude": ["./lib/__tests__/**/*.test.ts"],
+    "testEnvironment": "jsdom"
 }

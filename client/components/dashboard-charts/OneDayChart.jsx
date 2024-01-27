@@ -37,7 +37,6 @@ const OneDayChart = ({ name, labelName, chartData, maxH = '350px', maxW = '470px
       y: {
         ticks: {
           callback: function(val, index) {
-            // Hide every 2nd tick label
             return ('$'+ val); // add $ to y axis vals
           }
         },
@@ -68,7 +67,7 @@ const OneDayChart = ({ name, labelName, chartData, maxH = '350px', maxW = '470px
 
   }
     return (
-    <div style={{maxHeight: maxH }}>
+    <div style={{maxHeight: maxH }} className='p-6'>
       {name}
       <Line
         datasetIdKey='one-day-chart'

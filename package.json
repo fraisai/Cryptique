@@ -9,7 +9,7 @@
     "dev": "concurrently \"NODE_ENV=development nodemon server/server.ts\" \"NODE_ENV=development webpack serve --hot --open\"",
     "pretty-check": "prettier --check .",
     "pretty-write-back": "prettier --write ./server/controllers/ ./server/helpers ./server/models ./server/routes ./server/server.ts ./server/SFUSignalingChannel.ts",
-    "pretty-write-front": "prettier --write ./client/components ./client/components ./client/App.jsx ./client/index.js",
+    "pretty-write-front": "prettier --write ./client/components ./client/containers ./client/svg ./client/App.jsx ./client/index.js",
     "integration-test": "jest \"--testPathPattern='.+\\.integration\\.test\\.js$'\"",
     "lint": "eslint .",
     "serve": "cross-env NODE_ENV=development webpack-dev-server",

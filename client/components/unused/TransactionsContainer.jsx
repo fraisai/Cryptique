@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TransactionsContainer = () => {
-  return <div>TransactionsContainer</div>;
+	return <div>TransactionsContainer</div>;
 };
 
 export default TransactionsContainer;

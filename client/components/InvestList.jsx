@@ -1,13 +1,11 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 
 const InvestList = () => {
-  console.log("tweet", tweet)
+  console.log('tweet', tweet);
 
-  return (
-    <></>
-  )
-}
+  return <></>;
+};
 
-export default InvestList
+export default InvestList;

@@ -37,7 +37,7 @@ const SettingsContainer = () => {
                 <div className="col-span-full xl:col-auto">
                     <div className="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                         <div className="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
-                            <img className="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" src="https://flowbite-admin-dashboard.vercel.app/images/users/bonnie-green-2x.png" alt="Jese picture">
+                            <img className="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" src="https://flowbite-admin-dashboard.vercel.app/images/users/bonnie-green-2x.png" alt="Jese picture"/>
                             <div>
                                 <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-white">Profile picture</h3>
                                 <div className="mb-4 text-sm text-gray-500 dark:text-gray-400">
@@ -48,7 +48,7 @@ const SettingsContainer = () => {
                                         <svg className="w-4 h-4 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"></path><path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path></svg>
                                         Upload picture
                                     </button>
-                                    <button type="button" className="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                    <button type="button" className="px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                         Delete
                                     </button>
                                 </div>
@@ -176,7 +176,7 @@ const SettingsContainer = () => {
                                     <div className="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
                                         <div className="flex space-x-4 xl:mb-4 2xl:mb-0">
                                             <div>
-                                                <img className="w-6 h-6 rounded-full" src="https://flowbite-admin-dashboard.vercel.app/images/users/bonnie-green.png" alt="Bonnie image">                            
+                                                <img className="w-6 h-6 rounded-full" src="https://flowbite-admin-dashboard.vercel.app/images/users/bonnie-green.png" alt="Bonnie image"/>                            
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 dark:text-white">
@@ -199,7 +199,7 @@ const SettingsContainer = () => {
                                     <div className="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
                                         <div className="flex space-x-4 xl:mb-4 2xl:mb-0">
                                             <div>
-                                                <img className="w-6 h-6 rounded-full" src="https://flowbite-admin-dashboard.vercel.app/images/users/jese-leos.png" alt="Jese image">                            
+                                                <img className="w-6 h-6 rounded-full" src="https://flowbite-admin-dashboard.vercel.app/images/users/jese-leos.png" alt="Jese image"/>                            
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 dark:text-white">
@@ -222,7 +222,7 @@ const SettingsContainer = () => {
                                     <div className="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
                                         <div className="flex space-x-4 xl:mb-4 2xl:mb-0">
                                             <div>
-                                                <img className="w-6 h-6 rounded-full" src="https://flowbite-admin-dashboard.vercel.app/images/users/thomas-lean.png" alt="Thomas image">                            
+                                                <img className="w-6 h-6 rounded-full" src="https://flowbite-admin-dashboard.vercel.app/images/users/thomas-lean.png" alt="Thomas image"/>                            
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 dark:text-white">
@@ -245,7 +245,7 @@ const SettingsContainer = () => {
                                     <div className="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
                                         <div className="flex space-x-4 xl:mb-4 2xl:mb-0">
                                             <div>
-                                                <img className="w-6 h-6 rounded-full" src="https://flowbite-admin-dashboard.vercel.app/images/users/lana-byrd.png" alt="Lana image">                            
+                                                <img className="w-6 h-6 rounded-full" src="https://flowbite-admin-dashboard.vercel.app/images/users/lana-byrd.png" alt="Lana image"/>                            
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 dark:text-white">
@@ -279,51 +279,51 @@ const SettingsContainer = () => {
                             <div className="grid grid-cols-6 gap-6">
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="first-name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
-                                    <input type="text" name="first-name" id="first-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Bonnie" required="">
+                                    <input type="text" name="first-name" id="first-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Bonnie" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="last-name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
-                                    <input type="text" name="last-name" id="last-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Green" required="">
+                                    <input type="text" name="last-name" id="last-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Green" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="country" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country</label>
-                                    <input type="text" name="country" id="country" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="United States" required="">
+                                    <input type="text" name="country" id="country" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="United States" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="city" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City</label>
-                                    <input type="text" name="city" id="city" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="e.g. San Francisco" required="">
+                                    <input type="text" name="city" id="city" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="e.g. San Francisco" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="address" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
-                                    <input type="text" name="address" id="address" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="e.g. California" required="">
+                                    <input type="text" name="address" id="address" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="e.g. California" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                    <input type="email" name="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="example@company.com" required="">
+                                    <input type="email" name="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="example@company.com" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="phone-number" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
-                                    <input type="number" name="phone-number" id="phone-number" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="e.g. +(12)3456 789" required="">
+                                    <input type="number" name="phone-number" id="phone-number" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="e.g. +(12)3456 789" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="birthday" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
-                                    <input type="number" name="birthday" id="birthday" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="15/08/1990" required="">
+                                    <input type="number" name="birthday" id="birthday" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="15/08/1990" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="organization" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Organization</label>
-                                    <input type="text" name="organization" id="organization" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Company Name" required="">
+                                    <input type="text" name="organization" id="organization" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Company Name" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="role" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
-                                    <input type="text" name="role" id="role" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="React Developer" required="">
+                                    <input type="text" name="role" id="role" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="React Developer" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="department" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Department</label>
-                                    <input type="text" name="department" id="department" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Development" required="">
+                                    <input type="text" name="department" id="department" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Development" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="zip-code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Zip/postal code</label>
-                                    <input type="number" name="zip-code" id="zip-code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="123456" required="">
+                                    <input type="number" name="zip-code" id="zip-code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="123456" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-full">
                                     <button className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">Save all</button>
@@ -337,11 +337,11 @@ const SettingsContainer = () => {
                             <div className="grid grid-cols-6 gap-6">
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="current-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Current password</label>
-                                    <input type="text" name="current-password" id="current-password" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="••••••••" required="">
+                                    <input type="text" name="current-password" id="current-password" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="••••••••" required=""/>
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New password</label>
-                                    <input data-popover-target="popover-password" data-popover-placement="bottom" type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••" required="">
+                                    <input data-popover-target="popover-password" data-popover-placement="bottom" type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••" required=""/>
                                     <div data-popover="" id="popover-password" role="tooltip" className="absolute z-10 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(805px, -1792px);" data-popper-reference-hidden="" data-popper-placement="top">
                                         <div className="p-3 space-y-2">
                                             <h3 className="font-semibold text-gray-900 dark:text-white">Must have at least 6 characters</h3>
@@ -372,7 +372,7 @@ const SettingsContainer = () => {
                                 </div>
                                 <div className="col-span-6 sm:col-span-3">
                                     <label for="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-                                    <input type="text" name="confirm-password" id="confirm-password" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="••••••••" required="">
+                                    <input type="text" name="confirm-password" id="confirm-password" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="••••••••" required="" />
                                 </div>
                                 <div className="col-span-6 sm:col-full">
                                     <button className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">Save all</button>
@@ -443,7 +443,7 @@ const SettingsContainer = () => {
                                     <div className="text-base font-normal text-gray-500 dark:text-gray-400">Get Themesberg news, announcements, and product updates</div>
                                 </div>
                                 <label for="company-news" className="relative flex items-center cursor-pointer">
-                                    <input type="checkbox" id="company-news" className="sr-only">
+                                    <input type="checkbox" id="company-news" className="sr-only"/>
                                     <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                                 </label>
                             </div>
@@ -454,7 +454,7 @@ const SettingsContainer = () => {
                                     <div className="text-base font-normal text-gray-500 dark:text-gray-400">Get important notifications about you or activity you've missed</div>
                                 </div>
                                 <label for="account-activity" className="relative flex items-center cursor-pointer">
-                                    <input type="checkbox" id="account-activity" className="sr-only" checked="">
+                                    <input type="checkbox" id="account-activity" className="sr-only" checked=""/>
                                     <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                                 </label>
                             </div>
@@ -465,7 +465,7 @@ const SettingsContainer = () => {
                                     <div className="text-base font-normal text-gray-500 dark:text-gray-400">Get an email when a Dribbble Meetup is posted close to my location</div>
                                 </div>
                                 <label for="meetups" className="relative flex items-center cursor-pointer">
-                                    <input type="checkbox" id="meetups" className="sr-only" checked="">
+                                    <input type="checkbox" id="meetups" className="sr-only" checked=""/>
                                     <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                                 </label>
                             </div>
@@ -476,7 +476,7 @@ const SettingsContainer = () => {
                                     <div className="text-base font-normal text-gray-500 dark:text-gray-400">Get Themsberg news, announcements, and product updates</div>
                                 </div>
                                 <label for="new-messages" className="relative flex items-center cursor-pointer">
-                                    <input type="checkbox" id="new-messages" className="sr-only">
+                                    <input type="checkbox" id="new-messages" className="sr-only"/>
                                     <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                                 </label>
                             </div>
@@ -499,7 +499,7 @@ const SettingsContainer = () => {
                                     <div className="text-base font-normal text-gray-500 dark:text-gray-400">Send an email reminding me to rate an item a week after purchase</div>
                                 </div>
                                 <label for="rating-reminders" className="relative flex items-center cursor-pointer">
-                                    <input type="checkbox" id="rating-reminders" className="sr-only">
+                                    <input type="checkbox" id="rating-reminders" className="sr-only"/>
                                     <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                                 </label>
                             </div>
@@ -510,7 +510,7 @@ const SettingsContainer = () => {
                                     <div className="text-base font-normal text-gray-500 dark:text-gray-400">Send user and product notifications for you</div>
                                 </div>
                                 <label for="item-update" className="relative flex items-center cursor-pointer">
-                                    <input type="checkbox" id="item-update" className="sr-only" checked="">
+                                    <input type="checkbox" id="item-update" className="sr-only" checked=""/>
                                     <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                                 </label>
                             </div>
@@ -521,7 +521,7 @@ const SettingsContainer = () => {
                                     <div className="text-base font-normal text-gray-500 dark:text-gray-400">Send me an email when someone comments on one of my items</div>
                                 </div>
                                 <label for="item-comment" className="relative flex items-center cursor-pointer">
-                                    <input type="checkbox" id="item-comment" className="sr-only" checked="">
+                                    <input type="checkbox" id="item-comment" className="sr-only" checked=""/>
                                     <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                                 </label>
                             </div>
@@ -532,7 +532,7 @@ const SettingsContainer = () => {
                                     <div className="text-base font-normal text-gray-500 dark:text-gray-400">Send me an email when someone leaves a review with their rating</div>
                                 </div>
                                 <label for="buyer-rev" className="relative flex items-center cursor-pointer">
-                                    <input type="checkbox" id="buyer-rev" className="sr-only">
+                                    <input type="checkbox" id="buyer-rev" className="sr-only"/>
                                     <span className="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
                                 </label>
                             </div>

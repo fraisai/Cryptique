@@ -15,9 +15,9 @@ const App = () => {
     const getChartData = async () => {
       const marketChartData = await axios.get('/api/crypt/coins/market-charts');
       setChartData(marketChartData.data);
-    }
+    };
     getChartData();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -32,7 +32,7 @@ const App = () => {
       </aside>
 
       {/* **************************** BODY & ROUTES **************************** */}
-      <body className="bg-gray-50 dark:bg-gray-800">
+      <div className="bg-gray-50 dark:bg-gray-800">
         <Routes>
           <Route path="/" element={<Dashboard chartData={chartData} />} />
           <Route path="/all-coins" element={<CryptoContainer />} />
@@ -41,7 +41,7 @@ const App = () => {
           <Route path="/news" element={<NewsContainer />} />
           <Route path="/connect" element={<ConnectContainer />} />
         </Routes>
-      </body>
+      </div>
 
       {/* **************************** FOOTER **************************** */}
       <footer className="bg-gray-50 dark:bg-gray-800">

@@ -4,36 +4,28 @@ import { Doughnut } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-
 const OneDayPieChart = ({ chartData }) => {
-
   const data = {
-    labels: [
-      'ETH',
-      'BTC',
-      'Memecoins'
+    labels: ['ETH', 'BTC', 'Memecoins'],
+    datasets: [
+      {
+        label: 'Total Holdings',
+        data: [300, 50, 100],
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+        hoverOffset: 4,
+      },
     ],
-    datasets: [{
-      label: 'Total Holdings',
-      data: [300, 50, 100],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
-      hoverOffset: 4
-    }]
   };
 
   return (
-    <div style={{maxHeight: '350px'}} className='p-6'>
+    <div style={{ maxHeight: '350px' }} className="p-6">
       <Doughnut
         data={data}
         // options={options}
-        datasetIdKey='one-day-bar'
+        datasetIdKey="one-day-bar"
       />
     </div>
-  )
-}
+  );
+};
 
-export default OneDayPieChart
+export default OneDayPieChart;

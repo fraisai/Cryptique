@@ -1,13 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Sidebar from '../components/Sidebar';
-import options from '../constants/dashboardOptions';
-import {optionsClassname} from '../constants/dashboardOptions';
-import OneDayChart from '../components/dashboard-charts/OneDayChart';
-import OneWeek from '../components/dashboard-charts/OneWeekChart';
-import ErrorPage from '../components/ErrorPage';
-import OneDayPieChart from '../components/dashboard-charts/OneDayPieChart';
+import options, { optionsClassname } from '../constants/dashboardOptions';
+import { ErrorPage, OneDayChart, OneWeekChart, OneDayPieChart } from '../componentImports';
+
 
 function Dashboard({ chartData }) {
     const [selectValue, setSelectValue] = useState('day');

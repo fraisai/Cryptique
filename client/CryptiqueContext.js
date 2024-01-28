@@ -10,3 +10,13 @@ import { createContext } from "react";
 
 export const CryptiqueContext = createContext(""); // context object
 
+
+
+/*
+import { useContext } from 'react';
+import { CryptiqueContext } from './CryptiqueContext.js';
+
+
+in component:
+const value = useContext(CryptiqueContext);
+*/

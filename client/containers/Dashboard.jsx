@@ -16,8 +16,8 @@ function Dashboard({ chartData }) {
 		displayedChart1 = <OneDayChart name={'Total Investments'} labelName={'Last 24 Hours'} chartData={chartData} />;
 		displayedChart2 = <OneDayChart name={'BTC'} labelName={'BTC Prices Last 24 Hours'} chartData={chartData} />;
 	} else if (selectValue === 'week') {
-		displayedChart1 = <OneWeek name={'Total Investments'} labelName={'Last 24 Hours'} chartData={chartData} />;
-		displayedChart2 = <OneWeek name={'Total Investments'} chartData={chartData} />;
+		displayedChart1 = <OneWeekChart name={'Total Investments'} labelName={'Last 24 Hours'} chartData={chartData} />;
+		displayedChart2 = <OneWeekChart name={'Total Investments'} chartData={chartData} />;
 	} else {
 		displayedChart1 = <ErrorPage />;
 		displayedChart2 = <ErrorPage />;

@@ -22,7 +22,7 @@ export const getCard = async(req: Request, res: Response, next: NextFunction) =>
 export const addCard = async(req: Request, res: Response, next: NextFunction) => { // POST: /watch/post
     try {
         const { name } = req.body; // you are inserting into the column for description in the table named 'todo' (located in the database 'perntodo') the object description (from req.body)
-        const newTodo = await pool.query(`INSERT INTO watchlist_card(_name) VALUES($1) RETURNING *`, [name]);
+        const newTodo = await pool.query(`INSERT INTO watchlist_card(_id, _name, symbol, percent_change, equity, shares, price) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [name]);
         return res.status(200).json(newTodo);
     } catch(error: any | ErrorRequestHandler) {
         return next(`Error in watchListCrudController.js: addCrypto: ${error}`)

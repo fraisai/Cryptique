@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios'; // axios.defaults.baseURL = REACT_BASE_URL;
 import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer } from './componentImports';
-const REACT_BASE_URL = 'http://localhost:5000';
-
-// import VideoCall from 'rtconnect';
-// import VideoComponent from 'rtconnect';
-// import SFUVideoConference from '../rtc-test-run/SFUVideoConference';
+import { CryptiqueContext } from './CryptiqueContext';
+// const REACT_BASE_URL = 'http://localhost:5000';
 
 const App = () => {
 	const [chartData, setChartData] = useState({});
@@ -47,14 +44,6 @@ const App = () => {
 			<footer className="bg-gray-50 dark:bg-gray-800">
 				<Footer />
 			</footer>
-
-			{/* **************************** RTC TEST RUN **************************** */}
-			{/* SFU VIDEO COMPONENT */}
-			{/* <SFUVideoConference URL={'ws://localhost:5000'}/> */}
-			{/* <VideoCall
-        URL={'ws://localhost:5000'}
-        mediaOptions={{ controls: true, style: { width: '640px',    height: '480px'}}}
-      /> */}
 		</>
 	);
 };

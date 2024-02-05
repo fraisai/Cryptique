@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import axios from 'axios'; // axios.defaults.baseURL = REACT_BASE_URL;
-import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer } from './componentImports';
+import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn } from './componentImports';
 import { CryptiqueContext } from './CryptiqueContext';
 // const REACT_BASE_URL = 'http://localhost:5000';
 
 const App = () => {
 	const [chartData, setChartData] = useState({});
-
+	let location = useLocation();
+	
 	useEffect(() => {
+		console.log("useEffect location: ", location.search);
+		
 		const getChartData = async () => {
 			const marketChartData = await axios.get('/api/crypt/coins/market-charts');
 			setChartData(marketChartData.data);
@@ -16,20 +19,26 @@ const App = () => {
 		getChartData();
 	}, []);
 
+	console.log("location: ", location.search);
+	
 	return (
 		<>
+			
 			{/* **************************** NAVBAR **************************** */}
 			<nav className="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
 				<Navbar />
 			</nav>
 
 			{/* **************************** SIDEBAR **************************** */}
-			<aside id="sidebar" className="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 w-64 h-full pt-16 font-normal duration-75 sm:invisible lg:flex transition-width" aria-label="Sidebar">
+			<aside id="sidebar" className="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 w-64 h-full pt-16 mb-16 font-normal sm:invisible lg:flex transition-width">
 				<Sidebar />
 			</aside>
 
 			{/* **************************** BODY & ROUTES **************************** */}
 			<div className="bg-gray-50 dark:bg-gray-800">
+				{/* <div align='center' >
+					<SignIn/>
+				</div> */}
 				<Routes>
 					<Route path="/" element={<Dashboard chartData={chartData} />} />
 					<Route path="/all-coins" element={<CryptoContainer />} />

@@ -11,6 +11,7 @@ import NewsContainer from './containers/NewsContainer';
 import OneDayChart from './components/dashboard-charts/OneDayChart';
 import OneDayPieChart from './components/dashboard-charts/OneDayPieChart';
 import OneWeekChart from './components/dashboard-charts/OneWeekChart';
+import SignIn from './components/SignIn.jsx';
 import Sidebar from './components/Sidebar';
 import Spinner from './components/Spinner';
 import TrendingCardContainer from './containers/card-containers/TrendingCardContainer';
@@ -29,7 +30,8 @@ export {
     OneDayChart,
     OneDayPieChart,
     OneWeekChart,
-    Sidebar, 
+    Sidebar,
+    SignIn,
     Spinner,
     TrendingCardContainer, 
     TrendingContainer, 
@@ -46,6 +48,10 @@ import ConnectIconSVG from './svg/sidebar/ConnectIconSVG';
 import AboutCryptiqueIconSVG from './svg/sidebar/AboutCryptiqueIconSVG.jsx';
 import SupportIconSVG from './svg/sidebar/SupportIconSVG.jsx';
 import SettingsIconSVG from './svg/sidebar/SettingsIconSVG.jsx';
+import GoogleSignInSVG from './svg/sign-in/GoogleSignInSVG.jsx';
+import GithubSignInSVG from './svg/sign-in/GithubSignInSVG.jsx';
+import RightArrowSVG from './svg/RightArrowSVG.jsx';
+import AddInvestmentsButtonSVG from './svg/coin-card/AddInvestmentsButtonSVG.jsx';
 
 export {
     AboutCryptiqueIconSVG,
@@ -58,6 +64,10 @@ export {
     ConnectIconSVG,
     SupportIconSVG,
     SettingsIconSVG,
+    GoogleSignInSVG,
+    GithubSignInSVG,
+    RightArrowSVG,
+    AddInvestmentsButtonSVG, 
 }
 
 

@@ -381,7 +381,7 @@
 													<stop id="SvgjsStop2075" stop-opacity="0" stop-color="rgba(254,221,198,0)" offset="1"></stop>
 												</linearGradient>
 											</defs>
-											<line id="SvgjsLine2030" x1="0" y1="0" x2="0" y2="311.494" stroke="#f3f4f6" stroke-dasharray="10" stroke-linecap="butt" className="apexcharts-xcrosshairs" x="0" y="0" width="1" height="311.494" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line>
+											<line id="SvgjsLine2030" x1="0" y1="0" x2="0" y2="311.494" stroke="#f3f4f6" stroke-dasharray="10" strokeLinecap="butt" className="apexcharts-xcrosshairs" x="0" y="0" width="1" height="311.494" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line>
 											<g id="SvgjsG2078" className="apexcharts-xaxis" transform="translate(0, 0)">
 												<g id="SvgjsG2079" className="apexcharts-xaxis-texts-g" transform="translate(0, -4)">
 													<text id="SvgjsText2081" font-family="Inter, sans-serif" x="0" y="340.494" text-anchor="middle" dominant-baseline="auto" font-size="14px" font-weight="500" fill="#6b7280" className="apexcharts-text apexcharts-xaxis-label " style="font-family: Inter, sans-serif;">
@@ -413,26 +413,26 @@
 														<title>07 Feb</title>
 													</text>
 												</g>
-												<line id="SvgjsLine2101" x1="0" y1="312.494" x2="743.75" y2="312.494" stroke="#f3f4f6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt"></line>
+												<line id="SvgjsLine2101" x1="0" y1="312.494" x2="743.75" y2="312.494" stroke="#f3f4f6" stroke-dasharray="0" stroke-width="1" strokeLinecap="butt"></line>
 											</g>
 											<g id="SvgjsG2114" className="apexcharts-grid">
 												<g id="SvgjsG2115" className="apexcharts-gridlines-horizontal">
-													<line id="SvgjsLine2124" x1="0" y1="0" x2="743.75" y2="0" stroke="#f3f4f6" stroke-dasharray="1" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2125" x1="0" y1="77.8735" x2="743.75" y2="77.8735" stroke="#f3f4f6" stroke-dasharray="1" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2126" x1="0" y1="155.747" x2="743.75" y2="155.747" stroke="#f3f4f6" stroke-dasharray="1" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2127" x1="0" y1="233.62050000000002" x2="743.75" y2="233.62050000000002" stroke="#f3f4f6" stroke-dasharray="1" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2128" x1="0" y1="311.494" x2="743.75" y2="311.494" stroke="#f3f4f6" stroke-dasharray="1" stroke-linecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2124" x1="0" y1="0" x2="743.75" y2="0" stroke="#f3f4f6" stroke-dasharray="1" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2125" x1="0" y1="77.8735" x2="743.75" y2="77.8735" stroke="#f3f4f6" stroke-dasharray="1" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2126" x1="0" y1="155.747" x2="743.75" y2="155.747" stroke="#f3f4f6" stroke-dasharray="1" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2127" x1="0" y1="233.62050000000002" x2="743.75" y2="233.62050000000002" stroke="#f3f4f6" stroke-dasharray="1" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2128" x1="0" y1="311.494" x2="743.75" y2="311.494" stroke="#f3f4f6" stroke-dasharray="1" strokeLinecap="butt" className="apexcharts-gridline"></line>
 												</g>
 												<g id="SvgjsG2116" className="apexcharts-gridlines-vertical"></g>
-												<line id="SvgjsLine2117" x1="0" y1="312.494" x2="0" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-xaxis-tick"></line>
-												<line id="SvgjsLine2118" x1="123.95833333333333" y1="312.494" x2="123.95833333333333" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-xaxis-tick"></line>
-												<line id="SvgjsLine2119" x1="247.91666666666666" y1="312.494" x2="247.91666666666666" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-xaxis-tick"></line>
-												<line id="SvgjsLine2120" x1="371.875" y1="312.494" x2="371.875" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-xaxis-tick"></line>
-												<line id="SvgjsLine2121" x1="495.8333333333333" y1="312.494" x2="495.8333333333333" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-xaxis-tick"></line>
-												<line id="SvgjsLine2122" x1="619.7916666666666" y1="312.494" x2="619.7916666666666" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-xaxis-tick"></line>
-												<line id="SvgjsLine2123" x1="743.75" y1="312.494" x2="743.75" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-xaxis-tick"></line>
-												<line id="SvgjsLine2130" x1="0" y1="311.494" x2="743.75" y2="311.494" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line>
-												<line id="SvgjsLine2129" x1="0" y1="1" x2="0" y2="311.494" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line>
+												<line id="SvgjsLine2117" x1="0" y1="312.494" x2="0" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-xaxis-tick"></line>
+												<line id="SvgjsLine2118" x1="123.95833333333333" y1="312.494" x2="123.95833333333333" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-xaxis-tick"></line>
+												<line id="SvgjsLine2119" x1="247.91666666666666" y1="312.494" x2="247.91666666666666" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-xaxis-tick"></line>
+												<line id="SvgjsLine2120" x1="371.875" y1="312.494" x2="371.875" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-xaxis-tick"></line>
+												<line id="SvgjsLine2121" x1="495.8333333333333" y1="312.494" x2="495.8333333333333" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-xaxis-tick"></line>
+												<line id="SvgjsLine2122" x1="619.7916666666666" y1="312.494" x2="619.7916666666666" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-xaxis-tick"></line>
+												<line id="SvgjsLine2123" x1="743.75" y1="312.494" x2="743.75" y2="318.494" stroke="#f3f4f6" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-xaxis-tick"></line>
+												<line id="SvgjsLine2130" x1="0" y1="311.494" x2="743.75" y2="311.494" stroke="transparent" stroke-dasharray="0" strokeLinecap="butt"></line>
+												<line id="SvgjsLine2129" x1="0" y1="1" x2="0" y2="311.494" stroke="transparent" stroke-dasharray="0" strokeLinecap="butt"></line>
 											</g>
 											<g id="SvgjsG2033" className="apexcharts-area-series apexcharts-plot-series">
 												<g id="SvgjsG2034" className="apexcharts-series" seriesName="Revenue" data:longestSeries="true" rel="1" data:realIndex="0">
@@ -442,7 +442,7 @@
 														fill="url(#SvgjsLinearGradient2050)"
 														fill-opacity="1"
 														stroke-opacity="1"
-														stroke-linecap="butt"
+														strokeLinecap="butt"
 														stroke-width="0"
 														stroke-dasharray="0"
 														className="apexcharts-area"
@@ -458,7 +458,7 @@
 														fill-opacity="1"
 														stroke="#1a56db"
 														stroke-opacity="1"
-														stroke-linecap="butt"
+														strokeLinecap="butt"
 														stroke-width="4"
 														stroke-dasharray="0"
 														className="apexcharts-area"
@@ -496,7 +496,7 @@
 														fill="url(#SvgjsLinearGradient2072)"
 														fill-opacity="1"
 														stroke-opacity="1"
-														stroke-linecap="butt"
+														strokeLinecap="butt"
 														stroke-width="0"
 														stroke-dasharray="0"
 														className="apexcharts-area"
@@ -512,7 +512,7 @@
 														fill-opacity="1"
 														stroke="#fdba8c"
 														stroke-opacity="1"
-														stroke-linecap="butt"
+														strokeLinecap="butt"
 														stroke-width="4"
 														stroke-dasharray="0"
 														className="apexcharts-area"
@@ -546,8 +546,8 @@
 												<g id="SvgjsG2036" className="apexcharts-datalabels" data:realIndex="0"></g>
 												<g id="SvgjsG2058" className="apexcharts-datalabels" data:realIndex="1"></g>
 											</g>
-											<line id="SvgjsLine2131" x1="0" y1="0" x2="743.75" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" className="apexcharts-ycrosshairs"></line>
-											<line id="SvgjsLine2132" x1="0" y1="0" x2="743.75" y2="0" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" className="apexcharts-ycrosshairs-hidden"></line>
+											<line id="SvgjsLine2131" x1="0" y1="0" x2="743.75" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" strokeLinecap="butt" className="apexcharts-ycrosshairs"></line>
+											<line id="SvgjsLine2132" x1="0" y1="0" x2="743.75" y2="0" stroke-dasharray="0" stroke-width="0" strokeLinecap="butt" className="apexcharts-ycrosshairs-hidden"></line>
 											<g id="SvgjsG2133" className="apexcharts-yaxis-annotations"></g>
 											<g id="SvgjsG2134" className="apexcharts-xaxis-annotations"></g>
 											<g id="SvgjsG2135" className="apexcharts-point-annotations"></g>
@@ -632,7 +632,7 @@
 									<button className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 rounded-lg hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" type="button" data-dropdown-toggle="weekly-sales-dropdown">
 										Last 7 days{' '}
 										<svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+											<path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
 										</svg>
 									</button>
 									{/* <!-- Dropdown menu --> */}
@@ -680,7 +680,7 @@
 									<a href="#" className="inline-flex items-center p-2 text-xs font-medium uppercase rounded-lg text-primary-700 sm:text-sm hover:bg-gray-100 dark:text-primary-500 dark:hover:bg-gray-700">
 										Sales Report
 										<svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+											<path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
 										</svg>
 									</a>
 								</div>
@@ -898,7 +898,7 @@
 									<button className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 rounded-lg hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" type="button" data-dropdown-toggle="stats-dropdown">
 										Last 7 days{' '}
 										<svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+											<path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
 										</svg>
 									</button>
 									{/* <!-- Dropdown menu --> */}
@@ -946,7 +946,7 @@
 									<a href="#" className="inline-flex items-center p-2 text-xs font-medium uppercase rounded-lg text-primary-700 sm:text-sm hover:bg-gray-100 dark:text-primary-500 dark:hover:bg-gray-700">
 										Full Report
 										<svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+											<path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
 										</svg>
 									</a>
 								</div>
@@ -994,15 +994,15 @@
 											</g>
 											<g id="SvgjsG2178" className="apexcharts-grid">
 												<g id="SvgjsG2179" className="apexcharts-gridlines-horizontal" style="display: none;">
-													<line id="SvgjsLine2181" x1="0" y1="0" x2="414" y2="0" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2182" x1="0" y1="23.75" x2="414" y2="23.75" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2183" x1="0" y1="47.5" x2="414" y2="47.5" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2184" x1="0" y1="71.25" x2="414" y2="71.25" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2185" x1="0" y1="95" x2="414" y2="95" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2181" x1="0" y1="0" x2="414" y2="0" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2182" x1="0" y1="23.75" x2="414" y2="23.75" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2183" x1="0" y1="47.5" x2="414" y2="47.5" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2184" x1="0" y1="71.25" x2="414" y2="71.25" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2185" x1="0" y1="95" x2="414" y2="95" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
 												</g>
 												<g id="SvgjsG2180" className="apexcharts-gridlines-vertical" style="display: none;"></g>
-												<line id="SvgjsLine2187" x1="0" y1="95" x2="414" y2="95" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line>
-												<line id="SvgjsLine2186" x1="0" y1="1" x2="0" y2="95" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line>
+												<line id="SvgjsLine2187" x1="0" y1="95" x2="414" y2="95" stroke="transparent" stroke-dasharray="0" strokeLinecap="butt"></line>
+												<line id="SvgjsLine2186" x1="0" y1="1" x2="0" y2="95" stroke="transparent" stroke-dasharray="0" strokeLinecap="butt"></line>
 											</g>
 											<g id="SvgjsG2150" className="apexcharts-bar-series apexcharts-plot-series">
 												<g id="SvgjsG2151" className="apexcharts-series" rel="1" seriesName="Quantity" data:realIndex="0">
@@ -1013,7 +1013,7 @@
 														fill-opacity="1"
 														stroke="transparent"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="5"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1035,7 +1035,7 @@
 														fill-opacity="1"
 														stroke="transparent"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="5"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1057,7 +1057,7 @@
 														fill-opacity="1"
 														stroke="transparent"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="5"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1079,7 +1079,7 @@
 														fill-opacity="1"
 														stroke="transparent"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="5"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1101,7 +1101,7 @@
 														fill-opacity="1"
 														stroke="transparent"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="5"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1116,7 +1116,7 @@
 														barHeight="92.15"
 														barWidth="53.22857142857143"
 													></path>
-													<path id="SvgjsPath2165" d="M 298.6714285714286 95L 298.6714285714286 17.25Q 298.6714285714286 14.25 301.6714285714286 14.25L 343.9 14.25Q 346.9 14.25 346.9 17.25L 346.9 17.25L 346.9 95L 346.9 95z" fill="rgba(26,86,219,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="round" stroke-width="5" stroke-dasharray="0" className="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskh0n1f1w2)" pathTo="M 298.6714285714286 95L 298.6714285714286 17.25Q 298.6714285714286 14.25 301.6714285714286 14.25L 343.9 14.25Q 346.9 14.25 346.9 17.25L 346.9 17.25L 346.9 95L 346.9 95z" pathFrom="M 298.6714285714286 95L 298.6714285714286 95L 346.9 95L 346.9 95L 346.9 95L 346.9 95L 346.9 95L 298.6714285714286 95" cy="14.25" cx="355.31428571428575" j="5" val="170" barHeight="80.75" barWidth="53.22857142857143"></path>
+													<path id="SvgjsPath2165" d="M 298.6714285714286 95L 298.6714285714286 17.25Q 298.6714285714286 14.25 301.6714285714286 14.25L 343.9 14.25Q 346.9 14.25 346.9 17.25L 346.9 17.25L 346.9 95L 346.9 95z" fill="rgba(26,86,219,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" strokeLinecap="round" stroke-width="5" stroke-dasharray="0" className="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskh0n1f1w2)" pathTo="M 298.6714285714286 95L 298.6714285714286 17.25Q 298.6714285714286 14.25 301.6714285714286 14.25L 343.9 14.25Q 346.9 14.25 346.9 17.25L 346.9 17.25L 346.9 95L 346.9 95z" pathFrom="M 298.6714285714286 95L 298.6714285714286 95L 346.9 95L 346.9 95L 346.9 95L 346.9 95L 346.9 95L 298.6714285714286 95" cy="14.25" cx="355.31428571428575" j="5" val="170" barHeight="80.75" barWidth="53.22857142857143"></path>
 													<path
 														id="SvgjsPath2167"
 														d="M 357.81428571428575 95L 357.81428571428575 24.375Q 357.81428571428575 21.375 360.81428571428575 21.375L 403.0428571428572 21.375Q 406.0428571428572 21.375 406.0428571428572 24.375L 406.0428571428572 24.375L 406.0428571428572 95L 406.0428571428572 95z"
@@ -1124,7 +1124,7 @@
 														fill-opacity="1"
 														stroke="transparent"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="5"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1151,8 +1151,8 @@
 												</g>
 												<g id="SvgjsG2152" className="apexcharts-datalabels" data:realIndex="0"></g>
 											</g>
-											<line id="SvgjsLine2188" x1="0" y1="0" x2="414" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" className="apexcharts-ycrosshairs"></line>
-											<line id="SvgjsLine2189" x1="0" y1="0" x2="414" y2="0" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" className="apexcharts-ycrosshairs-hidden"></line>
+											<line id="SvgjsLine2188" x1="0" y1="0" x2="414" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" strokeLinecap="butt" className="apexcharts-ycrosshairs"></line>
+											<line id="SvgjsLine2189" x1="0" y1="0" x2="414" y2="0" stroke-dasharray="0" stroke-width="0" strokeLinecap="butt" className="apexcharts-ycrosshairs-hidden"></line>
 											<g id="SvgjsG2190" className="apexcharts-yaxis-annotations"></g>
 											<g id="SvgjsG2191" className="apexcharts-xaxis-annotations"></g>
 											<g id="SvgjsG2192" className="apexcharts-point-annotations"></g>
@@ -1226,16 +1226,16 @@
 											</g>
 											<g id="SvgjsG2330" className="apexcharts-grid">
 												<g id="SvgjsG2331" className="apexcharts-gridlines-horizontal" style="display: none;">
-													<line id="SvgjsLine2333" x1="0" y1="0" x2="414" y2="0" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2334" x1="0" y1="19" x2="414" y2="19" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2335" x1="0" y1="38" x2="414" y2="38" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2336" x1="0" y1="57" x2="414" y2="57" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2337" x1="0" y1="76" x2="414" y2="76" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
-													<line id="SvgjsLine2338" x1="0" y1="95" x2="414" y2="95" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2333" x1="0" y1="0" x2="414" y2="0" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2334" x1="0" y1="19" x2="414" y2="19" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2335" x1="0" y1="38" x2="414" y2="38" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2336" x1="0" y1="57" x2="414" y2="57" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2337" x1="0" y1="76" x2="414" y2="76" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
+													<line id="SvgjsLine2338" x1="0" y1="95" x2="414" y2="95" stroke="#e0e0e0" stroke-dasharray="0" strokeLinecap="butt" className="apexcharts-gridline"></line>
 												</g>
 												<g id="SvgjsG2332" className="apexcharts-gridlines-vertical" style="display: none;"></g>
-												<line id="SvgjsLine2340" x1="0" y1="95" x2="414" y2="95" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line>
-												<line id="SvgjsLine2339" x1="0" y1="1" x2="0" y2="95" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line>
+												<line id="SvgjsLine2340" x1="0" y1="95" x2="414" y2="95" stroke="transparent" stroke-dasharray="0" strokeLinecap="butt"></line>
+												<line id="SvgjsLine2339" x1="0" y1="1" x2="0" y2="95" stroke="transparent" stroke-dasharray="0" strokeLinecap="butt"></line>
 											</g>
 											<g id="SvgjsG2295" className="apexcharts-bar-series apexcharts-plot-series">
 												<g id="SvgjsG2296" className="apexcharts-series" rel="1" seriesName="Users" data:realIndex="0">
@@ -1246,7 +1246,7 @@
 														fill="rgba(26,86,219,1)"
 														fill-opacity="1"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="0"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1268,7 +1268,7 @@
 														fill="rgba(26,86,219,1)"
 														fill-opacity="1"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="0"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1290,7 +1290,7 @@
 														fill="rgba(26,86,219,1)"
 														fill-opacity="1"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="0"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1312,7 +1312,7 @@
 														fill="rgba(26,86,219,1)"
 														fill-opacity="1"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="0"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1328,7 +1328,7 @@
 														barWidth="14.785714285714286"
 													></path>
 													<rect id="SvgjsRect2311" width="14.785714285714286" height="95" x="258.75" y="0" rx="3" ry="3" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#E5E7EB" className="apexcharts-backgroundBar"></rect>
-													<path id="SvgjsPath2313" d="M 258.75 95L 258.75 61.425Q 258.75 58.425 261.75 58.425L 270.5357142857143 58.425Q 273.5357142857143 58.425 273.5357142857143 61.425L 273.5357142857143 61.425L 273.5357142857143 95L 273.5357142857143 95z" fill="rgba(26,86,219,1)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" className="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask8938dncz)" pathTo="M 258.75 95L 258.75 61.425Q 258.75 58.425 261.75 58.425L 270.5357142857143 58.425Q 273.5357142857143 58.425 273.5357142857143 61.425L 273.5357142857143 61.425L 273.5357142857143 95L 273.5357142857143 95z" pathFrom="M 258.75 95L 258.75 95L 273.5357142857143 95L 273.5357142857143 95L 273.5357142857143 95L 273.5357142857143 95L 273.5357142857143 95L 258.75 95" cy="58.425" cx="317.89285714285717" j="4" val="1155" barHeight="36.575" barWidth="14.785714285714286"></path>
+													<path id="SvgjsPath2313" d="M 258.75 95L 258.75 61.425Q 258.75 58.425 261.75 58.425L 270.5357142857143 58.425Q 273.5357142857143 58.425 273.5357142857143 61.425L 273.5357142857143 61.425L 273.5357142857143 95L 273.5357142857143 95z" fill="rgba(26,86,219,1)" fill-opacity="1" stroke-opacity="1" strokeLinecap="round" stroke-width="0" stroke-dasharray="0" className="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask8938dncz)" pathTo="M 258.75 95L 258.75 61.425Q 258.75 58.425 261.75 58.425L 270.5357142857143 58.425Q 273.5357142857143 58.425 273.5357142857143 61.425L 273.5357142857143 61.425L 273.5357142857143 95L 273.5357142857143 95z" pathFrom="M 258.75 95L 258.75 95L 273.5357142857143 95L 273.5357142857143 95L 273.5357142857143 95L 273.5357142857143 95L 273.5357142857143 95L 258.75 95" cy="58.425" cx="317.89285714285717" j="4" val="1155" barHeight="36.575" barWidth="14.785714285714286"></path>
 													<rect id="SvgjsRect2314" width="14.785714285714286" height="95" x="317.89285714285717" y="0" rx="3" ry="3" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#E5E7EB" className="apexcharts-backgroundBar"></rect>
 													<path
 														id="SvgjsPath2316"
@@ -1336,7 +1336,7 @@
 														fill="rgba(26,86,219,1)"
 														fill-opacity="1"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="0"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1358,7 +1358,7 @@
 														fill="rgba(26,86,219,1)"
 														fill-opacity="1"
 														stroke-opacity="1"
-														stroke-linecap="round"
+														strokeLinecap="round"
 														stroke-width="0"
 														stroke-dasharray="0"
 														className="apexcharts-bar-area"
@@ -1385,8 +1385,8 @@
 												</g>
 												<g id="SvgjsG2297" className="apexcharts-datalabels" data:realIndex="0"></g>
 											</g>
-											<line id="SvgjsLine2341" x1="0" y1="0" x2="414" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" className="apexcharts-ycrosshairs"></line>
-											<line id="SvgjsLine2342" x1="0" y1="0" x2="414" y2="0" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" className="apexcharts-ycrosshairs-hidden"></line>
+											<line id="SvgjsLine2341" x1="0" y1="0" x2="414" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" strokeLinecap="butt" className="apexcharts-ycrosshairs"></line>
+											<line id="SvgjsLine2342" x1="0" y1="0" x2="414" y2="0" stroke-dasharray="0" stroke-width="0" strokeLinecap="butt" className="apexcharts-ycrosshairs-hidden"></line>
 											<g id="SvgjsG2343" className="apexcharts-yaxis-annotations"></g>
 											<g id="SvgjsG2344" className="apexcharts-xaxis-annotations"></g>
 											<g id="SvgjsG2345" className="apexcharts-point-annotations"></g>
@@ -1902,7 +1902,7 @@
 										<a href="https://flowbite.com/blocks/" className="inline-flex items-center text-xs font-medium hover:underline text-primary-700 sm:text-sm dark:text-primary-500">
 											Go to Flowbite Blocks
 											<svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-												<path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+												<path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
 											</svg>
 										</a>
 									</li>
@@ -2086,7 +2086,7 @@
 										<button id="dropdownDefault" data-dropdown-toggle="dropdown" className="mb-4 sm:mb-0 mr-4 inline-flex items-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-4 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
 											Filter by status
 											<svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+												<path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
 											</svg>
 										</button>
 										{/* <!-- Dropdown menu --> */}
@@ -2265,7 +2265,7 @@
 									<button className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 rounded-lg hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" type="button" data-dropdown-toggle="transactions-dropdown">
 										Last 7 days{' '}
 										<svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+											<path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
 										</svg>
 									</button>
 
@@ -2314,7 +2314,7 @@
 									<a href="#" className="inline-flex items-center p-2 text-xs font-medium uppercase rounded-lg text-primary-700 sm:text-sm hover:bg-gray-100 dark:text-primary-500 dark:hover:bg-gray-700">
 										Transactions Report
 										<svg className="w-4 h-4 ml-1 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+											<path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
 										</svg>
 									</a>
 								</div>

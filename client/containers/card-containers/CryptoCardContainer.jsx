@@ -15,12 +15,10 @@ const CryptoCardContainer = ({ market }) => {
 		return (
 			<main>
 				<div className="responsive-three-columns">
-					{market.map((el) => {
-						// console.log(el.sparkline_in_7d)
-
+					{market.map((el, i) => {
 						return (
-							<div>
-								<CoinCard img={el.image} key={el.id} name={el.name} price={formatter.format(el.current_price)} data={el.sparkline_in_7d.price} />
+							<div key={el.id + i}>
+								<CoinCard img={el.image} card_key={el.id + i} name={el.name} price={formatter.format(el.current_price)} data={el.sparkline_in_7d.price} />
 							</div>
 						);
 					})}

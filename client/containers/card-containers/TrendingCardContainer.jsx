@@ -7,10 +7,10 @@ const TrendingCardContainer = ({ trending }) => {
 		return (
 			<main>
 				<div className="responsive-three-columns">
-					{trending.map((el) => {
+					{trending.map((el, i) => {
 						return (
-							<div>
-								<CoinCard img={el.item.large} key={el.item.id} name={el.item.name} price={el.item.data.price} data={trending} />
+							<div key={el.item.id + '_trending_' + i}>
+								<CoinCard img={el.item.large} card_key={el.item.id + '_trending_' + i} name={el.item.name} price={el.item.data.price} data={trending} />
 							</div>
 						);
 					})}

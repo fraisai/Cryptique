@@ -14,27 +14,42 @@ const TrendingContainer = () => {
 	}, []);
 
 	return (
-		// <body className="bg-gray-50 dark:bg-gray-800" cz-shortcut-listen="true">
 		<div className="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
-			<div className="fixed inset-0 z-10 hidden bg-gray-900/50 dark:bg-gray-900/90" id="sidebarBackdrop"></div>
-
-			<div id="main-content" className="relative h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900 w-1/2" style={{ paddingLeft: '19%', paddingRight: '19%', width: '150%' }}>
+			<div id="main-content" className="relative w-1/2 h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900" style={{ paddingLeft: '19%', paddingRight: '19%', width: '150%' }}>
 				{/* MAIN */}
 				<main>
 					<div className="px-6 pt-6" style={{ width: '125%', margin: '0 auto' }}>
-						{' '}
-						{/* px-4 => padding-left && padding-right = 1rem = 16px, pt-6 => padding-top = 1.5rem = 24px */}
+						<h1 className="mb-2 text-2xl font-bold text-gray-900">Trending Cryptocurrencies</h1>
 						<div className="grid gap-4 xl:grid-cols-1 2xl:grid-cols-1">
-							{' '}
-							{/* xl = responsive 1280px	@media (min-width: 1280px) { ... } */}
 							<TrendingCardContainer trending={trending} />
 						</div>
 					</div>
 				</main>
 			</div>
 		</div>
-		// </body>
 	);
 };
 
 export default TrendingContainer;
+
+
+// HOW I MADE 3 ROWS: flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.
+// /* container */
+// .responsive-three-columns {
+//     display:flex;
+//     flex-wrap:wrap;
+// }
+
+// /* columns */
+// .responsive-three-columns > * {
+//     width:100%;
+//     padding:1rem;
+//     // background-color: aqua;
+// }
+
+// /* tablet breakpoint */
+// @media (min-width:768px) {
+//     .responsive-three-columns > * {
+//         width:calc(100% / 3);
+//     }
+// }

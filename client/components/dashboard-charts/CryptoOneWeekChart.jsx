@@ -5,7 +5,7 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 import { formatter } from '../../componentImports';
 
-const CryptoOneWeekChart = ({ name, chartData, maxH = '350px', maxW = '470px' }) => {
+const CryptoOneWeekChart = ({ name, chartData, maxH = '350px', maxW = '470px', card_key }) => {
 	let xData = chartData.map((el, ind) => ind);
 	const data = {
 		// labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
@@ -59,9 +59,8 @@ const CryptoOneWeekChart = ({ name, chartData, maxH = '350px', maxW = '470px' })
 		maintainAspectRatio: false,
 	};
 	return (
-		<div style={{ maxHeight: maxH }}>
+		<div style={{ maxHeight: maxH }} key={card_key}>
 			<div className="pt-1">{name}</div>
-
 			<Line datasetIdKey="one-day-chart" data={data} options={options} />
 		</div>
 	);

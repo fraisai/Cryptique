@@ -25,7 +25,7 @@ function Dashboard({ chartData }) {
 
 	return (
 		<div className="flex flex-col pt-16 bg-gray-50 dark:bg-gray-900">
-			<div id="main-content" className="relative w-full h-full px-6 pt-6 overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900" style={{ paddingLeft: '19%', width: '100%' }}>
+			<div className="relative w-full h-full px-6 pt-6 overflow-y-auto bg-gray-50 lg:ml-60 dark:bg-gray-900" style={{ paddingLeft: '18%', width: '100%' }}>
 				{/* CARD HOLDING CHART */}
 				<div className="p-4 mb-6 bg-white border border-gray-200 rounded-lg shadow-sm two-column-grid dark:border-gray-700 sm:p-6 dark:bg-gray-800">
 					<div className="flex-shrink-0">

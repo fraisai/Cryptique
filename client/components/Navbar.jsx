@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const Navbar = () => {
 	return (
-		<div className="px-3 py-3 lg:px-5 lg:pl-3">
+		<div className="px-3 py-3 mb-16 ">
 			<div className="flex items-center justify-between">
 				<div className="flex items-center justify-start">
 					{/* LOGO */}
@@ -20,7 +20,7 @@ const Navbar = () => {
 						{' '}
 						{/* mr = margin-right: 6rem = 96px */}
 						<img src="https://img.icons8.com/ios-filled/50/cheap-2.png" className="h-8 mr-3" />
-						<span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white mr-3">Cryptique</span>
+						<span className="self-center mr-3 text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Cryptique</span>
 					</a>
 
 					{/* SEARCH BAR */}

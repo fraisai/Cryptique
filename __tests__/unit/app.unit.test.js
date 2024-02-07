@@ -1,9 +1,10 @@
-// app.test.js
+import React from 'react'
+import { BrowserRouter, MemoryRouter, useLocation } from 'react-router-dom'
+import '@testing-library/jest-dom'
+
 import {render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import React from 'react'
-import '@testing-library/jest-dom'
-import {BrowserRouter, MemoryRouter} from 'react-router-dom'
+
 import App from '../../client/App.jsx';
 
 test('full app rendering/navigating', async () => {
@@ -13,3 +14,5 @@ test('full app rendering/navigating', async () => {
   // verify page content for default route
   expect(screen.getByText(/cryptique/i)).toBeInTheDocument()
 })
+
+// check location using useLocation: https://reactrouter.com/en/main/hooks/use-location#locationsearch

@@ -12,7 +12,7 @@ const { btcMarketChart30Days, trendingCoinData, allMarketsCoinsData, marketChart
 export const getAllMarkets = async (req: Request, res: Response, next: NextFunction) => {
   try {
     console.log('getAllMarkets')
-    return res.status(200).json(allMarketsCoinsData).end();
+    return res.status(200).json(await allMarketsCoinsData).end();
     // NEED TO PAY to use cg API so commented out for now and using past dummy data:
     const response = await axios.request(coinGeckoMarketsOptions);
     return res.status(200).json(response.data).end();
@@ -32,7 +32,7 @@ export const getAllMarkets = async (req: Request, res: Response, next: NextFunct
 // Market Charts => GET: crypt/coins/market_chart_id
 export const getOneDayMarketChart = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const data = btc24HoursData; // replace this with axios req
+    const data = await btc24HoursData; // replace this with axios req
     const oneMonthPrices: Array<string[]> = data.prices // [[unix, price]]
     const monthDatePrices = oneMonthPrices.map((el) => {
       const unix = Number(el[0]);
@@ -61,7 +61,7 @@ export const getOneDayMarketChart = async (req: Request, res: Response, next: Ne
 // Trending: => GET: crypt/coins/trending (Top-7 trending coins on CoinGecko as searched by users in the last 24 hours (Ordered by most popular first))
 export const getTrending = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    return res.status(200).json(trendingCoinData).end();
+    return res.status(200).json(await trendingCoinData).end();
     const response = await axios.request(coinGeckoTrendingOptions);
     return res.status(200).json(response.data).end();
   } catch (error) {

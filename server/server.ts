@@ -1,41 +1,37 @@
-const express = require('express');
-import { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from "express";
 const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const mongoose = require('mongoose');
 const app = express();
-// const { SignalingChannel } = require('rtconnect');
-// const SFUSignalingChannel = require('./SFUSignalingChannel')
-
 const PORT = 5000;
+const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 
 // ROUTES
 const authRouter = require('./routes/authenticationRoutes'); // Routes
 const cryptRouter= require('./routes/cryptRoutes');
 const watchlistRouter = require('./routes/watchlistRoutes');
+const oauthRouter = require('./routes/oauthRoutes');
 
 // MIDDLEWARE
-app.use(
-  cors({
-    credentials: true,
-  }),
-);
-
+app.use(cors({credentials: true}));
 app.use(cookieParser());
 app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', authRouter);
-app.get('/crypt/hi', (req: Request, res: Response) => res.status(200).json("HEY"))
+
+
+
+app.get('/health', (req: Request, res: Response) => res.status(200).json("HEY"))
+app.use('/auth', oauthRouter);
+// app.get('/oauth/github-login', (req: Request, res: Response) => res.status(200).send(github_url) );
+
 app.use('/crypt', cryptRouter);
-app.get('/watch', (req: Request, res: Response) => {
-    return res.status(200).json('HEYY');
-  });
 
 
 app.use('/watch', watchlistRouter);
+// app.use('/', authRouter);
 
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
-        "target": "ES6",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-        "lib": ["es6"],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
-        "jsx": "react",                                      /* Transform JSX into React code - Specify what JSX code is generated. */
-        "types": ["node"],
+        "target": "es6",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+        // "lib": ["es6"],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
+        // "jsx": "react",                                      /* Transform JSX into React code - Specify what JSX code is generated. */
+        // "types": ["node"],
         "module": "commonjs",                                /* Specify what module code is generated. */
         "rootDir": "./server",                                  /* Specify the root folder within your source files. */
-        "moduleResolution": "node",
-        "baseUrl": "src",
+        // "moduleResolution": "node",
+        // "baseUrl": "src",
         "outDir": "./build",                                   /* all compiled files will be placed in dist folder Specify an output folder for all emitted files. */
         "sourceMap": true,
         "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
@@ -17,7 +17,7 @@
         "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
 
         },
-    "include": ["./server/**/*"],
+    "include": ["./server/**/*", "node_modules/@types"],
     "exclude": ["./lib/__tests__/**/*.test.ts"],
     "testEnvironment": "jsdom"
 }

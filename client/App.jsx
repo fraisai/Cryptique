@@ -36,10 +36,29 @@ const App = () => {
 
 			{/* **************************** BODY & ROUTES **************************** */}
 			<div className="bg-gray-50 dark:bg-gray-800">
+
+				{/* **************************** SIGN IN **************************** */}
 				{/* <div align='center' >
 					<SignIn/>
 				</div> */}
+
 				<Routes>
+					{/* <Route path='/login' 
+						component={() => {
+							window.location.assign = 'https://github.com/login/oauth/authorize?client_id=17cfd66a744613f0d753';
+							return null;
+					}
+					}/> */}
+					
+					{/* <Route 
+						path="/sign-in" 
+						element={
+							<div align='center' >
+								<SignIn/>
+							</div>
+						}
+					/> */}
+
 					<Route path="/" element={<Dashboard chartData={chartData} />} />
 					<Route path="/all-coins" element={<CryptoContainer />} />
 					<Route path="/trending" element={<TrendingContainer />} />

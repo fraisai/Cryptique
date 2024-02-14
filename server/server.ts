@@ -21,16 +21,12 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-
 app.get('/health', (req: Request, res: Response) => res.status(200).json("HEY"))
 app.use('/auth', oauthRouter);
 // app.get('/oauth/github-login', (req: Request, res: Response) => res.status(200).send(github_url) );
 
 app.use('/crypt', cryptRouter);
-
-
 app.use('/watch', watchlistRouter);
-// app.use('/', authRouter);
 
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

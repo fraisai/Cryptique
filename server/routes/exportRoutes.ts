@@ -1,9 +1,9 @@
-const authRoutes = require('./authenticationRoutes');
 const cryptRoutes = require('./cryptRoutes');
 const watchlistRoutes = require('./watchlistRoutes');
+const oauthRoutes = require('./oauthRoutes');
 
 module.exports = {
-    authRoutes,
     cryptRoutes,
-    watchlistRoutes
+    watchlistRoutes,
+    oauthRoutes
 }

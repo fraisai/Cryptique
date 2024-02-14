@@ -9,7 +9,6 @@ const PORT = 5000;
 const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 
 // ROUTES
-const authRouter = require('./routes/authenticationRoutes'); // Routes
 const cryptRouter= require('./routes/cryptRoutes');
 const watchlistRouter = require('./routes/watchlistRoutes');
 const oauthRouter = require('./routes/oauthRoutes');

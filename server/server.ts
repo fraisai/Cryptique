@@ -49,9 +49,6 @@ const server = app.listen(PORT, () => console.log(`Server running on port ${PORT
 
 
 
-// app.get('/crypt/coins', (req: Request, res: Response) => {
-//     return res.status(200).json('HEYY');
-//   });
 
 // app.use('/build', express.static(path.join(__dirname, '../build')));
 

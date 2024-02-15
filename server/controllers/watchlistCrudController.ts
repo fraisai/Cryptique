@@ -41,7 +41,7 @@ export const addCard = async(req: Request, res: Response, next: NextFunction) =>
     try {
         const { id } = req.body; // you are inserting into the column for description in the table named 'todo' (located in the database 'perntodo') the object description (from req.body)
         // const newCard = await pool.query(`INSERT INTO watchlist_card(_id, _name, symbol, percent_change, equity, shares, price) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [name]);
-        const card = await pool.query('INSERT INTO watchlist_card SELECT ')
+        const card = await pool.query('INSERT INTO watchlist_card SELECT * FROM ')
 
         // ElephantSQL
         res.status(200).json(newCard);

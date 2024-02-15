@@ -1,9 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 // const pool = require('../models/sqlModel.ts');
 const axios = require('axios');
+const pool = require('../models/sqlModel'); // connect server to database aka connecting to the db.js file
+
 const dotenv = require('dotenv');
 dotenv.config();
-const { geckoTrendingOptions,  geckoAllCoinsMarketsOptions, coinGeckoMarketCharts24 } = require('../helpers/options.ts');
+const { geckoTrendingOptions,  geckoAllCoinsMarketsOptions, coinGeckoMarketCharts24, geckoAllCoins } = require('../helpers/options.ts');
 const { btcMarketChart30Days, trendingCoinData, allMarketsCoinsData, marketChartBitcoinData, btc24HoursData } = require('../data/dataExports');
 
 
@@ -82,7 +84,25 @@ export const getTrending = async (req: Request, res: Response, next: NextFunctio
   }
 };
 
+export const getMeta = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const all_coins: Array<{ id: string, symbol: string, name: string }> = axios.get(await geckoAllCoins);
+    // const coins_meta: Array<{ }>
+    // 10 requess/minute
+    
+    const makeRateLimitedRequests = async () => {
+      for (const coin of all_coins) {
+        const res = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin.id}?localization=false&tickers=false&community_data=true&developer_data=false&sparkline=true`);
+        await new Promise(resolve => setTimeout(resolve, 2000))
 
+      }
+    }
+    
+  } catch (error) {
+    console.error(error);
+    return next();
+  }
+}
 
 
 

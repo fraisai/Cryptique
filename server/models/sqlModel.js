@@ -4,6 +4,7 @@ const { Client } = require('pg')
 const Pool = require('pg').Pool;
 const dotenv = require('dotenv')
 dotenv.config()
+const { create_watchlist_sql } = require('../sql-scripts/create-watchlist_card-table.ts');
 
 // LOCAL DB:
 // const pool = new Pool(
@@ -39,21 +40,24 @@ pool.query(`CREATE TABLE IF NOT EXISTS test_users (id SERIAL PRIMARY KEY, userna
 // });
 
 
-// WATCHLIST_CARD TABLE 
-pool.query(`CREATE TABLE IF NOT EXISTS watchlist_card (
-  _id VARCHAR(255) PRIMARY KEY, 
-  _name VARCHAR(255) UNIQUE NOT NULL, 
-  symbol VARCHAR(255) UNIQUE NOT NULL,
-  percent_change NUMERIC(10, 4),
-  equity NUMERIC(12, 5) DEFAULT 0,
-  shares NUMERIC(12, 5) DEFAULT 0,
-  price NUMERIC(12, 5) NOT NULL
-)`, (err, result) => {
+pool.query(create_watchlist_sql, (err, result) => {
   if (err) console.log('Error in creating watchlist_card Table', err);
-  else {
-    console.log('watchlist_card table successfully created');
-  }
+  else console.log('watchlist_card table successfully created');
 });
+
+// // WATCHLIST_CARD TABLE 
+// pool.query(`CREATE TABLE IF NOT EXISTS watchlist_card (
+//   _id VARCHAR(255) PRIMARY KEY, 
+//   _name VARCHAR(255) UNIQUE NOT NULL, 
+//   symbol VARCHAR(255) UNIQUE NOT NULL,
+//   percent_change NUMERIC(10, 4),
+//   equity NUMERIC(12, 5) DEFAULT 0,
+//   shares NUMERIC(12, 5) DEFAULT 0,
+//   price NUMERIC(12, 5) NOT NULL
+// )`, (err, result) => {
+//   if (err) console.log('Error in creating watchlist_card Table', err);
+//   else console.log('watchlist_card table successfully created');
+// });
 
 pool.query(`INSERT INTO watchlist_card (_id, _name, symbol, percent_change, equity, shares, price) VALUES ($1, $2, $3, $4, $5, $6, $7)`, ['memecoin', 'Memecoin', 'MEME', 0.11109762041647116, 30603, 9550, 0.026755648199 ],
 (err, result) => {

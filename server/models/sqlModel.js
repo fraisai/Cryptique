@@ -20,14 +20,6 @@ dotenv.config()
 //     }
 // );
 
-// const dbConfig = {
-//     connectionString: process.env.ELEPHANT_SQL_URL,
-//     user: 'zrnmvnsw',
-//     database: 'cryptique',
-//     host: 'batyr.db.elephantsql.com'
-
-// }
-
 const pool = new Pool({
     connectionString: process.env.ELEPHANT_SQL_URL
 })

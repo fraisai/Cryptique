@@ -9,9 +9,9 @@ const PORT = 5000;
 const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 
 // ROUTES
-const cryptRouter= require('./routes/cryptRoutes');
-const watchlistRouter = require('./routes/watchlistRoutes');
-const oauthRouter = require('./routes/oauthRoutes');
+const cryptRouter= require('./routes/cryptRoutes.ts');
+const watchlistRouter = require('./routes/watchlistRoutes.ts');
+const oauthRouter = require('./routes/oauthRoutes.ts');
 
 // MIDDLEWARE
 app.use(cors({credentials: true}));
@@ -26,7 +26,7 @@ app.use('/auth', oauthRouter);
 // app.get('/oauth/github-login', (req: Request, res: Response) => res.status(200).send(github_url) );
 
 app.use('/crypt', cryptRouter);
-app.use('/watch', watchlistRouter);
+app.use('/watchlist', watchlistRouter);
 
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
@@ -35,6 +35,28 @@ const server = app.listen(PORT, () => console.log(`Server running on port ${PORT
 
 
 
+
+/**
+ * ENDPOINTS
+ * 
+ * 1. /auth:
+ *    a) /auth/github-login
+ *    b) /auth/callback
+ * 
+ * 
+ * 2. /crypt
+ *    a) GET /crypt/coins/markets 
+ *    b) GET /crypt/coins/market-charts
+ *    c) GET /crypt/coins/trending
+ * 
+ * 3. /watchlist
+ *    a) GET /watchlist/cards
+ *    b) GET /watchlist/cards/:id
+ *    c) POST /watchlist/cards/:id
+ *    d) DELETE /watchlist/cards/:id
+ *    e) 
+ * 
+ */
 
 
 

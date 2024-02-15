@@ -3,18 +3,18 @@ import { Request, Response, NextFunction } from 'express';
 const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
-const parseCoinGeckoCsv = require('../helpers/parseCoinGeckoCsv');
-const { coinGeckoTrendingOptions,  coinGeckoMarketsOptions, coinGeckoMarketCharts24 } = require('../helpers/options');
+const { geckoTrendingOptions,  geckoAllCoinsMarketsOptions, coinGeckoMarketCharts24 } = require('../helpers/options.ts');
 const { btcMarketChart30Days, trendingCoinData, allMarketsCoinsData, marketChartBitcoinData, btc24HoursData } = require('../data/dataExports');
 
 
 // Markets => GET: /crypt/coins/markets (all coins)
 export const getAllMarkets = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    console.log('getAllMarkets')
+    // temporary DUMMY DATA
     return res.status(200).json(await allMarketsCoinsData).end();
-    // NEED TO PAY to use cg API so commented out for now and using past dummy data:
-    const response = await axios.request(coinGeckoMarketsOptions);
+
+    // Coingecko API Call: NEED TO PAY to use cg API so use dummy data from previous api call above:
+    const response = await axios.request(geckoAllCoinsMarketsOptions);
     return res.status(200).json(response.data).end();
   } catch (error) {
     console.error(error);
@@ -32,26 +32,35 @@ export const getAllMarkets = async (req: Request, res: Response, next: NextFunct
 // Market Charts => GET: crypt/coins/market_chart_id
 export const getOneDayMarketChart = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    // temporary DUMMY data
     const data = await btc24HoursData; // replace this with axios req
+
+    // // Coingecko API Call: data from coingecko api
+    // const response = await axios.request(coinGeckoMarketCharts24);
+    // const data = response.data;
+
     const oneMonthPrices: Array<string[]> = data.prices // [[unix, price]]
+
+    // create an array containing date/time converted string and price
     const monthDatePrices = oneMonthPrices.map((el) => {
       const unix = Number(el[0]);
       const price = Number(el[1]);
       const time = new Date(unix).toLocaleTimeString("en-US"); // "0:00:00 PM"
       const date = new Date(unix).toLocaleDateString("en-US"); // "8/30/2023"
-
       return [date, time, price];
     }).reverse();
+
     const oneDayLabels= monthDatePrices.map(el => el[1]);
     const oneDayPrices = monthDatePrices.map(el => el[2]);
+
+    // data to display for crypto market charts
     const chartData = {
       times: [...oneDayLabels],
       prices: [...oneDayPrices]
     }
-    return res.status(200).send(chartData).end();
 
-    // const response = await axios.request(coinGeckoMarketCharts24);
-    // return res.status(200).json(response.data).end();
+    res.status(200).send(chartData).end();
+    return next();
   } catch (error) {
     console.error(error);
     return next();
@@ -61,8 +70,11 @@ export const getOneDayMarketChart = async (req: Request, res: Response, next: Ne
 // Trending: => GET: crypt/coins/trending (Top-7 trending coins on CoinGecko as searched by users in the last 24 hours (Ordered by most popular first))
 export const getTrending = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    // temporary DUMMY data
     return res.status(200).json(await trendingCoinData).end();
-    const response = await axios.request(coinGeckoTrendingOptions);
+
+    // Coingecko API calls 
+    const response = await axios.request(geckoTrendingOptions);
     return res.status(200).json(response.data).end();
   } catch (error) {
     console.error(error);

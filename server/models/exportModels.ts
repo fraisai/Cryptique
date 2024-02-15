@@ -1,5 +1,5 @@
-const sqlModel = require('./sqlModel');
+// const sqlModel = require('./sqlModel');
 
 module.exports = {
-    sqlModel,
+    // sqlModel,
 }

@@ -6,4 +6,4 @@ export const create_watchlist_sql = `CREATE TABLE IF NOT EXISTS watchlist_card (
   equity NUMERIC(12, 5) DEFAULT 0,
   shares NUMERIC(12, 5) DEFAULT 0,
   price NUMERIC(12, 5) NOT NULL
-)`;
+);`;

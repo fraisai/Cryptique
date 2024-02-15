@@ -1,0 +1,1 @@
+export const insert_meta_table = `INSERT INTO meta(id, name, symbol, _desc, homepage_url, img, jsonb_meta) VALUES($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (id) DO NOTHING RETURNING *`;

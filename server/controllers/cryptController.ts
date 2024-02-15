@@ -1,13 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
-// const pool = require('../models/sqlModel.ts');
 const axios = require('axios');
-const pool = require('../models/sqlModel'); // connect server to database aka connecting to the db.js file
+const pool = require('../models/sqlConnection'); // connect server to database aka connecting to the db.js file
 
 const dotenv = require('dotenv');
 dotenv.config();
 const { geckoTrendingOptions,  geckoAllCoinsMarketsOptions, coinGeckoMarketCharts24, geckoAllCoins } = require('../helpers/options.ts');
 const { btcMarketChart30Days, trendingCoinData, allMarketsCoinsData, marketChartBitcoinData, btc24HoursData } = require('../data/dataExports');
-
+const { insert_meta_table } = require('../sql-scripts/insert-meta-table');
 
 // Markets => GET: /crypt/coins/markets (all coins)
 export const getAllMarkets = async (req: Request, res: Response, next: NextFunction) => {
@@ -84,20 +83,63 @@ export const getTrending = async (req: Request, res: Response, next: NextFunctio
   }
 };
 
-export const getMeta = async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const all_coins: Array<{ id: string, symbol: string, name: string }> = axios.get(await geckoAllCoins);
-    // const coins_meta: Array<{ }>
-    // 10 requess/minute
-    
-    const makeRateLimitedRequests = async () => {
-      for (const coin of all_coins) {
-        const res = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin.id}?localization=false&tickers=false&community_data=true&developer_data=false&sparkline=true`);
-        await new Promise(resolve => setTimeout(resolve, 2000))
 
+/**
+ * http://localhost:5000/crypt/meta
+ * @param req 
+ * @param res 
+ * @param next 
+ * @returns 
+ */
+export const getMeta = async (req: Request, res: Response, next: NextFunction) => {
+  
+  try {
+    const all_coins = await axios.request(geckoAllCoins); // list of all the supported coins
+    const all_meta = await pool.query('SELECT * FROM meta;'); // SELECT ALL FROM TABLE TODO
+    /**
+     * homepage_url = coin.links.homepage[0]
+     * forum_url = coin.official_forum_url 
+     * img = coin.image.large
+     * 
+     * sparkline_7d = coin.sparkline_7d.price
+     * 
+         // const all_coins_meta: Array<{ id: string, symbol: string, name: string, desc: string, homepage_url: string, forum_url: string, chat_url: string, subreddit_url: null | string, img: string, market_cap_rank: number, price_change_24h: number, sparkline_7d: Array<number>}> = []
+     */
+
+    const all_coins_meta: Array<{ id: string, symbol: string, name: string, desc: string, homepage_url: string, img: string }> = []
+
+    const makeRateLimitedRequests = async () => { // coin gecko limit = 10 requests/minute
+      for (let i = 332; i < all_coins.data.length; i++) {
+        let coin = all_coins.data[i];
+        try {
+          const res: Record<'data', { id: string, symbol: string, name: string, description: string, links: Record<'homepage', Array<string>>, image: Record<'large', string>}> = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin.id}?localization=false&tickers=false&community_data=true&developer_data=false&sparkline=true`);
+
+          const { id, symbol, name, description, links, image } = res.data;
+  
+          // jsonb data to insert into meta table: 
+          const jsonObj = {
+            id: id,
+            symbol: symbol,
+            name: name,
+            desc: description,
+            homepage_url: links.homepage[0],
+            img: image.large
+          };
+  
+          const metaInsert = await pool.query(insert_meta_table, [id, symbol, name, description, links.homepage[0], image.large, JSON.stringify(jsonObj)]);
+          console.log('inserted', coin.id)
+          await new Promise(resolve => setTimeout(resolve, 30000));
+  
+        } catch (error) {
+          console.log('error on index, coin', i, coin.id);
+        }
       }
     }
+
+    makeRateLimitedRequests();
     
+    res.status(200).json(all_meta.rows);
+    return next();
   } catch (error) {
     console.error(error);
     return next();

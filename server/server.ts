@@ -48,6 +48,7 @@ const server = app.listen(PORT, () => console.log(`Server running on port ${PORT
  *    a) GET /crypt/coins/markets 
  *    b) GET /crypt/coins/market-charts
  *    c) GET /crypt/coins/trending
+ *    d) GET /crypt/meta
  * 
  * 3. /watchlist
  *    a) GET /watchlist/cards

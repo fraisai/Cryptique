@@ -4,22 +4,7 @@ const { Client } = require('pg')
 const Pool = require('pg').Pool;
 const dotenv = require('dotenv')
 dotenv.config()
-const { create_watchlist_sql } = require('../sql-scripts/create-watchlist_card-table.ts');
-
-// LOCAL DB:
-// const pool = new Pool(
-//     {
-//         user: process.env.ELEPHANT_SQL_USER,
-//         password: process.env.ELEPHANT_SQL_PW,
-//         host: process.env.ELEPHANT_SQL_HOST, 
-//         port: 5432, // always automatically run from port 5432
-//         database: 'cryptique', // the database you created in database.sql file (line 15)
-//         listen_addresses: '*',
-//         ssl: {
-//             rejectUnauthorized: false
-//         }
-//     }
-// );
+const { create_watchlist_sql, seed_watchlist_card } = require('../sql-scripts/create-watchlist_card-table.ts');
 
 const pool = new Pool({
     connectionString: process.env.ELEPHANT_SQL_URL
@@ -45,30 +30,17 @@ pool.query(create_watchlist_sql, (err, result) => {
   else console.log('watchlist_card table successfully created');
 });
 
-// // WATCHLIST_CARD TABLE 
-// pool.query(`CREATE TABLE IF NOT EXISTS watchlist_card (
-//   _id VARCHAR(255) PRIMARY KEY, 
-//   _name VARCHAR(255) UNIQUE NOT NULL, 
-//   symbol VARCHAR(255) UNIQUE NOT NULL,
-//   percent_change NUMERIC(10, 4),
-//   equity NUMERIC(12, 5) DEFAULT 0,
-//   shares NUMERIC(12, 5) DEFAULT 0,
-//   price NUMERIC(12, 5) NOT NULL
-// )`, (err, result) => {
-//   if (err) console.log('Error in creating watchlist_card Table', err);
-//   else console.log('watchlist_card table successfully created');
+// // SEED watchlist_card table
+// pool.query(seed_watchlist_card, ['memecoin', 'Memecoin', 'MEME', 0.11109762041647116, 30603, 9550, 0.026755648199 ],
+// (err, result) => {
+//   if (err) console.error('Error seeding the watchlist_card table', err);
+//   else console.log('Data seeded successfully');
 // });
-
-pool.query(`INSERT INTO watchlist_card (_id, _name, symbol, percent_change, equity, shares, price) VALUES ($1, $2, $3, $4, $5, $6, $7)`, ['memecoin', 'Memecoin', 'MEME', 0.11109762041647116, 30603, 9550, 0.026755648199 ],
-(err, result) => {
-  if (err) console.error('Error seeding the watchlist_card table', err);
-  else console.log('Data seeded successfully');
-});
 
 
 pool.query('SELECT * FROM watchlist_card;', (err, result) => {
   if (err) console.error('Error selecting the watchlist_card table', err);
-  else console.log('Data selected successfully');
+  else console.log('watchlist_card data selected successfully');
 })
 
 module.exports = pool;

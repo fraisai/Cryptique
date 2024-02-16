@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "fullstack cryptocurrency dashboard",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack config ./webpack.config.js",
     "compile": "tsc --build",
     "create-table": "node ./server/models/sqlModel.js",
     "dev": "concurrently \"NODE_ENV=development nodemon server/server.ts\" \"NODE_ENV=development webpack serve --hot --open\"",

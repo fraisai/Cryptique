@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from "express";
+import express, { Request, Response, NextFunction, ErrorRequestHandler } from "express";
 const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
@@ -20,7 +20,6 @@ app.use(express.json()); // express's built in body-parser - parse JSON bodies, 
 app.use(express.urlencoded({ extended: true }));
 
 
-
 app.get('/health', (req: Request, res: Response) => res.status(200).json("HEY"))
 app.use('/auth', oauthRouter);
 // app.get('/oauth/github-login', (req: Request, res: Response) => res.status(200).send(github_url) );
@@ -28,13 +27,50 @@ app.use('/auth', oauthRouter);
 app.use('/crypt', cryptRouter);
 app.use('/watchlist', watchlistRouter);
 
+
+// ERROR HANDLING
+// 404 handler to your server such that if a request comes in to *ANY* route not listed above the 404 page is sent
+app.all('*', function(req, res, next: NextFunction) {
+  if (res.statusCode === 404) return res.json('Resource does not exist');
+  // else res.sendFile(path.resolve(__dirname, '../public/index.html'));
+
+  const err = new Error('Bad Request')
+  err.message = 'Bad Request'
+  next(err);
+});
+
+/**
+* express error handler
+* @see https://expressjs.com/en/guide/error-handling.html#writing-error-handlers
+*/
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  const defaultErr = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 500,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj = Object.assign({}, defaultErr, err);
+  console.log("Express error handler:" , err.message);
+  return res.status(errorObj.status).json(err.message);
+});
+
+
+
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
 
 
 
-
+/**
+ * Express Types
+ * (
+      err: any,
+      req: Request<P, ResBody, ReqBody, ReqQuery, LocalsObj>,
+      res: Response<ResBody, LocalsObj>,
+      next: NextFunction,
+    ) => void;
+ */
 
 /**
  * ENDPOINTS
@@ -83,10 +119,6 @@ const server = app.listen(PORT, () => console.log(`Server running on port ${PORT
 //     return res.status(400).sendFile(path.resolve(__dirname, '../build/index.html')); // how I fixed getting the trending page when I manually type in localhost:8080/trending and press enter
 // })
 
-const MONGO_URL = 'mongodb+srv://ray:ray@ts-auth.aakpcl3.mongodb.net/';
-mongoose.Promise = Promise;
-mongoose.connect(MONGO_URL);
-mongoose.connection.on('error', (error: Error) => console.log(error)); // https://www.youtube.com/watch?v=b8ZUb_Okxro 34:52
 
 // RTC TEST
 import WebSocket, { WebSocketServer } from 'ws';

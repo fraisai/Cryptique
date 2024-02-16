@@ -6,16 +6,31 @@ const dotenv = require('dotenv');
 dotenv.config();
 const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @param next 
+ * @returns 
+ */
 export const githubLoginController = (req: Request, res: Response, next: NextFunction) => {
     console.log('githubLoginController', github_url)
     try {
         return res.redirect(github_url);
     } catch (error) {
         console.log('Error in loginFlowController.ts: githubLoginController', error);
+        return next(error);
         // return res.status(301).redirect('/');
     }
 }
 
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @param next 
+ * @returns 
+ */
 export const githubCallbackController = async (req: Request, res: Response, next: NextFunction) => {
     const { code } = req.query;
     console.log(code)
@@ -39,9 +54,8 @@ export const githubCallbackController = async (req: Request, res: Response, next
 
         return res.status(200).send(access_token);
         // res.redirect('/')
-        return next();
     } catch (error) {
         console.log('Error in githubCallbackController.ts', error);
-        // return res.status(301).redirect('/');
+        return next(error);
     }
 }

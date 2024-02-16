@@ -19,10 +19,9 @@ export const getAllMarkets = async (req: Request, res: Response, next: NextFunct
     return res.status(200).json(response.data).end();
   } catch (error) {
     console.error(error);
-    return next();
+    return next(error);
   }
 };
-
 
 /**
  * 
@@ -64,7 +63,7 @@ export const getOneDayMarketChart = async (req: Request, res: Response, next: Ne
     return next();
   } catch (error) {
     console.error(error);
-    return next();
+    return next(error);
   }
 };
 
@@ -79,42 +78,30 @@ export const getTrending = async (req: Request, res: Response, next: NextFunctio
     return res.status(200).json(response.data).end();
   } catch (error) {
     console.error(error);
-    return next();
+    return next(error);
   }
 };
 
-
 /**
- * http://localhost:5000/crypt/meta
+ * GET /crypt/metaT
  * @param req 
  * @param res 
  * @param next 
  * @returns 
  */
 export const getMeta = async (req: Request, res: Response, next: NextFunction) => {
-  
   try {
     const all_coins = await axios.request(geckoAllCoins); // list of all the supported coins
-    const all_meta = await pool.query('SELECT * FROM meta;'); // SELECT ALL FROM TABLE TODO
-    /**
-     * homepage_url = coin.links.homepage[0]
-     * forum_url = coin.official_forum_url 
-     * img = coin.image.large
-     * 
-     * sparkline_7d = coin.sparkline_7d.price
-     * 
-         // const all_coins_meta: Array<{ id: string, symbol: string, name: string, desc: string, homepage_url: string, forum_url: string, chat_url: string, subreddit_url: null | string, img: string, market_cap_rank: number, price_change_24h: number, sparkline_7d: Array<number>}> = []
-     */
-
-    const all_coins_meta: Array<{ id: string, symbol: string, name: string, desc: string, homepage_url: string, img: string }> = []
+    // const all_coins = await allMarketsCoinsData; // DUMMY DATA list of all the supported coins
+    const all_coins_meta: Array<{ id: string, symbol: string, name: string, desc: string, homepage_url: string, img: string }> = [];
 
     const makeRateLimitedRequests = async () => { // coin gecko limit = 10 requests/minute
-      for (let i = 332; i < all_coins.data.length; i++) {
-        let coin = all_coins.data[i];
+      for (let i = 50; i < all_coins.rows.length; i++) {
+        let coin = all_coins.rows[i];
         try {
-          const res: Record<'data', { id: string, symbol: string, name: string, description: string, links: Record<'homepage', Array<string>>, image: Record<'large', string>}> = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin.id}?localization=false&tickers=false&community_data=true&developer_data=false&sparkline=true`);
+          const res: Record<'data', { id: string, symbol: string, name: string, description: string, links: Record<'homepage', Array<string>>, image: Record<'large', string>}> | any = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin.id}?localization=false&tickers=false&community_data=true&developer_data=false&sparkline=true`);
 
-          const { id, symbol, name, description, links, image } = res.data;
+          const { id, symbol, name, description, links, image, sparkline_7d, last_updated} = res.data;
   
           // jsonb data to insert into meta table: 
           const jsonObj = {
@@ -123,26 +110,32 @@ export const getMeta = async (req: Request, res: Response, next: NextFunction) =
             name: name,
             desc: description,
             homepage_url: links.homepage[0],
-            img: image.large
+            subreddit_url: links.subreddit_url,
+            official_forum_url: links.official_forum_url,
+            chat_url: links.chat_url,
+            img: image.large, 
+            sparkline_7d: sparkline_7d,
+            last_updated: last_updated
           };
   
           const metaInsert = await pool.query(insert_meta_table, [id, symbol, name, description, links.homepage[0], image.large, JSON.stringify(jsonObj)]);
           console.log('inserted', coin.id)
           await new Promise(resolve => setTimeout(resolve, 30000));
-  
-        } catch (error) {
-          console.log('error on index, coin', i, coin.id);
+        } catch (error: any) {
+          console.log('error on index, coin', i, coin.id, error.detail);
         }
       }
-    }
+
+    };
 
     makeRateLimitedRequests();
-    
+
+    const all_meta = await pool.query('SELECT * FROM meta;'); // SELECT ALL FROM TABLE TODO
     res.status(200).json(all_meta.rows);
     return next();
   } catch (error) {
     console.error(error);
-    return next();
+    return next(error);
   }
 }
 

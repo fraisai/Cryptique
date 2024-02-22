@@ -13,7 +13,7 @@ const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
  * @param next 
  * @returns 
  */
-export const githubLoginController = (req: Request, res: Response, next: NextFunction) => {
+export const githubLoginController = async (req: Request, res: Response, next: NextFunction) => {
     console.log('githubLoginController', github_url)
     try {
         return res.redirect(github_url);

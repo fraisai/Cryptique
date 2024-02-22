@@ -4,7 +4,12 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const app = express();
-const PORT = 5000;
+// const PORT = 5000;
+const PORT = process.env.PORT || '5000';
+// const logger = require('morgan');
+
+
+
 const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 
 // MONGO DB ATLAS
@@ -14,17 +19,25 @@ mongoDbConnect();
 // ROUTES
 const cryptRouter= require('./routes/cryptRoutes.ts');
 const watchlistRouter = require('./routes/watchlistRoutes.ts');
-const oauthRouter = require('./routes/oauthRoutes.ts');
+const authRouter = require('./routes/authRoutes.ts');
 
 // MIDDLEWARE
+// app.use(logger(':date[clf] :method :url :status :response-time ms - :res[content-length]'));
 app.use(cors({credentials: true}));
 app.use(cookieParser());
 app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object
 app.use(express.urlencoded({ extended: true }));
 
 
+// app.use('/build', express.static(path.join(__dirname, '../build')));
+
+// app.get('/', (req: Request, res: Response) => {
+//   res.sendFile(path.resolve(__dirname, '../public/index.html'));
+// });
+
+
 app.get('/health', (req: Request, res: Response) => res.status(200).json("HEY"))
-app.use('/auth', oauthRouter);
+app.use('/auth', authRouter);
 // app.get('/oauth/github-login', (req: Request, res: Response) => res.status(200).send(github_url) );
 
 app.use('/crypt', cryptRouter);
@@ -32,11 +45,11 @@ app.use('/watchlist', watchlistRouter);
 
 
 // ERROR HANDLING
+
 // 404 handler to your server such that if a request comes in to *ANY* route not listed above the 404 page is sent
 app.all('*', function(req, res, next: NextFunction) {
-  if (res.statusCode === 404) return res.json('Resource does not exist');
+  if (res.statusCode === 404) return res.status(404).json('Resource does not exist');
   // else res.sendFile(path.resolve(__dirname, '../public/index.html'));
-
   const err = new Error('Bad Request')
   err.message = 'Bad Request'
   next(err);
@@ -57,6 +70,22 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   return res.status(errorObj.status).json(err.message);
 });
 
+
+// ERROR HANDLER EXAMPLE FROM TUTORIAL
+// /**
+//  * 404 handler
+//  */
+// app.use('*', (req,res) => {
+//   res.status(404).send('Not Found');
+// });
+
+// /**
+//  * Global error handler
+//  */
+// app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+//   console.log(err);
+//   res.status(500).send({ error: err });
+// });
 
 
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
@@ -81,6 +110,7 @@ const server = app.listen(PORT, () => console.log(`Server running on port ${PORT
  * 1. /auth:
  *    a) /auth/github-login
  *    b) /auth/callback
+ *    c) /auth/register
  * 
  * 
  * 2. /crypt
@@ -112,11 +142,6 @@ const server = app.listen(PORT, () => console.log(`Server running on port ${PORT
 
 
 
-// app.use('/build', express.static(path.join(__dirname, '../build')));
-
-// app.get('/', (req: Request, res: Response) => {
-//   res.sendFile(path.resolve(__dirname, '../index.html'));
-// });
 
 // app.get('/', (req: Request, res: Response) => {
 //     return res.status(400).sendFile(path.resolve(__dirname, '../build/index.html')); // how I fixed getting the trending page when I manually type in localhost:8080/trending and press enter

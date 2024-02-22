@@ -59,8 +59,8 @@ export const getOneDayMarketChart = async (req: Request, res: Response, next: Ne
       prices: [...oneDayPrices]
     }
 
-    res.status(200).send(chartData).end();
-    return next();
+    return res.status(200).send(chartData).end();
+    // return next();
   } catch (error) {
     console.error(error);
     return next(error);
@@ -131,8 +131,8 @@ export const getMeta = async (req: Request, res: Response, next: NextFunction) =
     makeRateLimitedRequests();
 
     const all_meta = await pool.query('SELECT * FROM meta;'); // SELECT ALL FROM TABLE TODO
-    res.status(200).json(all_meta.rows);
-    return next();
+    return res.status(200).json(all_meta.rows);
+    // return next();
   } catch (error) {
     console.error(error);
     return next(error);

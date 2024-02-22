@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "fullstack cryptocurrency dashboard",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack config ./webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
     "compile": "tsc --build",
     "create-table": "node ./server/models/sqlModel.js",
     "dev": "concurrently \"NODE_ENV=development nodemon server/server.ts\" \"NODE_ENV=development webpack serve --hot --open\"",
@@ -61,6 +61,7 @@
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.2",
+    "@types/bcrypt": "^5.0.2",
     "@types/compression": "^1.7.5",
     "@types/cookie-parser": "^1.4.6",
     "@types/cors": "^2.8.17",

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -27,4 +28,4 @@ const UserSchema = new mongoose.Schema({
 
 
 // create a user table or collection if there is no table with that name already
-module.exports = mongoose.model.Users || mongoose.model("Users", UserSchema);
+export const User = mongoose.model.Users || mongoose.model("Users", UserSchema);

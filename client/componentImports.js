@@ -52,7 +52,8 @@ import GoogleSignInSVG from './svg/sign-in/GoogleSignInSVG.jsx';
 import GithubSignInSVG from './svg/sign-in/GithubSignInSVG.jsx';
 import RightArrowSVG from './svg/RightArrowSVG.jsx';
 import AddInvestmentsButtonSVG from './svg/coin-card/AddInvestmentsButtonSVG.jsx';
-
+import LeftArrowSVG from './svg/LeftArrowSVG.jsx';
+import TrashcanSVG from './svg/TrashcanSVG.jsx';
 export {
     AboutCryptiqueIconSVG,
     CryptocurrenciesIconSVG,
@@ -68,6 +69,8 @@ export {
     GithubSignInSVG,
     RightArrowSVG,
     AddInvestmentsButtonSVG, 
+    LeftArrowSVG,
+    TrashcanSVG
 }
 
 

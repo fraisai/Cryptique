@@ -92,6 +92,7 @@
     "sass": "^1.52.2",
     "sass-loader": "^13.0.0",
     "style-loader": "^3.3.1",
+    "supertest": "^6.3.4",
     "tailwindcss": "^3.4.0",
     "ts-node": "^10.9.2",
     "twit": "^2.2.11",

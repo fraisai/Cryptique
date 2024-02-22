@@ -3,10 +3,13 @@ const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
-const mongoose = require('mongoose');
 const app = express();
 const PORT = 5000;
 const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
+
+// MONGO DB ATLAS
+import mongoDbConnect from './models/mongoConnect';
+mongoDbConnect();
 
 // ROUTES
 const cryptRouter= require('./routes/cryptRoutes.ts');
@@ -87,11 +90,11 @@ const server = app.listen(PORT, () => console.log(`Server running on port ${PORT
  *    d) GET /crypt/meta
  * 
  * 3. /watchlist
- *    a) GET /watchlist/cards
- *    b) GET /watchlist/cards/:id
- *    c) POST /watchlist/cards/:id
- *    d) DELETE /watchlist/cards/:id
- *    e) 
+ *    a) GET /watchlist/cards = select all cards in watchlist
+ *    b) GET /watchlist/cards/:id => select single card in watchlist
+ *    c) POST /watchlist/cards => add card to watchlist
+ *    d) DELETE /watchlist/cards/:id => delete a single card in watchlist
+ *    e) PATCH /watchlist/cards/:id
  * 
  */
 

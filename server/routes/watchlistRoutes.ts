@@ -12,15 +12,15 @@ watchlistRouter.get('/cards/:id', getCard);
 
 // POST: watch/card/post
     // When you press the 'Add' button in the cryptodo page, it sends a POST request here
-watchlistRouter.post('/cards/:id', addCard);
+watchlistRouter.post('/cards', addCard);
 
 
 // DELETE: watch/card/:id
-watchlistRouter.delete('/:id', deleteCard);
+watchlistRouter.delete('/cards/:id', deleteCard);
 
 
 // UPDATE aka PATCH: watch/card/:id
-watchlistRouter.patch('/:id', patchCard);
+watchlistRouter.patch('/cards/:id', patchCard);
 
 
 module.exports = watchlistRouter;

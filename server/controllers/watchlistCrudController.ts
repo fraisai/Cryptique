@@ -37,7 +37,7 @@ export const getCard = async(req: Request, res: Response, next: NextFunction) =>
 }
 
 // Add a card to watchlist
-export const addCard = async(req: Request, res: Response, next: NextFunction) => { // POST: /watchlist/cards/:id
+export const addCard = async(req: Request, res: Response, next: NextFunction) => { // POST: /watchlist/cards
     try {
         const { id } = req.body; // you are inserting into the column for description in the table named 'todo' (located in the database 'perntodo') the object description (from req.body)
         // const newCard = await pool.query(`INSERT INTO watchlist_card(_id, _name, symbol, percent_change, equity, shares, price) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [name]);
@@ -53,7 +53,7 @@ export const addCard = async(req: Request, res: Response, next: NextFunction) =>
 }
 
 // Delete a card from watch list
-export const deleteCard = async(req: Request, res: Response, next: NextFunction) => { // DELETE /watchlist/{id}
+export const deleteCard = async(req: Request, res: Response, next: NextFunction) => { // DELETE /watchlist/cards/:id
     try {
         // specify exactly what we want to delete
         const { id } = req.params;
@@ -69,7 +69,7 @@ export const deleteCard = async(req: Request, res: Response, next: NextFunction)
 }
 
 // Edit a card in watch list
-export const patchCard = async(req: Request, res: Response, next: NextFunction) => { // PATCH: /watchlist/{id}
+export const patchCard = async(req: Request, res: Response, next: NextFunction) => { // PATCH: /watchlist/cards/:id
     try {
         const { id } = req.params;
         const { name } = req.body;

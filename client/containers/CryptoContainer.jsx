@@ -14,8 +14,8 @@ const CryptoContainer = () => {
 	}, []);
 
 	return (
-		<div className="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
-			<div id="main-content" className="relative w-1/2 h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900" style={{ paddingLeft: '19%', paddingRight: '19%', width: '150%' }}>
+		<div className="flex pt-16 overflow-hidden bg-gray-50">
+			<div id="main-content" className="relative w-1/2 h-full overflow-y-auto bg-gray-50 lg:ml-64" style={{ paddingLeft: '19%', paddingRight: '19%', width: '150%' }}>
 				{/* MAIN */}
 				<main>
 					<div className="px-6 pt-6" style={{ width: '125%', margin: '0 auto' }}>

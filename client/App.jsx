@@ -25,17 +25,17 @@ const App = () => {
 		<>
 			
 			{/* **************************** NAVBAR **************************** */}
-			<nav className="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+			<nav className="fixed z-30 w-full bg-white border-b border-gray-200">
 				<Navbar />
 			</nav>
 
 			{/* **************************** SIDEBAR **************************** */}
-			<aside id="sidebar" className="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 w-64 h-full pt-16 mb-16 font-normal sm:invisible lg:flex transition-width">
+			<aside className="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 w-64 h-full pt-16 mb-16 font-normal xs:hidden transition-width">
 				<Sidebar />
 			</aside>
 
 			{/* **************************** BODY & ROUTES **************************** */}
-			<div className="bg-gray-50 dark:bg-gray-800">
+			<div className="bg-gray-50">
 
 				{/* **************************** SIGN IN **************************** */}
 				{/* <div align='center' >

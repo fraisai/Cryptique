@@ -14,7 +14,7 @@ const CryptoCardContainer = ({ market }) => {
 	if (market.length > 0) {
 		return (
 			<main>
-				<div className="responsive-three-columns">
+				<div className="responsive-three-columns sm:grid-cols-1">
 					{market.map((el, i) => {
 						return (
 							<div key={el.id + i}>

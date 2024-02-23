@@ -4,7 +4,7 @@ const { Client } = require('pg')
 const Pool = require('pg').Pool;
 const dotenv = require('dotenv')
 dotenv.config()
-const { create_watchlist_sql, seed_watchlist_card } = require('../sql-scripts/create-watchlist_card-table.ts');
+const { create_watchlist_sql, seed_watchlist_card } = require('../sql-scripts/create-watchlist_card-table');
 
 const pool = new Pool({
     connectionString: process.env.ELEPHANT_SQL_URL

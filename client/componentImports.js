@@ -16,6 +16,7 @@ import Sidebar from './components/Sidebar';
 import Spinner from './components/Spinner';
 import TrendingCardContainer from './containers/card-containers/TrendingCardContainer';
 import TrendingContainer from './containers/TrendingContainer';
+import InvestmentsCard from './components/InvestmentsCard.jsx';
 
 export { 
     CoinCard, 
@@ -35,9 +36,14 @@ export {
     Spinner,
     TrendingCardContainer, 
     TrendingContainer, 
+    InvestmentsCard,
 };
 
-// SVG 
+
+
+
+
+// SVG ICONS
 import LanguageSVG from './svg/dashboard/LanguageSVG';
 import DashboardIconPieSVG from './svg/sidebar/DashboardIconPieSVG';
 import CryptocurrenciesIconSVG from './svg/sidebar/CryptocurrenciesIconSVG';
@@ -54,6 +60,8 @@ import RightArrowSVG from './svg/RightArrowSVG.jsx';
 import AddInvestmentsButtonSVG from './svg/coin-card/AddInvestmentsButtonSVG.jsx';
 import LeftArrowSVG from './svg/LeftArrowSVG.jsx';
 import TrashcanSVG from './svg/TrashcanSVG.jsx';
+import ThreeDotsSVG from './svg/ThreeDotsSVG.jsx';
+
 export {
     AboutCryptiqueIconSVG,
     CryptocurrenciesIconSVG,
@@ -70,7 +78,8 @@ export {
     RightArrowSVG,
     AddInvestmentsButtonSVG, 
     LeftArrowSVG,
-    TrashcanSVG
+    TrashcanSVG,
+    ThreeDotsSVG
 }
 
 

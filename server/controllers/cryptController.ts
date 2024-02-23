@@ -4,7 +4,7 @@ const pool = require('../models/sqlConnection'); // connect server to database a
 
 const dotenv = require('dotenv');
 dotenv.config();
-const { geckoTrendingOptions,  geckoAllCoinsMarketsOptions, coinGeckoMarketCharts24, geckoAllCoins } = require('../helpers/options.ts');
+const { geckoTrendingOptions,  geckoAllCoinsMarketsOptions, coinGeckoMarketCharts24, geckoAllCoins } = require('../helpers/options');
 const { btcMarketChart30Days, trendingCoinData, allMarketsCoinsData, marketChartBitcoinData, btc24HoursData } = require('../data/dataExports');
 const { insert_meta_table } = require('../sql-scripts/insert-meta-table');
 

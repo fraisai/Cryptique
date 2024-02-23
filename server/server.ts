@@ -17,9 +17,9 @@ import mongoDbConnect from './models/mongoConnect';
 mongoDbConnect();
 
 // ROUTES
-const cryptRouter= require('./routes/cryptRoutes.ts');
-const watchlistRouter = require('./routes/watchlistRoutes.ts');
-const authRouter = require('./routes/authRoutes.ts');
+const cryptRouter= require('./routes/cryptRoutes');
+const watchlistRouter = require('./routes/watchlistRoutes');
+const authRouter = require('./routes/authRoutes');
 
 // MIDDLEWARE
 // app.use(logger(':date[clf] :method :url :status :response-time ms - :res[content-length]'));
@@ -27,21 +27,20 @@ app.use(cors({credentials: true}));
 app.use(cookieParser());
 app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object
 app.use(express.urlencoded({ extended: true }));
+app.use('/build', express.static(path.join(__dirname, '../build/index.html')));
+
+// HEALTH CHECK
+app.get('/health', (req: Request, res: Response) => res.status(200).json("Health Check Passed"));
 
 
-// app.use('/build', express.static(path.join(__dirname, '../build')));
-
-// app.get('/', (req: Request, res: Response) => {
-//   res.sendFile(path.resolve(__dirname, '../public/index.html'));
-// });
-
-
-app.get('/health', (req: Request, res: Response) => res.status(200).json("HEY"))
 app.use('/auth', authRouter);
-// app.get('/oauth/github-login', (req: Request, res: Response) => res.status(200).send(github_url) );
-
 app.use('/crypt', cryptRouter);
 app.use('/watchlist', watchlistRouter);
+
+
+app.get('/', (req: Request, res: Response) => {
+  res.sendFile(path.resolve(__dirname, '../build/index.html'));
+});
 
 
 // ERROR HANDLING

@@ -88,7 +88,7 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 // });
 
 
-const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+export const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
 

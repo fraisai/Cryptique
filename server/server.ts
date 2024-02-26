@@ -4,12 +4,8 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const app = express();
-// const PORT = 5000;
 const PORT = process.env.PORT || '5000';
 const logger = require('morgan');
-
-app.use(logger('dev'));
-
 const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 
 // MONGO DB ATLAS
@@ -21,16 +17,17 @@ const cryptRouter= require('./routes/cryptRoutes');
 const watchlistRouter = require('./routes/watchlistRoutes');
 const authRouter = require('./routes/authRoutes');
 
+// HEALTH CHECK
+app.get('/health', (req: Request, res: Response) => res.status(200).json("Health Check Passed"));
+
+
 // MIDDLEWARE
-// app.use(logger(':date[clf] :method :url :status :response-time ms - :res[content-length]'));
+app.use(logger(':date[clf] :method :url :status :response-time ms - :res[content-length]'));
 app.use(cors({credentials: true}));
 app.use(cookieParser());
 app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object
 app.use(express.urlencoded({ extended: true }));
 app.use('/build', express.static(path.join(__dirname, '../build/index.html')));
-
-// HEALTH CHECK
-app.get('/health', (req: Request, res: Response) => res.status(200).json("Health Check Passed"));
 
 
 app.use('/auth', authRouter);
@@ -44,7 +41,6 @@ app.get('/', (req: Request, res: Response) => {
 
 
 // ERROR HANDLING
-
 /**
  * 404 handler to your server such that if a request comes in to *ANY* route not listed above the 404 page is sent
  */
@@ -76,6 +72,9 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 });
 
 export const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
 
 
 
@@ -114,18 +113,6 @@ export const server = app.listen(PORT, () => console.log(`Server running on port
  *    e) PATCH /watchlist/cards/:id
  * 
  */
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

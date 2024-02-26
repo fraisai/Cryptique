@@ -1,7 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
 import axios from 'axios';
-import { access } from "fs";
-
 const dotenv = require('dotenv');
 dotenv.config();
 const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;

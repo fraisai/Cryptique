@@ -30,8 +30,7 @@ export const getCard = async(req: Request, res: Response, next: NextFunction): P
         console.log('watchlistCrudController.ts getCard', oneCard);
 
         // ElephantSQL
-        res.status(200).json(oneCard.rows);
-        return next();
+        return res.status(200).json(oneCard.rows);
     } catch (error: any | ErrorRequestHandler) {
         console.error("watchlistCrudController.ts getCard: ", error);
         return next();

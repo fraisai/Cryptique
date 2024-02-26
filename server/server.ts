@@ -6,6 +6,7 @@ const compression = require('compression');
 const app = express();
 const PORT = process.env.PORT || '5000';
 const logger = require('morgan');
+const { requestLogger, errorLogger } = require('./controllers/errorController');
 
 // MONGO DB ATLAS
 import mongoDbConnect from './models/mongoConnect';
@@ -19,9 +20,11 @@ const authRouter = require('./routes/authRoutes');
 // HEALTH CHECK
 app.get('/health', (req: Request, res: Response) => res.status(200).json("Health Check Passed"));
 
+// LOGGERS
+app.use(logger(':date[clf] :method :url :status :response-time ms - :res[content-length]'));
+app.use(requestLogger); // request logger: method and url
 
 // MIDDLEWARE
-app.use(logger(':date[clf] :method :url :status :response-time ms - :res[content-length]'));
 app.use(cors({credentials: true}));
 app.use(cookieParser());
 app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object
@@ -40,6 +43,9 @@ app.get('/', (req: Request, res: Response) => {
 
 
 // ERROR HANDLING
+
+
+
 /**
  * 404 handler to your server such that if a request comes in to *ANY* route not listed above the 404 page is sent
  */
@@ -51,7 +57,7 @@ app.all('*', function(req, res, next: NextFunction) {
 
     res.status(404).json('Resource does not exist');
   }
-
+  req.baseUrl
   next(err);
 });
 

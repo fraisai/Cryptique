@@ -1,8 +1,7 @@
 
 // connecting my database to the server
-// const { Client } = require('pg');
-// const Pool = require('pg').Pool;
-import { Pool } from 'pg';
+const { Client } = require('pg');
+const Pool = require('pg').Pool;
 const dotenv = require('dotenv')
 dotenv.config()
 const { create_watchlist_sql, seed_watchlist_card } = require('../sql-scripts/create-watchlist_card-table');

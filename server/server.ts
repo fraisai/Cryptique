@@ -49,11 +49,14 @@ app.get('/', (req: Request, res: Response) => {
  * 404 handler to your server such that if a request comes in to *ANY* route not listed above the 404 page is sent
  */
 app.all('*', function(req, res, next: NextFunction) {
+  const err = new Error('Bad Request');
+  err.message = 'Bad Request';
+
   if (res.statusCode === 404) {
-    return res.status(404).json('Resource does not exist');
-  } 
-  const err = new Error('Bad Request')
-  err.message = 'Bad Request'
+
+    res.status(404).json('Resource does not exist');
+  }
+
   next(err);
 });
 
@@ -130,81 +133,3 @@ export const server = app.listen(PORT, () => console.log(`Server running on port
 // app.get('/', (req: Request, res: Response) => {
 //     return res.status(400).sendFile(path.resolve(__dirname, '../build/index.html')); // how I fixed getting the trending page when I manually type in localhost:8080/trending and press enter
 // })
-
-
-// RTC TEST
-import WebSocket, { WebSocketServer } from 'ws';
-import { Server } from 'http';
-import { Server as httpsServer } from 'https';
-
-const actions = {
-  CONNECTION: 'CONNECTION',
-  OFFER: 'OFFER',
-  ANSWER: 'ANSWER',
-  LOGIN: 'LOGIN',
-  ICECANDIDATE: 'ICECANDIDATE',
-  LEAVE: 'LEAVE',
-  CREATE_ROOM: 'CREATE_ROOM',
-  JOIN_ROOM: 'JOIN_ROOM',
-
-  WECOME: 'WELCOME',
-  USER_LEFT: 'USER_LEFT',
-};
-
-const { OFFER, ANSWER, ICECANDIDATE, LOGIN, LEAVE, USER_LEFT } = actions;
-
-declare class MyWebSocket extends WebSocketServer {
-  id?: string;
-}
-
-interface myClass {
-  webSocketServer: MyWebSocket;
-  peers: Map<string, MyWebSocket>;
-  consumers: Map<string, MyWebSocket[]>;
-}
-class SFUSignalingChannel {
-  webSocketServer: MyWebSocket;
-  peers: Map<string, MyWebSocket>; // same as users
-  consumers: Map<string, MyWebSocket[]>;
-
-  constructor(server: Server | httpsServer | number) {
-    this.webSocketServer = typeof server === 'number' ? new WebSocket.Server({ port: server }) : new WebSocket.Server({ server: server });
-    this.peers = new Map();
-    this.consumers = new Map();
-  }
-
-  initializeConnection() {
-    this.webSocketServer.on('connection', (socket: MyWebSocket) => {
-      let peerId = Math.random().toString();
-      socket.id = peerId;
-      console.log('A user has connected to the websocket server.', 'peerId:', peerId, 'socket: ', socket);
-
-      socket.close = (event) => {
-        //         const userToDelete = this.getByValue(this.peers, socket);
-        // let user = '';
-        // for (const [key, value] of this.peers.entries()) {
-        //   if (value === socket) user = key;
-        // }
-        // const userToDelete = user;
-        // this.peers.delete(userToDelete);
-        // this.consumers.delete(userToDelete);
-        // const userLeftPayload = {
-        //     ACTION_TYPE: USER_LEFT,
-        //     payload: socket.id
-        // }
-        // this.peers.forEach(function(peer) {
-        //     if (peer.socket.readyState === WebSocket.OPEN) {
-        //         this.peer.socket.send(JSON.stringify(userLeftPayload));
-        //     }
-        // })
-      };
-      // END onCLOSE
-    });
-  }
-}
-
-// const sc = new SignalingChannel(server);
-// sc.initializeConnection();
-
-const sc_SFU = new SFUSignalingChannel(server);
-sc_SFU.initializeConnection();

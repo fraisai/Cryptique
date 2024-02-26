@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import axios from 'axios'; // axios.defaults.baseURL = REACT_BASE_URL;
-import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn } from './componentImports';
+import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn, LoginContainer } from './componentImports';
 import { CryptiqueContext } from './CryptiqueContext';
-// const REACT_BASE_URL = 'http://localhost:5000';
 
 const App = () => {
 	const [chartData, setChartData] = useState({});

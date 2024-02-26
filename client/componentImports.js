@@ -17,6 +17,7 @@ import Spinner from './components/Spinner';
 import TrendingCardContainer from './containers/card-containers/TrendingCardContainer';
 import TrendingContainer from './containers/TrendingContainer';
 import InvestmentsCard from './components/InvestmentsCard.jsx';
+import LoginContainer from './containers/LoginContainer.jsx';
 
 export { 
     CoinCard, 
@@ -37,6 +38,7 @@ export {
     TrendingCardContainer, 
     TrendingContainer, 
     InvestmentsCard,
+    LoginContainer
 };
 
 

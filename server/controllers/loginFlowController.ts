@@ -7,36 +7,27 @@ dotenv.config();
 const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 
 /**
- * 
- * @param req 
- * @param res 
- * @param next 
- * @returns 
+ * github oauth 2.0 - redirects user to github.com to log in
  */
-export const githubLoginController = async (req: Request, res: Response, next: NextFunction) => {
+export const githubLoginController = async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>> | void>  => {
     console.log('githubLoginController', github_url)
     try {
         return res.redirect(github_url);
     } catch (error) {
         console.log('Error in loginFlowController.ts: githubLoginController', error);
+        res.status(200).redirect('back'); // in Express 4.x, use 'back' to automatically redirect back to the page the request came from
         return next(error);
-        // return res.status(301).redirect('/');
     }
 }
 
 /**
  * 
- * @param req 
- * @param res 
- * @param next 
- * @returns 
  */
-export const githubCallbackController = async (req: Request, res: Response, next: NextFunction) => {
+export const githubCallbackController = async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>> | void> => {
     const { code } = req.query;
     console.log(code)
 
     try {
-        console.log("callback code: ", code)
         const { data } = await axios.post('https://github.com/login/oauth/access_token', {
             client_id: process.env.GITHUB_OAUTH_CLIENT_ID,
             client_secret: process.env.GITHUB_OAUTH_CLIENT_SECRET, 
@@ -48,12 +39,10 @@ export const githubCallbackController = async (req: Request, res: Response, next
             }
         });
 
-        console.log(data)
         const { access_token } = data;
-        console.log('access_token:', access_token);
+        console.log('access_token:', access_token, "data: ", data);
 
         return res.status(200).send(access_token);
-        // res.redirect('/')
     } catch (error) {
         console.log('Error in githubCallbackController.ts', error);
         return next(error);

@@ -8,7 +8,6 @@ export const registerController = async (req: Request, res: Response, next: Next
     try {
         // hash password
         const hashedPassword = await bcrypt.hash(password, SALT_WORK_FACTOR);
-
         const newUser = await new User({
             username: username,
             email: email,
@@ -16,8 +15,8 @@ export const registerController = async (req: Request, res: Response, next: Next
             investing: 0,
             date_created: Date.now()
         });
-
         const result = await newUser.save();
+
         if (result) { // result is newUser obj, and keys: _id & _v
             res.status(201).send({ message: 'User created successfully', result })
         } else {

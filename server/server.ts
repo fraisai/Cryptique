@@ -6,7 +6,6 @@ const compression = require('compression');
 const app = express();
 const PORT = process.env.PORT || '5000';
 const logger = require('morgan');
-const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 
 // MONGO DB ATLAS
 import mongoDbConnect from './models/mongoConnect';

@@ -10,7 +10,8 @@ const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 export const githubLoginController = async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>> | void>  => {
     console.log('githubLoginController', github_url)
     try {
-        return res.redirect(github_url);
+        res.redirect(github_url);
+        return;
     } catch (error) {
         console.log('Error in loginFlowController.ts: githubLoginController', error);
         res.status(200).redirect('back'); // in Express 4.x, use 'back' to automatically redirect back to the page the request came from

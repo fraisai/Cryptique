@@ -2,7 +2,7 @@ const expressWatchlist = require('express');
 const watchlistRouter = expressWatchlist.Router();
 
 // CONTROLLERS
-const { addCard, getAllCards, getCard, deleteCard, patchCard } = require('../controllers/watchListCrudController');
+const { addCard, getAllCards, getCard, deleteCard, putCard } = require('../controllers/watchListCrudController');
 
 // GET all cards: watchlist/cards/
 watchlistRouter.get('/cards', getAllCards); 
@@ -20,7 +20,7 @@ watchlistRouter.delete('/cards/:id', deleteCard);
 
 
 // UPDATE aka PATCH: watch/card/:id
-watchlistRouter.patch('/cards/:id', patchCard);
+watchlistRouter.put('/cards/:id', putCard);
 
 
 module.exports = watchlistRouter;

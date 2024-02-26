@@ -1,7 +1,8 @@
 
 // connecting my database to the server
-const { Client } = require('pg')
-const Pool = require('pg').Pool;
+// const { Client } = require('pg');
+// const Pool = require('pg').Pool;
+import { Pool } from 'pg';
 const dotenv = require('dotenv')
 dotenv.config()
 const { create_watchlist_sql, seed_watchlist_card } = require('../sql-scripts/create-watchlist_card-table');
@@ -9,6 +10,8 @@ const { create_watchlist_sql, seed_watchlist_card } = require('../sql-scripts/cr
 const pool = new Pool({
     connectionString: process.env.ELEPHANT_SQL_URL
 })
+// TS type: pool.query(text: string, values?: any[]) => Promise<pg.Result>
+// https://node-postgres.com/guides/project-structure
 
 // USERS TABLE
 pool.query(`CREATE TABLE IF NOT EXISTS test_users (id SERIAL PRIMARY KEY, username VARCHAR(255) UNIQUE NOT NULL, email VARCHAR(255) UNIQUE NOT NULL)`, 

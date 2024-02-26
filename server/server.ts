@@ -45,10 +45,13 @@ app.get('/', (req: Request, res: Response) => {
 
 // ERROR HANDLING
 
-// 404 handler to your server such that if a request comes in to *ANY* route not listed above the 404 page is sent
+/**
+ * 404 handler to your server such that if a request comes in to *ANY* route not listed above the 404 page is sent
+ */
 app.all('*', function(req, res, next: NextFunction) {
-  if (res.statusCode === 404) return res.status(404).json('Resource does not exist');
-  // else res.sendFile(path.resolve(__dirname, '../public/index.html'));
+  if (res.statusCode === 404) {
+    return res.status(404).json('Resource does not exist');
+  } 
   const err = new Error('Bad Request')
   err.message = 'Bad Request'
   next(err);
@@ -61,31 +64,13 @@ app.all('*', function(req, res, next: NextFunction) {
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
-    status: 500,
+    status: 400,
     message: { err: 'An error occurred' },
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log("Express error handler:" , err.message);
   return res.status(errorObj.status).json(err.message);
 });
-
-
-// ERROR HANDLER EXAMPLE FROM TUTORIAL
-// /**
-//  * 404 handler
-//  */
-// app.use('*', (req,res) => {
-//   res.status(404).send('Not Found');
-// });
-
-// /**
-//  * Global error handler
-//  */
-// app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-//   console.log(err);
-//   res.status(500).send({ error: err });
-// });
-
 
 export const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

@@ -15,6 +15,12 @@ export const registerController = async (req: Request, res: Response, next: Next
             investing: 0,
             date_created: Date.now()
         });
+
+        // use mongoose's method of UPSERT in order to guarantee idempotency: const result = await newUser.findOneAndUpdate({ email: email}, newUser, { new: true, upsert: true });
+        // .findOneAndUpdate(filter, update, {new: true, upsert: true }) => if no document matches filter, MongoDB will insert one by combining filter and update 
+        const idemCheck = await newUser.findOne({ email: email }); // check if other email present
+        if (idemCheck) return res.status(200).redirect('/build');
+        
         const result = await newUser.save();
 
         if (result) { // result is newUser obj, and keys: _id & _v
@@ -33,9 +39,28 @@ export const registerController = async (req: Request, res: Response, next: Next
 }
 
 export const loginController = async (req: Request, res: Response, next: NextFunction) => {
-    const { username, email } = req.body; 
-    // check if email OR username user entered exists
-    const user = await User.findOne({ username: username});
-    const userEmail = await User.findOne({ email: email });
-
+    const { email, password } = req.body; 
+    try {
+        // check if email user entered exists
+        const user = await User.findOne({ email: `/${email}/i` });
+        if (!user) return res.status(404).json({ message: "No email for user found."});
+            
+        // if email is found, then compare the password entered with the hashed pasword
+        const passwordCheck = await bcrypt.compare(password, user.password);
+    
+        // if password does NOT match aka is invalid, 401 = invalid credentials
+        if (passwordCheck === false) return res.status(401).json({ message: 'Incorrect password.'});
+    
+        const jwtPayload = {
+            user_id: user._id,
+            user_email: user.email
+        };
+    
+        // create a random JWT token: jwt.sign(payload, secretOrPrivateKey, [options, callback])
+        const token = jwt.sign(jwtPayload, "RANDOM-TOKEN", { expiresIn: "24h" });
+    
+        
+    } catch (error) {
+        
+    }
 }

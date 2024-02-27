@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import axios from 'axios'; // axios.defaults.baseURL = REACT_BASE_URL;
-import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn, LoginContainer } from './componentImports';
+import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn, LoginContainer, SignupContainer } from './componentImports';
 import { CryptiqueContext } from './CryptiqueContext';
 
 const App = () => {
@@ -64,6 +64,7 @@ const App = () => {
 					<Route path="/investments" element={<InvestmentsContainer />} />
 					<Route path="/news" element={<NewsContainer />} />
 					<Route path="/connect" element={<ConnectContainer />} />
+					<Route path="/signup" element={<SignupContainer />} />
 				</Routes>
 			</div>
 

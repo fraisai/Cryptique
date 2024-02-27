@@ -30,8 +30,13 @@ const SignIn = () => {
 		// return redirect('https://github.com/login/oauth/authorize?client_id=17cfd66a744613f0d753')
 	}
 
-	function handleGoogleLogin() {
+	const handleGoogleLogin = () => {
 		console.log('google clicked');
+	}
+
+	const handleRegister = () => { // when create account button is clicked, user is redirected to 'localhost:8080/signup'
+		const nav = useNavigate();
+		nav('/signup');
 	}
 
 	return (
@@ -78,18 +83,18 @@ const SignIn = () => {
 
 					{/* HORIZONTAL LINE */}
 					<div className='mt-4'><hr></hr></div>
-
-
 					
+					{/* GITHUB SIGNIN */}
 					<button
-							onClick={handleGithubLogin} 
-							className="flex items-end justify-center w-full px-1 py-1 mt-4 text-xs border border-gray-200 rounded-lg" 
-							style={{ borderColor: 'rgb(229 231 235/var(--tw-border-opacity))'}}
-						>
-							<div className='flex mr-2' style={{height: '1.25rem', width: '1rem' }}><GithubSignInSVG /></div>
-							Sign in with Github
-						</button>
-						
+						onClick={handleGithubLogin} 
+						className="flex items-end justify-center w-full px-1 py-1 mt-4 text-xs border border-gray-200 rounded-lg" 
+						style={{ borderColor: 'rgb(229 231 235/var(--tw-border-opacity))'}}
+					>
+						<div className='flex mr-2' style={{height: '1.25rem', width: '1rem' }}><GithubSignInSVG /></div>
+						Sign in with Github
+					</button>
+					
+					{/* GOOGLE SIGNIN */}
 					<button 
 						onClick={handleGoogleLogin} 
 						className="flex items-end justify-center w-full px-1 py-1 mt-2 text-xs border border-gray-200 rounded-lg" 
@@ -101,9 +106,9 @@ const SignIn = () => {
 
 					<div className="mt-4 text-sm font-medium text-gray-500 dark:text-gray-300">
 						Not registered?{' '}
-						<a href="" className="text-blue-700 hover:underline dark:text-blue-500">
+						<button onclick={handleRegister} className="text-blue-700 hover:underline dark:text-blue-500">
 							Create account
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>

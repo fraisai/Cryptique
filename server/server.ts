@@ -101,7 +101,8 @@ export const server = app.listen(PORT, () => console.log(`Server running on port
  * 1. /auth:
  *    a) /auth/github-login
  *    b) /auth/callback
- *    c) /auth/register
+ *    c) POST /auth/register
+ *    d) POST /auth/login
  * 
  * 
  * 2. /crypt

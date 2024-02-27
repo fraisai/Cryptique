@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import { User } from '../models/userModel';
 const SALT_WORK_FACTOR = 10;
 
@@ -29,4 +30,12 @@ export const registerController = async (req: Request, res: Response, next: Next
         res.status(200).redirect('/build'); // meta, amazon - these companies send a 200 status code and then redirect user to a different page if same email is entered
         return next(error);
     }
+}
+
+export const loginController = async (req: Request, res: Response, next: NextFunction) => {
+    const { username, email } = req.body; 
+    // check if email OR username user entered exists
+    const user = await User.findOne({ username: username});
+    const userEmail = await User.findOne({ email: email });
+
 }

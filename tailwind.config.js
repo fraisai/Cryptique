@@ -2,6 +2,8 @@
 module.exports = {
   content: [
     "./client/**/*.{js, jsx, ts, tsx}",
+    "./client/containers/**/*.{js,jsx,ts,tsx}",
+    // important: true,
     // "node_modules/flowbite-react/lib/esm/**/*.js"
   ],
   theme: {

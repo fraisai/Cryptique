@@ -62,11 +62,16 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
+            {
+                test: /\.png/,
+                exclude: /node_modules/,
+                type: './asset/images'
+            }
         ]
     },
 
     resolve: {
-        extensions: [".js", ".jsx", ".json"],
+        extensions: [".js", ".jsx", ".json", ".ts"],
     },
 
     plugins: [

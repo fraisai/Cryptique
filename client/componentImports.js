@@ -18,8 +18,7 @@ import TrendingCardContainer from './containers/card-containers/TrendingCardCont
 import TrendingContainer from './containers/TrendingContainer';
 import InvestmentsCard from './components/InvestmentsCard.jsx';
 import LoginContainer from './containers/LoginContainer.jsx';
-import SignupContainer from '../containers/SignupContainer'
-
+import SignupContainer from './containers/SignupContainer.jsx';
 
 
 export { 

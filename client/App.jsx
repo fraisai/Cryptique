@@ -4,6 +4,25 @@ import axios from 'axios'; // axios.defaults.baseURL = REACT_BASE_URL;
 import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn, LoginContainer, SignupContainer } from './componentImports';
 import { CryptiqueContext } from './CryptiqueContext';
 
+const Layout = ({ children }) => {
+	return(
+		<div className="wrapper bg-gray-50">
+			{/* **************************** SIDEBAR **************************** */}
+			<aside className="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 w-64 h-full pt-16 mb-16 font-normal xs:hidden transition-width">
+				<Sidebar />
+			</aside>
+
+			<div className="bg-gray-50">{children}</div>
+
+			{/* **************************** FOOTER **************************** */}
+			<footer className="bg-gray-50">
+				<Footer />
+			</footer>
+		</div>
+	)
+}
+
+
 const App = () => {
 	const [chartData, setChartData] = useState({});
 	let location = useLocation();
@@ -21,26 +40,15 @@ const App = () => {
 	console.log("location: ", location.search);
 	
 	return (
-		<>
+		<div className="w-full h-full bg-gray-50">
 			
 			{/* **************************** NAVBAR **************************** */}
 			<nav className="fixed z-30 w-full bg-white border-b border-gray-200">
 				<Navbar />
 			</nav>
 
-			{/* **************************** SIDEBAR **************************** */}
-			<aside className="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 w-64 h-full pt-16 mb-16 font-normal xs:hidden transition-width">
-				<Sidebar />
-			</aside>
-
 			{/* **************************** BODY & ROUTES **************************** */}
-			<div className="bg-gray-50">
-
-				{/* **************************** SIGN IN **************************** */}
-				{/* <div align='center' >
-					<SignIn/>
-				</div> */}
-
+			<div className="">
 				<Routes>
 					{/* <Route path='/login' 
 						component={() => {
@@ -58,21 +66,17 @@ const App = () => {
 						}
 					/> */}
 
-					<Route path="/" element={<Dashboard chartData={chartData} />} />
-					<Route path="/all-coins" element={<CryptoContainer />} />
-					<Route path="/trending" element={<TrendingContainer />} />
-					<Route path="/investments" element={<InvestmentsContainer />} />
-					<Route path="/news" element={<NewsContainer />} />
-					<Route path="/connect" element={<ConnectContainer />} />
+					<Route path="/" element={<Layout><Dashboard chartData={chartData} /></Layout>} />
+					<Route path="/all-coins" element={<Layout><CryptoContainer /></Layout>} />
+					<Route path="/trending" element={<Layout><TrendingContainer /></Layout>} />
+					<Route path="/investments" element={<Layout><InvestmentsContainer /></Layout>} />
+					<Route path="/news" element={<Layout><NewsContainer /></Layout>} />
+					<Route path="/connect" element={<Layout><ConnectContainer /></Layout>} />
+					<Route path="/login" element={<LoginContainer />} />
 					<Route path="/signup" element={<SignupContainer />} />
 				</Routes>
 			</div>
-
-			{/* **************************** FOOTER **************************** */}
-			<footer className="bg-gray-50 dark:bg-gray-800">
-				<Footer />
-			</footer>
-		</>
+		</div>
 	);
 };
 

@@ -13,7 +13,7 @@ const SignIn = () => {
 	});
 	
 	async function handleGithubLogin(e) {
-		// e.preventDefault();
+		e.preventDefault();
 		console.log('github clicked');
 		// window.location.href = 'https://www.github.com/login/oauth/authorize?client_id=17cfd66a744613f0d753';
 		await axios.get('api/auth/github-login', {headers: {"Access-Control-Allow-Origin": "*"}}
@@ -40,43 +40,43 @@ const SignIn = () => {
 	}
 
 	return (
-		<div className="flex flex-col pt-16 bg-gray-50 dark:bg-gray-900">
-			<div className="relative w-full h-full px-6 pt-16 overflow-y-auto bg-gray-50 lg:ml-60 dark:bg-gray-900" style={{ paddingLeft: '18%', width: '100%' }}>
-				<div className="max-w-md p-8 bg-white border border-gray-200 rounded-lg shadow sm:p-6 dark:bg-gray-800 dark:border-gray-700">
+		<div className="flex flex-col pt-16">
+			<div className="flex justify-center w-full h-full pt-16 overflow-y-auto " >
+				<div className="p-8 bg-white border border-gray-200 rounded-lg shadow" style={{ width: '350px'}} >
 					<form className="space-y-6 ">
-						<h5 className="pt-16 mt-16 text-xl font-medium text-gray-900 dark:text-white ">Sign in to Cryptique</h5>
+						<h5 className="pt-1 text-xl font-medium text-gray-900">Sign in to Cryptique</h5>
 						<div align='left'>
-							<label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+							<label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">
 								Email
 							</label>
 							
-							<input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+							<input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="name@company.com" required />
 						</div>
 						
 						<div align='left'>
-							<label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+							<label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">
 								Password
 							</label>
-							<input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+							<input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5" required />
 						</div>
 						
 						<div className="flex space-around" style={{ display: 'flex', justifyContent: 'space-between'}}>
 							<div className="flex items-start">
 								<div className="flex items-center h-5 mr-1">
-									<input id="remember" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600" required />
+									<input checked={false} type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required />
 								</div>
 								
-								<label htmlFor="remember" className="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">
+								<label htmlFor="remember" className="text-sm font-medium text-gray-900 ms-2">
 									Remember me
 								</label>
 							</div>
 							
-							<a href="" className="text-sm text-blue-700 ms-auto hover:underline dark:text-blue-500">
+							<a href="" className="text-sm text-blue-700 ms-auto hover:underline">
 								Forgot Password?
 							</a>
 						</div>
 						
-						<button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">
+						<button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
 							Login
 						</button>				
 					</form>
@@ -104,9 +104,9 @@ const SignIn = () => {
 						Sign in with Google
 					</button>
 
-					<div className="mt-4 text-sm font-medium text-gray-500 dark:text-gray-300">
+					<div className="mt-4 text-sm font-medium text-gray-500">
 						Not registered?{' '}
-						<button onclick={handleRegister} className="text-blue-700 hover:underline dark:text-blue-500">
+						<button onclick={handleRegister} className="text-blue-700 hover:underline">
 							Create account
 						</button>
 					</div>

@@ -6,7 +6,7 @@ const compression = require('compression');
 const app = express();
 const PORT = process.env.PORT || '5000';
 const logger = require('morgan');
-const { requestLogger, errorLogger } = require('./controllers/errorController');
+import { requestLogger, errorLogger } from './controllers/errorController';
 
 // MONGO DB ATLAS
 import mongoDbConnect from './models/mongoConnect';

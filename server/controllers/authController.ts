@@ -5,7 +5,7 @@ import { User } from '../models/userModel';
 const SALT_WORK_FACTOR = 10;
 
 export const registerController = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    const { password, username, email } = req.body;
+    const { username, email, password } = req.body;
     try {
         const hashedPassword = await bcrypt.hash(password, SALT_WORK_FACTOR); // hash password
         const newUser = await new User({
@@ -18,8 +18,10 @@ export const registerController = async (req: Request, res: Response, next: Next
 
         // use mongoose's method of UPSERT in order to guarantee idempotency: const result = await newUser.findOneAndUpdate({ email: email}, newUser, { new: true, upsert: true });
         // .findOneAndUpdate(filter, update, {new: true, upsert: true }) => if no document matches filter, MongoDB will insert one by combining filter and update 
-        const idemCheck = await newUser.findOne({ email: email }); // check if other email present
-        if (idemCheck) return res.status(200).redirect('/build');
+
+        const idemCheckUsername = await newUser.findOne({ username: username }); // check if other email present
+        const idemCheckEmail = await newUser.findOne({ email: email });
+        if (idemCheckUsername) return res.status(200).redirect('/build');
         
         const result = await newUser.save();
 

@@ -99,3 +99,7 @@ Settings Levels
   </div>
 {/* </div> */}
 </div>
+
+
+
+https://reactnative.dev/docs/layout-props?language=javascript: onPress={() => setSquares([...squares, <Square />])}

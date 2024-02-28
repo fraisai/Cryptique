@@ -17,20 +17,20 @@ const ChatContainer = () => {
 
 	const dropdownCommentMenu = () => {
 		return (
-			<div id="dropdownComment2" className="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-36 dark:bg-gray-700 dark:divide-gray-600" style={{ position: 'absolute', inset: 'auto auto 0px 0px', margin: '0px', transform: 'translate3d(1135px, 1437px, 0px)' }} data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">
-				<ul className="py-1 text-sm text-gray-700 dark:text-gray-200">
+			<div id="dropdownComment2" className="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-36" style={{ position: 'absolute', inset: 'auto auto 0px 0px', margin: '0px', transform: 'translate3d(1135px, 1437px, 0px)' }} data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">
+				<ul className="py-1 text-sm text-gray-700">
 					<li>
-						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+						<a href="#" className="block px-4 py-2 hover:bg-gray-100">
 							Edit
 						</a>
 					</li>
 					<li>
-						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+						<a href="#" className="block px-4 py-2 hover:bg-gray-100 ">
 							Remove
 						</a>
 					</li>
 					<li>
-						<a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+						<a href="#" className="block px-4 py-2 hover:bg-gray-100 ">
 							Report
 						</a>
 					</li>
@@ -41,7 +41,7 @@ const ChatContainer = () => {
 
 	const showRepliesToComment = () => {
 		return (
-			<article className="mb-5 pl-5">
+			<article className="pl-5 mb-5">
 				<footer className="flex items-center justify-between mb-2">
 					<div className="flex items-center">
 						<p className="inline-flex items-center mr-3 text-sm font-semibold text-gray-900 dark:text-white">
@@ -54,7 +54,8 @@ const ChatContainer = () => {
 							</time>
 						</p>
 					</div>
-					<button id="dropdownComment2Button" data-dropdown-toggle="dropdownComment2" className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:ring-gray-600" type="button">
+					
+					<button id="dropdownComment2Button" data-dropdown-toggle="dropdownComment2" className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50" type="button">
 						<svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 							<path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"></path>
 						</svg>
@@ -62,15 +63,15 @@ const ChatContainer = () => {
 					</button>
 				</footer>
 
-				<p className="mb-2 text-gray-900 dark:text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque tristique accumsan. Aenean tincidunt in urna ut cursus. Nullam vitae sem sed mauris luctus pretium nec.</p>
+				<p className="mb-2 text-gray-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pellentesque tristique accumsan. Aenean tincidunt in urna ut cursus. Nullam vitae sem sed mauris luctus pretium nec.</p>
 
 				<div className="flex items-center mb-2 space-x-2">
-					<button type="button" className="py-1.5 px-3 inline-flex items-center rounded-lg bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 dark:bg-gray-700">
+					<button type="button" className="py-1.5 px-3 inline-flex items-center rounded-lg bg-gray-100 hover:bg-gray-200">
 						<svg aria-hidden="true" className="h-5 mr-2" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M24 14.1907C24 12.7352 23.7409 11.3397 23.2659 10.0486C22.9412 13.8526 20.9132 15.8065 18.7941 14.8966C16.8092 14.0439 18.1468 10.7199 18.2456 9.13377C18.4122 6.44506 18.2372 3.36742 13.3532 0.808594C15.3826 4.69095 13.5882 7.10295 11.7064 7.24977C9.61835 7.41283 7.70612 5.45542 8.412 2.27895C6.12635 3.96318 6.06 6.79801 6.76518 8.63189C7.50071 10.5434 6.73553 12.1317 4.94188 12.3081C2.93718 12.5058 1.82329 10.1615 2.85035 6.42601C1.07294 8.51895 0 11.2295 0 14.1907C0 20.8182 5.37247 26.1907 12 26.1907C18.6275 26.1907 24 20.8182 24 14.1907Z" fill="#F4900C"></path>
 							<path d="M19.3349 17.7211C19.4393 19.8981 17.5271 20.7515 16.4979 20.3393C15.0113 19.7442 15.4102 18.7221 15.0276 16.6044C14.645 14.4868 13.1746 13.0164 10.9984 12.3691C12.5866 16.8395 10.1182 18.487 8.82428 18.7814C7.50287 19.0821 6.17511 18.7807 6.02334 15.9529C4.4817 17.4875 3.52734 19.6108 3.52734 21.9571C3.52734 22.2169 3.54358 22.4724 3.56617 22.7266C5.73323 24.8682 8.70993 26.1924 11.9979 26.1924C15.2859 26.1924 18.2626 24.8682 20.4297 22.7266C20.4523 22.4724 20.4685 22.2169 20.4685 21.9571C20.4685 20.4134 20.0563 18.967 19.3349 17.7211Z" fill="#FFCC4D"></path>
 						</svg>
-						<span className="text-sm font-medium text-gray-500 dark:text-gray-400">posts.emoji_a_count</span>
+						<span className="text-sm font-medium text-gray-500">posts.emoji_a_count</span>
 					</button>
 				</div>
 			</article>

@@ -19,7 +19,7 @@ import TrendingContainer from './containers/TrendingContainer';
 import InvestmentsCard from './components/InvestmentsCard.jsx';
 import LoginContainer from './containers/LoginContainer.jsx';
 import SignupContainer from './containers/SignupContainer.jsx';
-
+import TermsConditions from './containers/TermsConditions.jsx';
 
 export { 
     CoinCard, 
@@ -41,7 +41,8 @@ export {
     TrendingContainer, 
     InvestmentsCard,
     LoginContainer, 
-    SignupContainer
+    SignupContainer,
+    TermsConditions
 };
 
 
@@ -66,6 +67,11 @@ import AddInvestmentsButtonSVG from './svg/coin-card/AddInvestmentsButtonSVG.jsx
 import LeftArrowSVG from './svg/LeftArrowSVG.jsx';
 import TrashcanSVG from './svg/TrashcanSVG.jsx';
 import ThreeDotsSVG from './svg/ThreeDotsSVG.jsx';
+import FacebookIconSVG from './svg/footer/FacebookIconSVG.jsx';
+import InstagramIconSVG from './svg/footer/InstagramIconSVG.jsx';
+import TwitterIconSVG from './svg/footer/TwitterIconSVG.jsx'
+
+
 
 export {
     AboutCryptiqueIconSVG,
@@ -84,7 +90,10 @@ export {
     AddInvestmentsButtonSVG, 
     LeftArrowSVG,
     TrashcanSVG,
-    ThreeDotsSVG
+    ThreeDotsSVG,
+    FacebookIconSVG,
+    InstagramIconSVG,
+    TwitterIconSVG
 }
 
 

@@ -16,28 +16,22 @@ export const registerController = async (req: Request, res: Response, next: Next
             investing: 0,
             date_created: Date.now()
         });
-       
-
-        // use mongoose's method of UPSERT in order to guarantee idempotency: const result = await newUser.findOneAndUpdate({ email: email}, newUser, { new: true, upsert: true });
-        // .findOneAndUpdate(filter, update, {new: true, upsert: true }) => if no document matches filter, MongoDB will insert one by combining filter and update 
-
-        const idemCheckUsername = await newUser.exists({ email: email }); // check if other email present
-        console.log("NEWUSER: ", newUser, username, email, password, idemCheckUsername);
-        return res.status(200).json('check');
-
-        const idemCheckEmail = await newUser.findOne({ email: email });
-        if (idemCheckUsername) return res.status(200).redirect('/build');
-        
         const result = await newUser.save();
+        const idemCheckEmail = await User.findOne({ email });
 
         if (result) { // result is newUser obj, and keys: _id & _v
-            res.status(201).send({ message: 'User created successfully', result })
+            return res.status(201).send({
+                message: "Success",
+                user_id: result._id,
+                username: result.username,
+                user_email: result.email,
+                user_investment: result.investing,
+                date_created: result.date_created,
+            })
         } else {
-            console.log("DUPLICATE????", result)
-            res.status(200).redirect('/build'); // meta, amazon - these companies send a 200 status code and then redirect user to a different page if same email is entered
+            return res.status(200).redirect('/build'); // meta, amazon - these companies send a 200 status code and then redirect user to a different page if same email is entered
             // res.status(200).redirect('back'); => in Express 4.x, use 'back' to automatically redirect back to the page the request came from
         }
-        return;
     } catch (error) {
         console.log("ERROR in AUTHCONTROLLER FOR REGISTER", error)
         res.status(200).redirect('/build'); // meta, amazon - these companies send a 200 status code and then redirect user to a different page if same email is entered
@@ -46,23 +40,17 @@ export const registerController = async (req: Request, res: Response, next: Next
 }
 
 export const loginController = async (req: Request, res: Response, next: NextFunction) => { // /auth/login
+    console.log(req.query)
     try {
         const { email, password } = req.body; 
         const user = await User.findOne({ email: email }); // check if email user entered exists
         if (!user) return res.status(404).json({ message: "No email for user found."}); // no user with email entered is found
-        
-
-        // if email is found, then compare the password entered with the hashed pasword
+        // if email is found, then compare the password entered with the hashed pasword => make sure compare(entered, hashed)
         const passwordCheck = await bcrypt.compare(password, user.password);
-    
-        console.log('req.body0', req.body);
-        console.log('login user', typeof user.password, typeof password, passwordCheck);
-        return res.status(401).json({ message: 'check.'});
-
-
+        
         // if password does NOT match aka is invalid, 401 = invalid credentials
         if (passwordCheck === false) return res.status(401).json({ message: 'Incorrect password.'});
-    
+
         const jwtPayload = {
             user_id: user._id,
             user_email: user.email
@@ -72,7 +60,7 @@ export const loginController = async (req: Request, res: Response, next: NextFun
         const token = jwt.sign(jwtPayload, "RANDOM-TOKEN", { expiresIn: "24h" });
 
         // return successful res with token
-        return res.status(200).json({
+        return res.status(201).json({
             message: "Success",
             user_id: user._id,
             username: user.username,
@@ -88,3 +76,13 @@ export const loginController = async (req: Request, res: Response, next: NextFun
     }
 }
 
+
+
+/*
+When you call var user = new User({}) you are creating a new MongoDB document based on the User model and assigning it to var user.
+
+A single user document does not have a find() function, but your User model does.
+
+var user = new User({});
+User.find().then(...);
+*/

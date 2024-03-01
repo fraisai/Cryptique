@@ -25,11 +25,20 @@ const SignupContainer = () => {
     setRegisterFormData((prevState) => ({...prevState, [name]: value }));
   }
 
+  const postSignup = async (form) => {
+    try {
+      const res = await axios.post('/api/auth/register', form, { headers: { 'Content-Type': 'application/json'}});
+      console.log("SignupContainer axios: ", res, res.data)
+    } catch (error) {
+      console.log("SignupContainer error: ", error);
+    }
+  }
+  
   const handleSubmit = (e) => { // make post request to /api/auth/register
     e.preventDefault();
     const { name, value } = e.target
     setRegisterFormData({... registerFormData, [name]: value, submitted: true });
-    // axios.post('/api/auth/register')
+    postSignup({...registerFormData});
     // console.log("registerFormData", registerFormData)
   }
 

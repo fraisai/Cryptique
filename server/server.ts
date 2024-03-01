@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || '5000';
 const logger = require('morgan');
 import { requestLogger, errorLogger } from './controllers/errorController';
+const endpoint = require('./controllers/endpointController');
 
 // MONGO DB ATLAS
 import mongoDbConnect from './models/mongoConnect';
@@ -27,8 +28,8 @@ app.use(requestLogger); // request logger: method and url
 // MIDDLEWARE
 app.use(cors({credentials: true}));
 app.use(cookieParser());
-app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object
 app.use('/', express.static(path.join(__dirname, '../build')));
 
 // app.post('/auth/login', (req: Request, res: Response) => {
@@ -82,6 +83,20 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   return res.sendFile(path.resolve(__dirname, '../build/index.html'));
 
 });
+
+
+// Protected
+// free endpoint
+app.get("/free-endpoint", (request, response) => {
+  response.json({ message: "You are free to access me anytime" });
+});
+
+// authentication endpoint
+app.get("/auth-endpoint", endpoint, (request, response) => {
+  response.json({ message: "You are authorized to access me" });
+});
+
+
 
 export const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 

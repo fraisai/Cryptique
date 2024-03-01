@@ -1,9 +1,11 @@
 import React from 'react'
 import { SignIn } from '../componentImports'
-const LoginContainer = () => {
+const LoginContainer = (func) => {
   return (
     <div className="bg-gray-50">
-      <SignIn />
+      <SignIn 
+        setIsAuth={func.setIsAuth}
+      />
     </div>
   )
 }

@@ -32,6 +32,7 @@ app.use(express.json()); // express's built in body-parser - parse JSON bodies, 
 app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '../build')));
 
+
 // app.post('/auth/login', (req: Request, res: Response) => {
 //   return res.status(200).json('auth/login');
 // })
@@ -80,7 +81,7 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   // const errorObj = Object.assign({}, defaultErr, err);
   console.log("Express error handler:" , err.message);
   // return res.status(defaultErr.status).send(defaultErr.message);
-  return res.sendFile(path.resolve(__dirname, '../build/index.html'));
+  return res.status(200).json(defaultErr.message)
 
 });
 
@@ -94,6 +95,11 @@ app.get("/free-endpoint", (request, response) => {
 // authentication endpoint
 app.get("/auth-endpoint", endpoint, (request, response) => {
   response.json({ message: "You are authorized to access me" });
+});
+
+
+app.use('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build/index.html'));
 });
 
 

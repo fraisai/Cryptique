@@ -2,6 +2,7 @@ import React from 'react';
 import { CoinCard } from '../../componentImports';
 import { Spinner } from '../../componentImports';
 const CryptoCardContainer = ({ market }) => {
+	// console.log("market", market)
 	const formatter = new Intl.NumberFormat('en-US', {
 		style: 'currency',
 		currency: 'USD',
@@ -10,7 +11,7 @@ const CryptoCardContainer = ({ market }) => {
 		//minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
 		//maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 	});
-
+	
 	if (market.length > 0) {
 		return (
 			<main>

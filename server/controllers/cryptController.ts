@@ -8,8 +8,10 @@ const { geckoTrendingOptions,  geckoAllCoinsMarketsOptions, coinGeckoMarketChart
 const { btcMarketChart30Days, trendingCoinData, allMarketsCoinsData, marketChartBitcoinData, btc24HoursData } = require('../data/dataExports');
 const { insert_meta_table } = require('../sql-scripts/insert-meta-table');
 
-// Markets => GET: /crypt/coins/markets (all coins)
-export const getAllMarkets = async (req: Request, res: Response, next: NextFunction) => {
+/**
+ * Get all coin Markets => GET: /crypt/coins/markets (all coins)
+ */
+export const getAllMarkets = async (req: Request, res: Response, next: NextFunction) => { // GET: crypt/coins/markets
   try {
     // temporary DUMMY DATA
     return res.status(200).json(await allMarketsCoinsData).end();
@@ -100,7 +102,6 @@ export const getMeta = async (req: Request, res: Response, next: NextFunction) =
         let coin = all_coins.rows[i];
         try {
           const res: Record<'data', { id: string, symbol: string, name: string, description: string, links: Record<'homepage', Array<string>>, image: Record<'large', string>}> | any = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin.id}?localization=false&tickers=false&community_data=true&developer_data=false&sparkline=true`);
-
           const { id, symbol, name, description, links, image, sparkline_7d, last_updated} = res.data;
   
           // jsonb data to insert into meta table: 

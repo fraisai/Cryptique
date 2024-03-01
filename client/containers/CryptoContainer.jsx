@@ -7,8 +7,17 @@ const CryptoContainer = () => {
 
 	useEffect(() => {
 		const getMarketData = async () => {
-			const marketData = await axios.get('/api/crypt/coins/markets');
-			setMarket(marketData.data);
+			try {
+				const marketData = await axios.get('/api/crypt/coins/markets');
+				setMarket(marketData.data);
+	
+				// const dummy = await axios.get('/api/crypt/coins/');
+				// if (JSON.stringify(dummy.data === "{}")) "empty object";
+				// console.log("dummy ", dummy, dummy.data, marketData)
+			} catch (error) {
+				setMarket([])
+				console.log("CryptoContainer.jsx: ", error)
+			}
 		};
 		getMarketData();
 	}, []);

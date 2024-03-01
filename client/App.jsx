@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, useLocation, redirect } from 'react-router-dom';
 import axios from 'axios'; // axios.defaults.baseURL = REACT_BASE_URL;
-import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn, LoginContainer, SignupContainer, TermsConditions } from './componentImports';
+import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn, LoginContainer, SignupContainer, TermsConditions, ErrorPage } from './componentImports';
 import { CryptiqueContext } from './CryptiqueContext';
 
 const Layout = ({ children }) => {
@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
 				<Sidebar />
 			</aside>
 
-			<div className="flex flex-col pt-16 bg-gray-50" style={{ paddingLeft: '18%', width: '100%' }}>{children}</div>
+			<div className="flex flex-col pt-16 " style={{ paddingLeft: '18%', width: '100%' }}>{children}</div>
 
 			{/* **************************** FOOTER **************************** */}
 			<footer className="bg-gray-50">
@@ -86,11 +86,10 @@ const App = () => {
 					<Route path="/news" element={<Layout><NewsContainer /></Layout>} />
 					<Route path="/connect" element={<Layout><ConnectContainer /></Layout>} />
 					<Route path="/terms-conditions" element={<Layout><TermsConditions /></Layout>} />
-					
-					<Route path="/login" element={<SignupLayout><LoginContainer func={setIsAuth} /></SignupLayout>} />
+					<Route path="/error" element={<ErrorPage />} />
+
+					<Route path="/login" element={<SignupLayout><LoginContainer /></SignupLayout>} />
 					<Route path="/signup" element={<SignupLayout><SignupContainer /></SignupLayout>} />
-					
-					{redirect('/login')}
 				</Routes>
 			</div>
 		</div>

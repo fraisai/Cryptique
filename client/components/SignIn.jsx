@@ -3,7 +3,7 @@ import { Route, useLocation, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { GoogleSignInSVG, GithubSignInSVG, InputCheckbox } from '../componentImports';
 
-const SignIn = ({ setIsAuth }) => {
+const SignIn = () => {
 	let CLIENT_ID = '';
 	const location = useLocation();
 	const [remember, setRemember] = useState(false);
@@ -17,7 +17,6 @@ const SignIn = ({ setIsAuth }) => {
 	async function handleGithubLogin(e) {
 		e.preventDefault();
 		console.log('github clicked');
-		setIsAuth(true);
 		return;
 		
 		// window.location.href = 'https://www.github.com/login/oauth/authorize?client_id=17cfd66a744613f0d753';

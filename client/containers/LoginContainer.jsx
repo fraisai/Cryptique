@@ -4,7 +4,6 @@ const LoginContainer = (func) => {
   return (
     <div className="bg-gray-50">
       <SignIn 
-        setIsAuth={func.setIsAuth}
       />
     </div>
   )

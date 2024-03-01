@@ -28,8 +28,8 @@ app.use(requestLogger); // request logger: method and url
 // MIDDLEWARE
 app.use(cors({credentials: true}));
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object
+app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '../build')));
 
 // app.post('/auth/login', (req: Request, res: Response) => {

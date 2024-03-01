@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import RegisterImage from '../assets/images/cryptique_signup_container_img-min.png';
 import { InputCheckbox } from '../componentImports';
@@ -12,7 +12,10 @@ const SignupContainer = () => {
     remember: false,
     submitted: false
   });
-
+  const nav = useNavigate();
+  const { state } = useLocation();
+  const from = state ? state.from.pathname : '/signup';
+  console.log('FROM: ', from )
   const validatePass = (val) => { // min 6 letter password, with at least a symbol, upper and lower case letters and a number
     const regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!regex.test(val)) console.log('Enter valid password');
@@ -26,10 +29,14 @@ const SignupContainer = () => {
   }
 
   const postSignup = async (form) => {
+    console.log('postSign', form)
     try {
-      const res = await axios.post('/api/auth/register', form, { headers: { 'Content-Type': 'application/json'}});
-      console.log("SignupContainer axios: ", res, res.data)
+      const res = await axios.post('/api/auth/register', {...form}, { headers: { 'Content-Type': 'application/json'}});
+      if (res.status === 201 && res.data.message === "Success") nav('/');
+      else nav('/error');
+      return;
     } catch (error) {
+      nav('/error');
       console.log("SignupContainer error: ", error);
     }
   }

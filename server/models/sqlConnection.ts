@@ -9,13 +9,13 @@ const pool = new Pool({
 // create meta table
 pool.query(create_meta_table, (err: Error, result: typeof Result) => {
     if (err) console.log('Error in creating meta Table', err);
-    else console.log('meta table successfully created', result);
+    else console.log('meta table successfully created');
 })
 
 pool.query('SELECT * FROM test_meta;', (err: Error, result: typeof Result) => {
     if (err) console.error('Error selecting the meta table', err);
-    else console.log('meta data selected successfully', result);
-  })
+    else console.log('meta data selected successfully');
+})
   
   
 

@@ -4,7 +4,8 @@
   "description": "fullstack cryptocurrency dashboard",
   "scripts": {
     "clean": "rimraf build/*",
-    "build": "npm run clean && npm run tsc && cross-env NODE_ENV=production",
+    "webpack": "webpack --config ./webpack.config.js",
+    "build": "npm run clean && npm run tsc && npm run webpack && cross-env NODE_ENV=production",
     "tsc": "tsc --build",
     "create-table": "node ./server/models/sqlModel.js",
     "dev": "concurrently \"NODE_ENV=development nodemon server/server.ts\" \"NODE_ENV=development webpack serve --hot --open\"",
@@ -12,7 +13,7 @@
     "pretty-write-back": "prettier --write ./server/controllers/ ./server/helpers ./server/models ./server/routes ./server/server.ts ./server/SFUSignalingChannel.ts",
     "pretty-write-front": "prettier --write ./client/components ./client/containers ./client/svg ./client/App.jsx ./client/index.js",
     "lint": "eslint .",
-    "start": "npm run build && node ./build/server.js",
+    "start": "concurrently \"NODE_ENV=production ts-node ./server/server.ts\" \"NODE_ENV=production webpack serve --hot --open\"",
     "test": "jest --coverage",
     "integration-test": "jest \"--testPathPattern='.+\\.integration\\.test\\.js$'\"",
     "unit-test": "jest \"--testPathPattern='.+\\.unit\\.test\\.js|.ts$'\""
@@ -25,6 +26,7 @@
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.18.2",
     "@babel/runtime": "^7.18.3",
+    "@types/react-router-dom": "^5.3.3",
     "@types/supertest": "^6.0.2",
     "@types/ws": "^8.5.10",
     "axios": "^1.4.0",
@@ -100,6 +102,7 @@
     "style-loader": "^3.3.1",
     "supertest": "^6.3.4",
     "tailwindcss": "^3.4.0",
+    "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "twit": "^2.2.11",
     "typescript": "^5.3.3",

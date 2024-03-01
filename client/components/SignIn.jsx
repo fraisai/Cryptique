@@ -1,17 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Route, useLocation, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import { GoogleSignInSVG, GithubSignInSVG } from '../componentImports';
+import { GoogleSignInSVG, GithubSignInSVG, InputCheckbox } from '../componentImports';
 
 const SignIn = () => {
 	let CLIENT_ID = '';
 	const location = useLocation();
+	const [remember, setRemember] = useState(false);
 	const loginRef = useRef({
 		email: '',
 		password: '',
-		remember: false
+		remember: false,
+		submitted: false
 	});
-	
+
 	async function handleGithubLogin(e) {
 		e.preventDefault();
 		console.log('github clicked');
@@ -34,10 +36,10 @@ const SignIn = () => {
 		console.log('google clicked');
 	}
 
-	const handleRegister = () => { // when create account button is clicked, user is redirected to 'localhost:8080/signup'
-		const nav = useNavigate();
-		nav('/signup');
-	}
+	// const handleRegister = () => { // when create account button is clicked, user is redirected to 'localhost:8080/signup'
+	// 	const nav = useNavigate();
+	// 	nav('/signup');
+	// }
 
 	return (
 		<div className="flex flex-col pt-16">
@@ -57,13 +59,17 @@ const SignIn = () => {
 							<label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">
 								Password
 							</label>
-							<input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5" required />
+							<input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5" required minLength={3}/>
 						</div>
 						
 						<div className="flex space-around" style={{ display: 'flex', justifyContent: 'space-between'}}>
 							<div className="flex items-start">
 								<div className="flex items-center h-5 mr-1">
-									<input checked={false} type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required />
+									<InputCheckbox 
+										checkedVal={loginRef.current.checked}
+										handleCheckChange={setRemember}
+										formData={{...loginRef.current}}
+									/>
 								</div>
 								
 								<label htmlFor="remember" className="text-sm font-medium text-gray-900 ms-2">
@@ -71,12 +77,12 @@ const SignIn = () => {
 								</label>
 							</div>
 							
-							<a href="" className="text-sm text-blue-700 ms-auto hover:underline">
+							<Link to="/" className="text-sm text-blue-700 ms-auto hover:underline">
 								Forgot Password?
-							</a>
+							</Link> 
 						</div>
 						
-						<button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+						<button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled={loginRef.current.submitted}>
 							Login
 						</button>				
 					</form>
@@ -106,9 +112,11 @@ const SignIn = () => {
 
 					<div className="mt-4 text-sm font-medium text-gray-500">
 						Not registered?{' '}
-						<button onclick={handleRegister} className="text-blue-700 hover:underline">
-							Create account
-						</button>
+						<Link to="/signup">
+							<button className="text-blue-700 hover:underline">
+								Create account
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>

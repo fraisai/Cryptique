@@ -1,35 +1,36 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import RegisterImage from '../assets/images/cryptique_signup_container_img-min.png'
-// import RegisterImage from "../assets/images/cryptique_signup_container_img-min.png";
-// const RegisterImage = require('../../client/assets/images/cryptique_signup_container_img-min.png')
+import axios from 'axios';
+import RegisterImage from '../assets/images/cryptique_signup_container_img-min.png';
+import { InputCheckbox } from '../componentImports';
 
 const SignupContainer = () => {
   const [registerFormData, setRegisterFormData] = useState({
     username: '',
     email: '',
     password: '',
-    checked: false
+    remember: false,
+    submitted: false
   });
 
+  const validatePass = (val) => { // min 6 letter password, with at least a symbol, upper and lower case letters and a number
+    const regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!regex.test(val)) console.log('Enter valid password');
+  }
+  
   const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target
-    console.log('handleAccept clicked.', e.target.name, e.target.value, [name]);
-
-    // setRegisterFormData({... registerFormData, [name]: value });
+    if (name === 'password') validatePass(value);
+    setRegisterFormData((prevState) => ({...prevState, [name]: value }));
   }
 
   const handleSubmit = (e) => { // make post request to /api/auth/register
-    console.log("registerFormData", registerFormData)
-
     e.preventDefault();
     const { name, value } = e.target
-    setRegisterFormData({... registerFormData, [name]: value });
-
-    
-    console.log("registerFormData", registerFormData)
-
+    setRegisterFormData({... registerFormData, [name]: value, submitted: true });
+    // axios.post('/api/auth/register')
+    // console.log("registerFormData", registerFormData)
   }
 
   const labelClassName = `space-y-6`;
@@ -44,7 +45,7 @@ const SignupContainer = () => {
       <div className='m-1 bg-white border border-red-600 rounded-lg padding-64 text-stone-800 shrink' style={{ height: 620, width: 656, padding: '64px'}}>
         <strong><h2 className="register-h2 shrink" style={{ fontSize: '1.875rem', lineHeight: 2.25 }} >Create a Cryptique Account</h2></strong>
         
-        <form className="" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className='flex flex-col w-full space-y-6' style={{ fontSize: '.875rem' }}>
             
             {/* START un */}
@@ -57,8 +58,12 @@ const SignupContainer = () => {
               </label>
 
               <input 
-                type="text" 
                 className={inputClassName}
+                name="username"
+                onChange={handleChange}
+                required
+                type="text" 
+                value={registerFormData.username}
               />
             </div>
             {/* END un */}
@@ -66,18 +71,21 @@ const SignupContainer = () => {
             
             {/* START EMAIL */}
             <div className={`${inputFlexDiv}`}>
-              <label htmlFor="email">
+              <label
+                className={`${labelClassName}`}
+                htmlFor="email"
+              >
                 Your email
               </label>
 
               <input 
+                className={inputClassName}
                 name="email" 
                 onChange={handleChange}
                 placeholder="name@company.com" 
-                required=""
+                required
                 type="email" 
                 value={registerFormData.email} 
-                className={inputClassName}
               />
               {/* END EMAIL */}
             </div>
@@ -86,35 +94,38 @@ const SignupContainer = () => {
             {/* START PW */}
             <div className={`${inputFlexDiv}`}>
               <label 
-                name="pw"
+                className={`${labelClassName}`}
                 htmlFor="pw"
-                required=""
               >Enter password</label>
 
               <input 
-                type="text" 
-                placeholder="••••••••" 
                 className={inputClassName}
+                name="password"
+                onChange={handleChange}
+                placeholder="••••••••" 
+                required
+                type="text" 
+                value={registerFormData.password}
               />
             </div>
             {/* END PW */}
 
             {/* START checked */}
             <div>
-              <input type="checkbox" checked={registerFormData.checked} className='rounded-sm'/>
-              <label htmlFor="remember">I accept the <Link to="/">Terms and Condition</Link></label>
+              <InputCheckbox
+                checkedVal={registerFormData.remember}
+                formData={{...registerFormData}}
+                handleCheckChange={setRegisterFormData}
+              />
+              {/* <input name="remember" type="checkbox" checked={registerFormData.remember} className='rounded-sm' onChange={(e) => setRegisterFormData({...registerFormData, remember: e.target.checked})}/> */}
+              <label htmlFor="remember"> I accept the <Link to="/">Terms and Condition</Link></label>
             </div>
             {/* END checked */}
           </div>
-          <button type="submit" className='p-6 bg-grey-900'>Create Account</button>
+          <button type="submit" className='p-6 bg-grey-900' disabled={registerFormData.submitted}>Create Account</button>
         </form>
-        
-
       </div>
     </div>
-          
-      
-   
   )
 }
 

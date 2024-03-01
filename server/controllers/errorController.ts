@@ -19,7 +19,7 @@ class ErrorObj extends Error {
  * request logger
  */
 export const requestLogger = (req: Request, res: Response, next: NextFunction): void => {
-    console.log(req, `requestLogger: request method: ${req.method}, request url: ${req.url}, body: ${JSON.stringify(req.body)} ${JSON.stringify(req.query)} ${JSON.stringify(req.params)} ${JSON.stringify(req.headers.referer)}`);
+    console.log(`requestLogger: request method: ${req.method}, request url: ${req.url}, body: ${JSON.stringify(req.body)}, query: ${JSON.stringify(req.query)}, params:${JSON.stringify(req.params)}, referring link: ${JSON.stringify(req.headers.referer)}`);
     return next();
 }
 

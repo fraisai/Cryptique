@@ -28,7 +28,8 @@ module.exports = {
         liveReload: true, // automatically update the app as changes are made
         historyApiFallback: true, // serve your React application on every path (needed for react-router-dom/client side server)
         static: { // specifies the directory webpack will use to serve static files
-            directory: path.resolve(__dirname,'public'), 
+            // directory: path.resolve(__dirname,'public'), 
+            directory: path.resolve(__dirname, 'build'), 
             publicPath: '/'
         },
         headers: { // resource makes a cross-origin HTTP request when it requests a resource from a different domain/ port than the one itself serves and CORS enables secure cross-domain data transfers
@@ -43,7 +44,9 @@ module.exports = {
             }
         }
     },
-
+    performance: {
+        hints: false, // removes optimization warnings from screen
+    },    
     module: { // specifies how Webpack handles diff files when building app
         rules: [
             {
@@ -66,6 +69,11 @@ module.exports = {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 exclude: /node_modules/,
                 type: 'asset/resource',
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                loader: 'ts-loader'
             }
         ]
     },

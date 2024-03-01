@@ -20,6 +20,8 @@ import InvestmentsCard from './components/InvestmentsCard.jsx';
 import LoginContainer from './containers/LoginContainer.jsx';
 import SignupContainer from './containers/SignupContainer.jsx';
 import TermsConditions from './containers/TermsConditions.jsx';
+import InputCheckbox from './components/InputCheckbox.jsx';
+
 
 export { 
     CoinCard, 
@@ -42,7 +44,8 @@ export {
     InvestmentsCard,
     LoginContainer, 
     SignupContainer,
-    TermsConditions
+    TermsConditions,
+    InputCheckbox
 };
 
 

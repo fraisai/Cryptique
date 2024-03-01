@@ -15,8 +15,8 @@ const pool = new Pool({
 // USERS TABLE
 pool.query(`CREATE TABLE IF NOT EXISTS test_users (id SERIAL PRIMARY KEY, username VARCHAR(255) UNIQUE NOT NULL, email VARCHAR(255) UNIQUE NOT NULL)`, 
 (err, result) => {
-  if (err) console.error('Error creating the users table', err);
-  else console.log('Users table created successfully:', result);
+  if (err) console.error('sqlModel.js: Error creating the users table', err);
+  else console.log('sqlModel.js: Users table created successfully:');
 });
 
 // // Seed the table with initial data
@@ -28,8 +28,8 @@ pool.query(`CREATE TABLE IF NOT EXISTS test_users (id SERIAL PRIMARY KEY, userna
 
 
 pool.query(create_watchlist_sql, (err, result) => {
-  if (err) console.log('Error in creating watchlist_card Table', err);
-  else console.log('watchlist_card table successfully created');
+  if (err) console.log('sqlModel.js: Error in creating watchlist_card Table', err);
+  else console.log('sqlModel.js:  watchlist_card table successfully created');
 });
 
 // // SEED watchlist_card table
@@ -41,8 +41,8 @@ pool.query(create_watchlist_sql, (err, result) => {
 
 
 pool.query('SELECT * FROM watchlist_card;', (err, result) => {
-  if (err) console.error('Error selecting the watchlist_card table', err);
-  else console.log('watchlist_card data selected successfully');
+  if (err) console.error('sqlModel.js: Error selecting the watchlist_card table', err);
+  else console.log('sqlModel.js: watchlist_card data selected successfully');
 })
 
 module.exports = pool;

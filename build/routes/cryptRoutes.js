@@ -10,6 +10,6 @@ const cryptController_1 = require("../controllers/cryptController");
 router.get('/coins/markets', cryptController_1.getAllMarkets); // current market price of all cryptos
 router.get('/coins/market-charts', cryptController_1.getOneDayMarketChart); // 24 hr market chart data
 router.get('/coins/trending', cryptController_1.getTrending); // top 7 trending cryptos and top 15 nfts
-router.get('/meta', cryptController_1.getMeta);
+// router.get('/meta', getMeta);
 module.exports = router;
 //# sourceMappingURL=cryptRoutes.js.map

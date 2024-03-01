@@ -75,12 +75,25 @@ export const putCard = async(req: Request, res: Response, next: NextFunction): P
         const coin_id = req.params.id;
         const { shares, value } = req.body;
         if (!shares || !value ) return res.status(400).json({ error: 'Put request requires both shares & value.' });
-        const updateTodo = await pool.query(`UPDATE watchlist_card SET shares=$1 WHERE _id = $2 RETURNING * WHERE _id=$3;`, [shares, coin_id, coin_id]);
+        const updateTodo = await pool.query(`UPDATE watchlist_card SET shares=$1 WHERE _id=$2 RETURNING * WHERE _id=$3;`, [shares, coin_id, coin_id]);
 
         return res.status(204).json('Item was edited.');
     } catch (error: any | ErrorRequestHandler) {
-        console.log("Error in EDIT request in server", error.message);
+        console.log("Error in putCard request in server", error.message);
         return next(error);
     }
 }
 
+// Left join the cards in watchlist with their corresponding rows in meta table (adds [null] for meta table data if join conditions are not equal)
+export const getWatchlistMetaCards = async(req: Request, res: Response, next: NextFunction) => { // GET: /watchlist/cards/info
+    try {
+        const sql = `SELECT watchlist_card.*, meta.desc, meta.homepage_url, meta.img, meta.jsonb_meta
+        FROM watchlist_card LEFT JOIN meta
+        ON watchlist_card = meta.id;`;
+        const joinWatchlistMetaCards = await pool.query(sql);
+        return res.status(200).json(joinWatchlistMetaCards.rows);
+    } catch (error: any | ErrorRequestHandler ) {
+        console.log("Error in watchlistCrudController.ts - joinWatchlistMetaCards", error.message);
+        return next(error);
+    }
+}

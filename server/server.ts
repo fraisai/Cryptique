@@ -29,9 +29,11 @@ app.use(cors({credentials: true}));
 app.use(cookieParser());
 app.use(express.json()); // express's built in body-parser - parse JSON bodies, this gives ability to "read" incoming req.body/JSON object
 app.use(express.urlencoded({ extended: true }));
-app.use('/build', express.static(path.join(__dirname, '../build/index.html')));
+app.use('/', express.static(path.join(__dirname, '../build')));
 
-
+// app.post('/auth/login', (req: Request, res: Response) => {
+//   return res.status(200).json('auth/login');
+// })
 app.use('/auth', authRouter);
 app.use('/crypt', cryptRouter);
 app.use('/watchlist', watchlistRouter);
@@ -50,11 +52,12 @@ app.get('/', (req: Request, res: Response) => {
  * 404 handler to your server such that if a request comes in to *ANY* route not listed above the 404 page is sent
  */
 app.all('*', function(req, res, next: NextFunction) {
+  console.log('app.all(*) in server.ts', res.statusCode)
+
   const err = new Error('Bad Request');
   err.message = 'Bad Request';
 
   if (res.statusCode === 404) {
-
     res.status(404).json('Resource does not exist');
   }
   req.baseUrl
@@ -66,14 +69,18 @@ app.all('*', function(req, res, next: NextFunction) {
 * @see https://expressjs.com/en/guide/error-handling.html#writing-error-handlers
 */
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  console.log('app.use() error handler in server.ts', err, res.statusCode)
+
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
-    status: 400,
-    message: { err: 'An error occurred' },
+    status: 500,
+    message: err,
   };
-  const errorObj = Object.assign({}, defaultErr, err);
+  // const errorObj = Object.assign({}, defaultErr, err);
   console.log("Express error handler:" , err.message);
-  return res.status(errorObj.status).json(err.message);
+  // return res.status(defaultErr.status).send(defaultErr.message);
+  return res.sendFile(path.resolve(__dirname, '../build/index.html'));
+
 });
 
 export const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

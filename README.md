@@ -9,6 +9,13 @@ npm run dev
 Tech used in this app:
 - Language: JavaScript, TypeScript
 - Frontend: React, Webpack, TailwindCSS, Flowbite, SCSS, Chart.js, React Router
-- Backend: Express.js (Node.js), PostgreSQL
+- Backend: Express.js (Node.js), PostgreSQL, MongoDB
 - Testing: Jest, React Testing Library 
-- Microservices: AWS Copilot, Docker
+- Microservices: AWS Copilot (Amazon ECR/ECS), Docker
+
+
+![alt text](./client/assets/readme/dashboard.png)
+
+
+![alt text](./client/assets/readme/cryptos.gif)
+

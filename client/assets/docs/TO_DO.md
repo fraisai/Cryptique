@@ -67,3 +67,13 @@ Why we get rid of Strict mode:
     - After user logs in, user gets forwarded back to localhost:8080/?code=AUTH_CODE
         - when the code exists in our localhost link, that is when our app knows that the user has been authenticated
     - Use the auth code to get the access token (auth code can only be used ONCE)
+
+
+
+CRYPTIQUE
+1. Create dockerfile
+2. create AWS Copilot app using command: copilot app init
+    - command line interface that makes it easy for developers to build, release, and operate production-ready containerized applications on AWS App Runner, Amazon ECS, and AWS Fargate
+3. 
+
+

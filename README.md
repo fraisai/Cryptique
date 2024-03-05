@@ -17,7 +17,6 @@ Tech used in this app:
 ![alt text](./client/assets/readme/dashboard.png)
 
 
-<img src="https://github.com/asd/privategithubrepo/images/output/video1.gif" width="829">
+<img src="./client/assets/readme/cryptos.gif" width="829" height="415">
 
-![alt text](./client/assets/readme/cryptos.gif)
 

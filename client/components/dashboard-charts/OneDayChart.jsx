@@ -20,7 +20,9 @@ const OneDayChart = ({ name, labelName, chartData, maxH = '350px', maxW = '470px
 				data: chartData.prices,
 				fill: true,
 				backgroundColor: 'rgba(75,192,192,0.2)',
-				borderColor: '111827',
+				borderColor: '#111827',
+				pointRadius: 0.3,
+				borderWidth: 1.1,
 			},
 			// {
 			//   label: "Second dataset",

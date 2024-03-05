@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import InvestmentsContainer from './containers/InvestmentsContainer';
 import Navbar from './components/Navbar';
 import NewsContainer from './containers/NewsContainer';
-import OneDayChart from './components/dashboard-charts/OneDayChart';
+import OneDayChart from './components/dashboard-charts/OneDayChart'; // used in Dashboard.jsx
 import OneDayPieChart from './components/dashboard-charts/OneDayPieChart';
 import OneWeekChart from './components/dashboard-charts/OneWeekChart';
 import SignIn from './components/SignIn.jsx';

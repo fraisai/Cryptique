@@ -21,7 +21,7 @@ import LoginContainer from './containers/LoginContainer.jsx';
 import SignupContainer from './containers/SignupContainer.jsx';
 import TermsConditions from './containers/TermsConditions.jsx';
 import InputCheckbox from './components/InputCheckbox.jsx';
-
+import CryptoOneWeekChart from './components/dashboard-charts/CryptoOneWeekChart.jsx'; // used in CoinCard.jsx
 
 export { 
     CoinCard, 
@@ -45,7 +45,8 @@ export {
     LoginContainer, 
     SignupContainer,
     TermsConditions,
-    InputCheckbox
+    InputCheckbox,
+    CryptoOneWeekChart
 };
 
 

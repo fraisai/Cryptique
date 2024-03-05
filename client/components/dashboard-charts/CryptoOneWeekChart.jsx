@@ -17,6 +17,9 @@ const CryptoOneWeekChart = ({ name, chartData, maxH = '350px', maxW = '470px', c
 				fill: true,
 				backgroundColor: '#fed2ed',
 				borderColor: '#111827',
+				pointRadius: 0, // gets rid of circles around data points
+				tension: 0.8, // default = 1 aka straight lines
+				borderWidth: 0.9, // width of line, default = 1
 			},
 			// {
 			//   label: "Second dataset",
@@ -32,9 +35,7 @@ const CryptoOneWeekChart = ({ name, chartData, maxH = '350px', maxW = '470px', c
 			y: {
 				ticks: {
 					callback: function (val, index) {
-						// Hide every 2nd tick label
-						// return ('$'+ val); // add $ to y axis vals
-						return formatter.format(val);
+						return formatter.format(val); // return ('$'+ val); // add $ to y axis vals
 					},
 				},
 				grid: {

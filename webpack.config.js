@@ -4,6 +4,8 @@ const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const TerserPlugin = require("terser-webpack-plugin");
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); // creates an interactive treemap visualization of the contents of all your bundles
+const CopyPlugin = require('copy-webpack-plugin'); // lets you copy JSON files and include in build folder
+
 const dotenv = require('dotenv');
 dotenv.config();
 const env = dotenv.config().parsed;
@@ -26,7 +28,11 @@ module.exports = {
         hot: true, // enables webpack Hot module replacement exchanges, adds, or removes modules while an application is running, without a full reload. to improve performance
         open: true, // automatically open browser after files are bundled
         liveReload: true, // automatically update the app as changes are made
-        historyApiFallback: true, // serve your React application on every path (needed for react-router-dom/client side server)
+        // historyApiFallback: true, // serve your React application on every path (needed for react-router-dom/client side server)
+        historyApiFallback: {
+            rewrites: [{ from: /./, to: '/index.html'}],
+            index: 'index.html'
+        },
         static: { // specifies the directory webpack will use to serve static files
             // directory: path.resolve(__dirname,'public'), 
             directory: path.resolve(__dirname, 'build'), 
@@ -70,7 +76,9 @@ module.exports = {
                 exclude: /node_modules/,
                 type: 'asset/resource',
             },
+           
             // {
+            // // https://webpack.js.org/configuration/module/
             //     test: /\.(ts|tsx)$/,
             //     exclude: /node_modules/,
             //     loader: 'ts-loader'
@@ -89,7 +97,15 @@ module.exports = {
             favicon: path.resolve(__dirname, './client/assets/images/favicon/favicon.ico'),
             template: './public/index.html'
         }),
-        new webpack.DefinePlugin(envKeys)
+        new webpack.DefinePlugin(envKeys),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: 'server/data/**/*',
+                    // to: 'server/data' // becomes build/server/data/server/data
+                }
+            ]
+        })
     ], 
 
     optimization: {
@@ -99,7 +115,7 @@ module.exports = {
                 minify: TerserPlugin.uglifyJsMinify, // faster than esbuild: https://github.com/privatenumber/minification-benchmarks
             }),
         ], 
-        splitChunks: { // code splitting: doesn't reduce the size of your application but divides the React bundle size into chunks which can be lazy loaded as we need them
+        splitChunks: { // code splitting: doesn't reduce the size of your application but divides the React bundle size into chunks which can be lazy loaded on as needed basis
             chunks: 'all', 
             minSizeReduction: 10000, // min size reduction in bytes to the main chunk (bundle) needed for a chunk to be generated or else bundle doesnt split
             maxSize: 250000 // try to split chunks bigger than 250,000 bytes into smaller parts
@@ -108,9 +124,22 @@ module.exports = {
 };
 
 
-
+// cross - env = have a single command without worrying about setting or using the environment variable properly for the platform. Just
 // webpack config best practices: https://blog.logrocket.com/versatile-webpack-configurations-react-application/
 /*
+https://webpack.js.org/configuration/mode/
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.devtool = 'source-map';
+  }
+
+  if (argv.mode === 'production') {
+    //...
+  }
+
+  return config;
+};
+
     regex:
         \: is an escape character in this case for .
         |: OR operand

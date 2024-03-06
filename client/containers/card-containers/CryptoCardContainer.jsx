@@ -1,6 +1,6 @@
 import React from 'react';
-import { CoinCard } from '../../componentImports';
-import { Spinner } from '../../componentImports';
+import { CoinCard, Spinner } from '../../componentImports';
+
 const CryptoCardContainer = ({ market }) => {
 	// console.log("market", market)
 	const formatter = new Intl.NumberFormat('en-US', {
@@ -19,7 +19,7 @@ const CryptoCardContainer = ({ market }) => {
 					{market.map((el, i) => {
 						return (
 							<div key={el.id + i}>
-								<CoinCard img={el.image} card_key={el.id + i} name={el.name} price={formatter.format(el.current_price)} data={el.sparkline_in_7d.price} />
+								<CoinCard img={el.image} card_key={el.id + i} name={el.name} price={formatter.format(el.current_price)} data={el.sparkline_in_7d.price} coin_id={el.id}/>
 							</div>
 						);
 					})}

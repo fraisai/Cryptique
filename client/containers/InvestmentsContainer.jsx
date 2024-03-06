@@ -110,7 +110,7 @@ const InvestmentsContainer = () => {
 											<th scope="col" className="p-8">
 												<div className="flex items-center">
 													<input id="checkbox-all" type="checkbox" className="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300" />
-													<label for="checkbox-all" className="sr-only">
+													<label htmlFor="checkbox-all" className="sr-only">
 														checkbox
 													</label>
 												</div>

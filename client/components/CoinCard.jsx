@@ -2,16 +2,16 @@ import React, { useState, useRef } from 'react';
 import CryptoOneWeekChart from './dashboard-charts/CryptoOneWeekChart';
 import { RightArrowSVG, AddInvestmentsButtonSVG } from '../componentImports';
 
-const CoinCard = ({ img, card_key, name, price, data }) => {
+const CoinCard = ({ img, card_key, name, price, data, coin_id }) => {
 	const [index, setIndex] = useState(0);
 	const [showChart, setShowChart] = useState(false);
 	const handleNextClick = () => setIndex(index + 1);
 	const handleShowChartClick = () => setShowChart(!showChart);
 	let item = <></>; // the page to be displayed on card based on whether Crypto, Chart, or About is clicked
 
-	function handleClick(e) {
-		console.log('Add to watchlist', e);
-		e.preventDefault();
+	function handleClick(id) {
+		console.log('Add to watchlist', id);
+		// e.preventDefault();
 	}
 
 	const chart = (name, price_7d) => { // line chart
@@ -79,7 +79,7 @@ const CoinCard = ({ img, card_key, name, price, data }) => {
 							<p className="mb-3 font-normal text-gray-700">Market Price: {price}</p>
 
 							{/* Add to Investments Button */}
-							<button onClick={handleClick}><AddInvestmentsButtonSVG /></button>
+							<button onClick={() => handleClick(coin_id)}><AddInvestmentsButtonSVG /></button>
 						</div>
 					</div>
 				) : (

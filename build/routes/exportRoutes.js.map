@@ -1,1 +1,0 @@
-{"version":3,"file":"exportRoutes.js","sourceRoot":"","sources":["../../server/routes/exportRoutes.ts"],"names":[],"mappings":";AAAA,MAAM,WAAW,GAAG,OAAO,CAAC,eAAe,CAAC,CAAC;AAC7C,MAAM,eAAe,GAAG,OAAO,CAAC,mBAAmB,CAAC,CAAC;AACrD,MAAM,WAAW,GAAG,OAAO,CAAC,eAAe,CAAC,CAAC;AAE7C,MAAM,CAAC,OAAO,GAAG;IACb,WAAW;IACX,eAAe;IACf,WAAW;CACd,CAAA"}

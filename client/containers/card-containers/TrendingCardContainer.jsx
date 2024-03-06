@@ -10,7 +10,7 @@ const TrendingCardContainer = ({ trending }) => {
 					{trending.map((el, i) => {
 						return (
 							<div key={el.item.id + '_trending_' + i}>
-								<CoinCard img={el.item.large} card_key={el.item.id + '_trending_' + i} name={el.item.name} price={el.item.data.price} data={trending} />
+								<CoinCard img={el.item.large} card_key={el.item.id + '_trending_' + i} name={el.item.name} price={el.item.data.price} data={trending} coin_id={el.id} />
 							</div>
 						);
 					})}

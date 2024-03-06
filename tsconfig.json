@@ -10,7 +10,7 @@
         "rootDir": "./server",                                  /* Specify the root folder within your source files. */
         // "moduleResolution": "node",
         // "baseUrl": "src",
-        "outDir": "./build",                                   /* all compiled files will be placed in dist folder Specify an output folder for all emitted files. */
+        "outDir": "./build/server",                                   /* all compiled files will be placed in dist folder Specify an output folder for all emitted files. */
         "sourceMap": true,
         "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
 

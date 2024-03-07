@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, useLocation, redirect } from 'react-router-dom';
+import { Route, Routes, useLocation, redirect, Link } from 'react-router-dom';
 import axios from 'axios'; // axios.defaults.baseURL = REACT_BASE_URL;
 import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn, LoginContainer, SignupContainer, TermsConditions, ErrorPage } from './componentImports';
 import { CryptiqueContext } from './CryptiqueContext';
@@ -88,6 +88,7 @@ const App = () => {
 					<Route path="/terms-conditions" element={<Layout><TermsConditions /></Layout>} />
 					<Route path="/error" element={<ErrorPage />} />
 
+					<Link to="/login"></Link>
 					<Route path="/login" element={<SignupLayout><LoginContainer /></SignupLayout>} />
 					<Route path="/signup" element={<SignupLayout><SignupContainer /></SignupLayout>} />
 				</Routes>

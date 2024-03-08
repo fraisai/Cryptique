@@ -7,7 +7,7 @@ const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 /**
  * github oauth 2.0 - redirects user to github.com to log in
  */
-export const githubLoginController = async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>> | void>  => {
+export const githubLoginController = async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>> | void>  => { //auth/github-login
     console.log('githubLoginController', github_url)
     try {
         res.status(307).redirect(github_url);
@@ -24,26 +24,33 @@ export const githubLoginController = async (req: Request, res: Response, next: N
  */
 export const githubCallbackController = async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>> | void> => {
     const { code } = req.query;
-    console.log(code)
-    return res.status(200).json('Success');
+    console.log('githubCallbackController', code);
+    // redirect = frontend/auth/callback
     try {
-        const { data } = await axios.post('https://github.com/login/oauth/access_token', {
+        // exchange authorization code with access token
+        const tokenResponse = await axios.post('https://github.com/login/oauth/access_token', {
             client_id: process.env.GITHUB_OAUTH_CLIENT_ID,
             client_secret: process.env.GITHUB_OAUTH_CLIENT_SECRET, 
             code: code,
-            // redirect_uri: 'http://localhost:8080'
+            // redirect_uri: "http://localhost:8080/auth"
         }, {
             headers: {
+                'Content-Type': 'application/json',
                 Accept: 'application/json'
             }
         });
+        const tokenData = await tokenResponse.data;
+        const { access_token } = tokenData;
+        console.log('githubCallbackController, tokenData, access_token:', tokenData, access_token);
 
-        const { access_token } = data;
-        console.log('access_token:', access_token, "data: ", data);
-
-        return res.status(200).send(access_token);
+        if (access_token) return res.status(200).json({ status: 'success'});
+        else return res.status(200).json({ status: 'fail' });
     } catch (error) {
         console.log('Error in githubCallbackController.ts', error);
         return next(error);
     }
+}
+
+export const githubSuccessController = async (req: Request, res: Response, next: NextFunction) => {
+    return res.json({ status: 'success'});
 }

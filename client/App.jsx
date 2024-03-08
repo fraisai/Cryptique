@@ -41,7 +41,23 @@ const App = () => {
 	const [isAuth, setIsAuth] = useState(false);
 	
 	useEffect(() => {
-		console.log("useEffect location: ", location.search);
+		/**
+		 * 		console.log("useEffect location: ", location.search);
+
+		// GITHUB OAUTH2.0
+		const getAccessCode = async (code) => {
+			const res = await axios.get('/api/auth/callback?code=' + code);
+			console.log('getCode status: ', res.data);
+		}
+		// const access = location.search; // react-router gets ?code=xxxx
+		const urlParams = new URLSearchParams(window.location.search);
+        const access = urlParams.get('access_token');
+
+		if (access === null) {
+			getAccessCode(access)
+		}
+
+		 */
 		
 		const getChartData = async () => {
 			const marketChartData = await axios.get('/api/crypt/coins/market-charts');
@@ -79,6 +95,7 @@ const App = () => {
 						}
 					/> */}
 
+					
 					<Route path="/" element={<Layout><Dashboard chartData={chartData} /></Layout>} />
 					<Route path="/all-coins" element={<Layout><CryptoContainer /></Layout>} />
 					<Route path="/trending" element={<Layout><TrendingContainer /></Layout>} />
@@ -90,6 +107,8 @@ const App = () => {
 
 					<Route path="/login" element={<SignupLayout><LoginContainer /></SignupLayout>} />
 					<Route path="/signup" element={<SignupLayout><SignupContainer /></SignupLayout>} />
+					{/* <Route path="/" element={<SignupLayout><LoginContainer /></SignupLayout>} /> */}
+					{/* <Route index path="/dashboard" element={<Layout><Dashboard chartData={chartData} /></Layout>} /> */}
 				</Routes>
 			</div>
 		</div>

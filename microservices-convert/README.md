@@ -1,0 +1,1 @@
+![alt text](Copilot_micro_architecture.png)

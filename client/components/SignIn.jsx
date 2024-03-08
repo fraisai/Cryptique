@@ -1,7 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, createContext } from 'react';
 import { Route, useLocation, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { GoogleSignInSVG, GithubSignInSVG, InputCheckbox } from '../componentImports';
+
+export const AuthContext = createContext();
+
 
 const SignIn = () => {
 	let CLIENT_ID = '';
@@ -17,17 +20,9 @@ const SignIn = () => {
 	async function handleGithubLogin(e) {
 		e.preventDefault();
 		console.log('github clicked');
-		return;
-		
-		// window.location.href = 'https://www.github.com/login/oauth/authorize?client_id=17cfd66a744613f0d753';
-		await axios.get('api/auth/github-login', {headers: {"Access-Control-Allow-Origin": "*"}}
-		)
-		// .then(res => window.location.href = res.data)
-		.then(res => {
-			console.log('res', res.request.responseUrl)
-			// axios.get(res.data);
-		})
-		.catch(e => console.log('SignIn.jsx', e))
+		// window.location.href =  'https://www.github.com/login/oauth/authorize?client_id=17cfd66a744613f0d753';
+		const accessCode = await axios.get('api/auth/github-login', {headers: {"Access-Control-Allow-Origin": "*"}})
+		console.log('accessCode', accessCode.request.responseUrl)
 		
 		
 		// return (<div><Link to={'https://github.com/login/oauth/authorize?client_id=17cfd66a744613f0d753'}></Link></div>)
@@ -36,18 +31,21 @@ const SignIn = () => {
 
 	const handleGoogleLogin = () => {
 		console.log('google clicked');
+		alert('Sign in using Github (for now)');
+		return;
 	}
 
-	// const handleRegister = () => { // when create account button is clicked, user is redirected to 'localhost:8080/signup'
-	// 	const nav = useNavigate();
-	// 	nav('/signup');
-	// }
+	const handleFormSubmit = () => {
+		alert('Sign in using Github (for now)');
+		return;
+	}
 
 	return (
 		<div className="flex flex-col pt-16">
 			<div className="flex justify-center w-full h-full pt-16 overflow-y-auto " >
 				<div className="p-8 bg-white border border-gray-200 rounded-lg shadow" style={{ width: '350px'}} >
-					<form className="space-y-6 ">
+
+					<form className="space-y-6" onSubmit={handleFormSubmit}>
 						<h5 className="pt-1 text-xl font-medium text-gray-900">Sign in to Cryptique</h5>
 						<div align='left'>
 							<label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">
@@ -93,14 +91,17 @@ const SignIn = () => {
 					<div className='mt-4'><hr></hr></div>
 					
 					{/* GITHUB SIGNIN */}
-					<button
-						onClick={handleGithubLogin} 
-						className="flex items-end justify-center w-full px-1 py-1 mt-4 text-xs border border-gray-200 rounded-lg" 
-						style={{ borderColor: 'rgb(229 231 235/var(--tw-border-opacity))'}}
-					>
-						<div className='flex mr-2' style={{height: '1.25rem', width: '1rem' }}><GithubSignInSVG /></div>
-						Sign in with Github
-					</button>
+					<Link to="https://github.com/login/oauth/authorize?client_id=17cfd66a744613f0d753&redirect_uri=api/auth/github-login">
+						<button
+							// onClick={handleGithubLogin} 
+							className="flex items-end justify-center w-full px-1 py-1 mt-4 text-xs border border-gray-200 rounded-lg" 
+							style={{ borderColor: 'rgb(229 231 235/var(--tw-border-opacity))'}}
+						>
+							<div className='flex mr-2' style={{height: '1.25rem', width: '1rem' }}><GithubSignInSVG /></div>
+							Sign in with Github
+						</button>
+					</Link>
+					
 					
 					{/* GOOGLE SIGNIN */}
 					<button 

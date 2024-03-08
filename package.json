@@ -16,7 +16,8 @@
     "start": "concurrently \"NODE_ENV=production ts-node ./server/server.ts\"",
     "test": "jest --coverage",
     "integration-test": "jest \"--testPathPattern='.+\\.integration\\.test\\.js$'\"",
-    "unit-test": "jest \"--testPathPattern='.+\\.unit\\.test\\.js|.ts$'\""
+    "unit-test": "jest \"--testPathPattern='.+\\.unit\\.test\\.js|.ts$'\"",
+    "node-kill": "sudo killall -9 node"
   },
   "author": "Fariha Raisa Iftekher",
   "license": "ISC",

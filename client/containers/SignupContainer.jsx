@@ -53,12 +53,12 @@ const SignupContainer = () => {
   const inputClassName = `border border-gray-300 text-sm rounded-lg mt-1`;
   const inputFlexDiv = `flex flex-col`;
   return (
-    <div className="flex items-center justify-center border border-red-600 rounded-lg shadow shrink xl:flex-col lg:xxl:flex-row " style={{ height: 620, width: 'auto',  }}>
-      <div className='border border-blue-600 rounded-lg shrink' style={{ height: 620, width: 388 }}>
+    <div className="flex items-center justify-center rounded-lg shadow shrink xl:flex-col lg:xxl:flex-row " style={{ height: 620, width: 'auto',  }}>
+      <div className='rounded-lg shrink' style={{ height: 620, width: 388 }}>
         <img className="rounded-lg shrink" src={RegisterImage} style={{ height: 620, width: 388 }}></img>
       </div>
 
-      <div className='m-1 bg-white border border-red-600 rounded-lg padding-64 text-stone-800 shrink' style={{ height: 620, width: 656, padding: '64px'}}>
+      <div className='m-1 bg-white rounded-lg padding-64 text-stone-800 shrink' style={{ height: 620, width: 656, padding: '64px'}}>
         <strong><h2 className="register-h2 shrink" style={{ fontSize: '1.875rem', lineHeight: 2.25 }} >Create a Cryptique Account</h2></strong>
         
         <form onSubmit={handleSubmit}>
@@ -134,7 +134,7 @@ const SignupContainer = () => {
                 handleCheckChange={setRegisterFormData}
               />
               {/* <input name="remember" type="checkbox" checked={registerFormData.remember} className='rounded-sm' onChange={(e) => setRegisterFormData({...registerFormData, remember: e.target.checked})}/> */}
-              <label htmlFor="remember"> I accept the <Link to="/">Terms and Condition</Link></label>
+              <label htmlFor="remember"> I accept the <Link to="/terms-conditions">Terms and Condition</Link></label>
             </div>
             {/* END checked */}
           </div>

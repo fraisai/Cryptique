@@ -6,17 +6,25 @@ const SearchBar = () => {
 	// state that hold API data
 	const [suggestion, setSuggestion] = useState([]);
 
-	const getLocations = (e) => {
+	const getLocations = async (e) => {
 		setQuery(e.target.value);
-		axios
-			.get(`api/crypt/filter?coin_name=${query}`)
-			.then((data) => setSuggestion(data.data?.results))
-			.catch((err) => {
-				if (err.response && err.response.status === 404) {
-					setSuggestion(null);
-					console.clear();
-				}
-			});
+		try {
+			const filteredResult = await axios.get(`api/crypt/filter?coin_name=${query}`);
+			setSuggestion(filteredResult?.data);
+		} catch (error) {
+			if (err.response && err.response.status === 404) {
+				setSuggestion(null);
+				console.clear();
+			}
+		}
+		
+
+		// axios
+		// 	.get(`api/crypt/filter?coin_name=${query}`)
+		// 	.then((data) => setSuggestion(data.data?.results))
+		// 	.catch((err) => {
+				
+		// 	});
 	};
 
 	function debounce(callback, wait) {

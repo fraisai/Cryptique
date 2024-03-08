@@ -9,7 +9,7 @@ const SearchBar = () => {
 	const getLocations = (e) => {
 		setQuery(e.target.value);
 		axios
-			.get(`https://rickandmortyapi.com/api/location/?name=${query}`)
+			.get(`api/crypt/filter?coin_name=${query}`)
 			.then((data) => setSuggestion(data.data?.results))
 			.catch((err) => {
 				if (err.response && err.response.status === 404) {

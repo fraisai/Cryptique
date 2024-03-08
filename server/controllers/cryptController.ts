@@ -25,6 +25,17 @@ export const getAllMarkets = async (req: Request, res: Response, next: NextFunct
   }
 };
 
+const filterAllMarkets = async (req: Request, res: Response, next: NextFunction) => { // GET crypt/filter
+  const { coin_name } = req.query;
+  
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
+
 /**
  * 
  *    Coin Gecko URL => GET: crypt/coins/{id}/market_chart (historical market data like price, market cap, and 24h volume within a range of timestamp (granularity auto))

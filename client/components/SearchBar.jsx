@@ -6,7 +6,7 @@ const SearchBar = () => {
 	// state that hold API data
 	const [suggestion, setSuggestion] = useState([]);
 
-	const getLocations = async (e) => {
+	const getFilteredCoins = async (e) => {
 		setQuery(e.target.value);
 		try {
 			const filteredResult = await axios.get(`api/crypt/filter?coin_name=${query}`);
@@ -17,14 +17,15 @@ const SearchBar = () => {
 				console.clear();
 			}
 		}
-		
-
-		// axios
-		// 	.get(`api/crypt/filter?coin_name=${query}`)
-		// 	.then((data) => setSuggestion(data.data?.results))
-		// 	.catch((err) => {
+	
+		/**
+		 * axios
+			.get(`api/crypt/filter?coin_name=${query}`)
+			.then((data) => setSuggestion(data.data?.results))
+			.catch((err) => {
 				
-		// 	});
+			});
+		 */
 	};
 
 	function debounce(callback, wait) {
@@ -39,11 +40,12 @@ const SearchBar = () => {
 		};
 	}
 
-	const debouncedResults = useMemo(() => debounce(getLocations, 300), []);
+	const debouncedResults = useMemo(() => debounce(getFilteredCoins, 300), []);
 
 	return (
 		<form>
 			<input type="text" placeholder="Type name or symbol" name="query" onChange={debouncedResults} list="locations" />
+
 			<datalist id="locations">
 				{query.length > 0 && // // required to avoid the dropdown list to display the locations fetched before
 					suggestion?.map((el, index) => {

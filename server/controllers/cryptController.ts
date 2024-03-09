@@ -7,7 +7,7 @@ dotenv.config();
 const { geckoTrendingOptions,  geckoAllCoinsMarketsOptions, coinGeckoMarketCharts24, geckoAllCoins } = require('../helpers/options');
 const { btcMarketChart30Days, trendingCoinData, allMarketsCoinsData, marketChartBitcoinData, btc24HoursData } = require('../data/dataExports');
 const { insert_meta_table } = require('../sql-scripts/insert-meta-table');
-
+import type { CoinType, SparklineIn7D } from '../types';
 /**
  * Get all coin Markets => GET: /crypt/coins/markets (all coins)
  */
@@ -27,9 +27,15 @@ export const getAllMarkets = async (req: Request, res: Response, next: NextFunct
 
 const filterAllMarkets = async (req: Request, res: Response, next: NextFunction) => { // GET crypt/filter
   const { coin_name } = req.query;
-  
+  const len = coin_name?.length;
+
   try {
-    
+    // temporary DUMMY DATA
+    const allData: Array<CoinType> = await allMarketsCoinsData;
+    const filtered = pool.query(`SELECT * FROM `)
+    // Coingecko API Call: NEED TO PAY to use cg API so use dummy data from previous api call above:
+    const { data } = await axios.request(geckoAllCoinsMarketsOptions);
+    return res.status(200).json(data).end();
   } catch (error) {
     
   }

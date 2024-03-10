@@ -148,6 +148,33 @@ export const server = app.listen(PORT, () => console.log(`Server running on port
  * 
  */
 
+/**
+ * Caching:
+ * If you are using caching, you should also include Cache-Control information in your headers. This will help users effectively use your caching system.'
+ * 
+ * let cache = apicache.middleware;
+  app.use(cache('5 minutes')); // to apply the caching to the whole app. We cache the results for five minutes, for example. We can adjust this for our needs.
+
+ * https://www.npmjs.com/package/apicache
+ * var apicache = require('apicache')
+var cache = apicache.middleware
+
+// GET collection/id
+app.get('/api/:collection/:id?', cache('1 hour'), function(req, res, next) {
+  req.apicacheGroup = req.params.collection
+  // do some work
+  res.send({ foo: 'bar' })
+})
+
+// POST collection/id
+app.post('/api/:collection/:id?', function(req, res, next) {
+  // update model
+  apicache.clear(req.params.collection)
+  res.send('added a new item, so the cache has been cleared')
+})
+
+ */
+
 
 
 

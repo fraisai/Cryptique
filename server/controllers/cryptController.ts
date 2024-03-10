@@ -21,12 +21,12 @@ export const getAllMarkets = async (req: Request, res: Response, next: NextFunct
     const response = await axios.request(geckoAllCoinsMarketsOptions);
     return res.status(200).json(response.data).end();
   } catch (error) {
-    console.error(error);
+    console.error('cryptController.ts - getAllMarkets:', error);
     return next(error);
   }
 };
 
-const filterSearchResults = async (req: Request, res: Response, next: NextFunction) => { // GET crypt/filter?coin_query=
+export const filterSearchResults = async (req: Request, res: Response, next: NextFunction) => { // GET crypt/filter?coin_query=
   const { coin_query } = req.query;
   let len = 0;
   if (coin_query === undefined) return;
@@ -45,11 +45,13 @@ const filterSearchResults = async (req: Request, res: Response, next: NextFuncti
     else sql = `SELECT name FROM meta WHERE name ILIKE '${coin_query}';`;
     const filtered = await pool.query(sql);
     return res.status(200).json(filtered.rows);
+
     // Coingecko API Call: NEED TO PAY to use cg API so use dummy data from previous api call above:
     const { data } = await axios.request(geckoAllCoinsMarketsOptions);
     return res.status(200).json(data).end();
   } catch (error) {
-    
+    console.error('cryptController.ts - filterSearchResults:', error);
+    return next(error);
   }
 }
 
@@ -60,20 +62,15 @@ const filterSearchResults = async (req: Request, res: Response, next: NextFuncti
  *    GET: crypt/coins/market-charts?vs_currency=usd&days=:num_days
  *    days can be 1, 7, 30, 365, max
  */
-// Market Charts => GET: crypt/coins/market_chart_id
-export const getOneDayMarketChart = async (req: Request, res: Response, next: NextFunction) => {
+export const getOneDayMarketChart = async (req: Request, res: Response, next: NextFunction) => { // Market Charts => GET: crypt/coins/market_chart_id
   try {
-    // temporary DUMMY data
-    const data = await btc24HoursData; // replace this with axios req
-
+    const data = await btc24HoursData; // temporary DUMMY data - replace this with axios req
     // // Coingecko API Call: data from coingecko api
     // const response = await axios.request(coinGeckoMarketCharts24);
     // const data = response.data;
 
     const oneMonthPrices: Array<string[]> = data.prices // [[unix, price]]
-
-    // create an array containing date/time converted string and price
-    const monthDatePrices = oneMonthPrices.map((el) => {
+    const monthDatePrices = oneMonthPrices.map((el) => { // create an array containing date/time converted string and price
       const unix = Number(el[0]);
       const price = Number(el[1]);
       const time = new Date(unix).toLocaleTimeString("en-US"); // "0:00:00 PM"
@@ -89,11 +86,10 @@ export const getOneDayMarketChart = async (req: Request, res: Response, next: Ne
       times: [...oneDayLabels],
       prices: [...oneDayPrices]
     }
-
     return res.status(200).send(chartData).end();
     // return next();
   } catch (error) {
-    console.error(error);
+    console.error('cryptController.ts - getOneDayMarketChart:', error);
     return next(error);
   }
 };
@@ -108,17 +104,13 @@ export const getTrending = async (req: Request, res: Response, next: NextFunctio
     const response = await axios.request(geckoTrendingOptions);
     return res.status(200).json(response.data).end();
   } catch (error) {
-    console.error(error);
+    console.error('cryptController.ts - getTrending:', error);
     return next(error);
   }
 };
 
 /**
- * GET /crypt/metaT
- * @param req 
- * @param res 
- * @param next 
- * @returns 
+ * GET /crypt/meta
  */
 export const getMeta = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -132,9 +124,7 @@ export const getMeta = async (req: Request, res: Response, next: NextFunction) =
         try {
           const res: Record<'data', { id: string, symbol: string, name: string, description: string, links: Record<'homepage', Array<string>>, image: Record<'large', string>}> | any = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin.id}?localization=false&tickers=false&community_data=true&developer_data=false&sparkline=true`);
           const { id, symbol, name, description, links, image, sparkline_7d, last_updated} = res.data;
-  
-          // jsonb data to insert into meta table: 
-          const jsonObj = {
+          const jsonObj = { // jsonb data to insert into meta table: 
             id: id,
             symbol: symbol,
             name: name,
@@ -147,30 +137,24 @@ export const getMeta = async (req: Request, res: Response, next: NextFunction) =
             sparkline_7d: sparkline_7d,
             last_updated: last_updated
           };
-  
           const metaInsert = await pool.query(insert_meta_table, [id, symbol, name, description, links.homepage[0], image.large, JSON.stringify(jsonObj)]);
           console.log('inserted', coin.id)
           await new Promise(resolve => setTimeout(resolve, 30000));
         } catch (error: any) {
-          console.log('error on index, coin', i, coin.id, error.detail);
+          console.log('getMeta - error on index, coin:', i, coin.id, error.detail);
+          return next(error);
         }
       }
-
     };
-
     makeRateLimitedRequests();
-
     const all_meta = await pool.query('SELECT * FROM meta;'); // SELECT ALL FROM TABLE TODO
     return res.status(200).json(all_meta.rows);
     // return next();
   } catch (error) {
-    console.error(error);
+    console.error('cryptController.ts - getTrending:', error);
     return next(error);
   }
 }
-
-
-
 
 
 

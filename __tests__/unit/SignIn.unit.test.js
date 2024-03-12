@@ -1,9 +1,10 @@
 // Todo: add mongoDB connection and import server
 
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
+import { render } from '@testing-library/react'
+import { unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-import User from "./user";
+import SignIn from "../../client/components/SignIn";
 
 let container = null;
 beforeEach(() => {
@@ -33,7 +34,8 @@ it("renders user data", async () => {
 
   // Use the asynchronous version of act to apply resolved promises
   await act(async () => {
-    render(<User id="123" />, container);
+    // render(<User id="123" />, container);
+    render(<SignIn />, container);
   });
 
   expect(container.querySelector("summary").textContent).toBe(fakeUser.name);

@@ -48,8 +48,6 @@ app.get('/', (req: Request, res: Response) => {
 
 // ERROR HANDLING
 
-
-
 /**
  * 404 handler to your server such that if a request comes in to *ANY* route not listed above the 404 page is sent
  */

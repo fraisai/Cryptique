@@ -14,9 +14,10 @@ const CryptoContainer = () => {
 	const [allMarket, setAllMarket] = useState([]);
 	const [displayedCards, setDisplayedCards] = useState([]);
 	// PAGINATION
-	const cardsPerPage = 10;
+	const cardsPerPage = 12;
 	const currPageRef = useRef(1);
 	const [totalPages, setTotalPages] = useState(0); // 100 items per page
+	// const totalRef = useRef(0);
 	const [startInd, setStartInd] = useState(0);
 	const [endInd, setEndInd] = useState(cardsPerPage);
     const [nextPage, setNextPage] = useState();
@@ -49,32 +50,37 @@ const CryptoContainer = () => {
 	// const memoPageItems = useMemo(() => pageItems(), [totalPages]);
 
     const handlePrevClick = () => {
-        if (currPageRef.current === 1){ 
+		if (currPageRef.current < 1) {
 			currPageRef.current = 1;
-			setDisplayedCards(allMarket.slice(0, cardsPerPage));
-		} else {
-			currPageRef.current = currPageRef.current - 1;
-			let start = currPageRef.current * cardsPerPage;
-			let end = start + cardsPerPage; 
-			setDisplayedCards(allMarket.slice(start, end));
+			return;
 		}
-		return;
+		currPageRef.current -= 1;
+		let ind = currPageRef.current - 1;
+
+		if (currPageRef.current === 1) {
+			setDisplayedCards(allMarket.slice(0, cardsPerPage));
+			currPageRef.current = 1;
+		}
+		if (currPageRef.current === totalPages) setDisplayedCards(allMarket.slice(cardsPerPage * ind));
+		if (currPageRef.current > 1 && currPageRef.current < totalPages) setDisplayedCards(allMarket.slice(cardsPerPage * ind, cardsPerPage * (ind + 1)));
     }
 
     const handleNextClick = () => {
-        if (currPageRef.current >= totalPages) { // if end of pages is reached
+		if (currPageRef.current === totalPages) {
 			currPageRef.current = totalPages;
-			setDisplayedCards(allMarket.slice((currPageRef.current - 1) * cardsPerPage))
-		} else { // go to next page
-			currPageRef.current = currPageRef.current + 1;
-			let start = (currPageRef.current - 1) * cardsPerPage;
-			let end = start + cardsPerPage;
-			setDisplayedCards(allMarket.slice((start, end)));
+			return;
 		}
-		return;
-    }
+
+		currPageRef.current += 1;
+		let ind = currPageRef.current - 1;
+		
+		if (currPageRef.current === 1) setDisplayedCards(allMarket.slice(0, cardsPerPage));
+		if (currPageRef.current === totalPages) setDisplayedCards(allMarket.slice(cardsPerPage * ind));
+		if (currPageRef.current > 1 && currPageRef.current < totalPages) setDisplayedCards(allMarket.slice(cardsPerPage * ind, cardsPerPage * (ind + 1)));
+	}
 	
 	useEffect(() => {
+		const cancelToken = axios.CancelToken.source();
 		const getMarketData = async () => {
 			try { 
 				const marketData = await axios.get('/api/crypt/coins/markets');
@@ -86,11 +92,17 @@ const CryptoContainer = () => {
 				// if (JSON.stringify(dummy.data === "{}")) "empty object";
 				// console.log("dummy ", dummy, dummy.data, marketData)
 			} catch (error) {
-				setAllMarket([])
-				console.log("CryptoContainer.jsx: ", error)
+				setAllMarket([]);
+				if (axios.isCancel(error)) {
+					console.log("CryptoContainer.jsx: ", error);
+				} 
 			}
 		};
 		getMarketData();
+
+		return () => { // cleanup function
+			cancelToken.cancel();
+		}
 	}, []);
 
 	return (

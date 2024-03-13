@@ -9,9 +9,9 @@ const CoinCard = ({ img, card_key, name, price, data, coin_id }) => {
 	const handleShowChartClick = () => setShowChart(!showChart);
 	let item = <></>; // the page to be displayed on card based on whether Crypto, Chart, or About is clicked
 
-	function handleClick(id) {
-		console.log('Add to watchlist', id);
-		// e.preventDefault();
+	function handleClick(name, id) { // capitalize = str.toLowerCase()[0].toUpperCase() + str.slice(1)
+		// console.log('Add _id to watchlist', id);
+		alert(`Added ${name} to Watchlist`);
 	}
 
 	const chart = (name, price_7d) => { // line chart
@@ -79,7 +79,7 @@ const CoinCard = ({ img, card_key, name, price, data, coin_id }) => {
 							<p className="mb-3 font-normal text-gray-700">Market Price: {price}</p>
 
 							{/* Add to Investments Button */}
-							<button onClick={() => handleClick(coin_id)}><AddInvestmentsButtonSVG /></button>
+							<button onClick={() => handleClick(name, coin_id)}><AddInvestmentsButtonSVG /></button>
 						</div>
 					</div>
 				) : (

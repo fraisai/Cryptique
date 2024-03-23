@@ -15,7 +15,7 @@ Tech used in this app:
 
 
 <img src="./client/assets/readme/cryptos.gif" width="829" height="415">
-<img src="./client/assets/readme/login-cryptique.gif" width="829" height="415">
+<img src="./client/assets/readme/login-cryptique.mp4" width="829" height="415">
 
 ![alt text](./client/assets/readme/dashboard.png)
 

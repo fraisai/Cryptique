@@ -2,7 +2,12 @@ import React from 'react'
 
 const LandingContainer = () => {
   return (
-    <div>LandingContainer</div>
+    <div>
+        <header>
+            <nav id="mainNavbar" data-sticky="false" className="nav-border nav-padding fixed">
+            </nav>
+        </header>
+    </div>
   )
 }
 

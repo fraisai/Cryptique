@@ -10,8 +10,12 @@ const github_url: string = '' + process.env.GITHUB_OAUTH_LOGIN_URL;
 export const githubLoginController = async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>> | void>  => { //auth/github-login
     console.log('githubLoginController', github_url)
     try {
-        res.status(307).redirect(github_url);
-        return;
+        const payload = {
+            status: 'success',
+            redirect: github_url
+        }
+        return res.status(200).json(payload);
+        return res.redirect(github_url);
     } catch (error) {
         console.log('Error in loginFlowController.ts: githubLoginController', error);
         // res.status(200).redirect('back'); // in Express 4.x, use 'back' to automatically redirect back to the page the request came from
@@ -22,7 +26,7 @@ export const githubLoginController = async (req: Request, res: Response, next: N
 /**
  * 
  */
-export const githubCallbackController = async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>> | void> => {
+export const githubCallbackController = async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>> | void> => { // auth/callback
     const { code } = req.query;
     console.log('githubCallbackController', code);
     // redirect = frontend/auth/callback
@@ -43,7 +47,9 @@ export const githubCallbackController = async (req: Request, res: Response, next
         const { access_token } = tokenData;
         console.log('githubCallbackController, tokenData, access_token:', tokenData, access_token);
 
-        if (access_token) return res.status(200).json({ status: 'success'});
+        // if (access_token) return res.status(200).json({ status: 'success'});
+        if (access_token) return res.status(307).redirect('http://localhost:8080/dashboard');
+
         else return res.status(200).json({ status: 'fail' });
     } catch (error) {
         console.log('Error in githubCallbackController.ts', error);

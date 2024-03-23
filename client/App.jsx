@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, useLocation, redirect } from 'react-router-dom';
+import { Route, Routes, useLocation, redirect, useSearchParams } from 'react-router-dom';
 import axios from 'axios'; // axios.defaults.baseURL = REACT_BASE_URL;
 import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn, LoginContainer, SignupContainer, TermsConditions, ErrorPage } from './componentImports';
 import { CryptiqueContext } from './CryptiqueContext';
@@ -37,28 +37,11 @@ const SignupLayout = ({ children }) => {
 
 const App = () => {
 	const [chartData, setChartData] = useState({});
+	// const [searchParams, setSearchParams] = useSearchParams();
 	let location = useLocation();
 	const [isAuth, setIsAuth] = useState(false);
 	
 	useEffect(() => {
-		/**
-		 * 		console.log("useEffect location: ", location.search);
-
-		// GITHUB OAUTH2.0
-		const getAccessCode = async (code) => {
-			const res = await axios.get('/api/auth/callback?code=' + code);
-			console.log('getCode status: ', res.data);
-		}
-		// const access = location.search; // react-router gets ?code=xxxx
-		const urlParams = new URLSearchParams(window.location.search);
-        const access = urlParams.get('access_token');
-
-		if (access === null) {
-			getAccessCode(access)
-		}
-
-		 */
-		
 		const getChartData = async () => {
 			const marketChartData = await axios.get('/api/crypt/coins/market-charts');
 			setChartData(marketChartData.data);
@@ -78,25 +61,10 @@ const App = () => {
 
 			{/* **************************** BODY & ROUTES **************************** */}
 			<div className="pt-6">
-				<Routes>
-					{/* <Route path='/login' 
-						component={() => {
-							window.location.assign = 'https://github.com/login/oauth/authorize?client_id=17cfd66a744613f0d753';
-							return null;
-					}
-					}/> */}
-					
-					{/* <Route 
-						path="/sign-in" 
-						element={
-							<div align='center' >
-								<SignIn/>
-							</div>
-						}
-					/> */}
-
-					
-					<Route path="/" element={<Layout><Dashboard chartData={chartData} /></Layout>} />
+				<Routes>					
+					{/* <Route path="/" element={<Layout><Dashboard chartData={chartData} /></Layout>} /> */}
+					<Route path="/" element={<SignupLayout><LoginContainer locationSearch={location.search} /></SignupLayout>} />
+					<Route path="/dashboard" element={<Layout><Dashboard chartData={chartData} /></Layout>} />
 					<Route path="/all-coins" element={<Layout><CryptoContainer /></Layout>} />
 					<Route path="/trending" element={<Layout><TrendingContainer /></Layout>} />
 					<Route path="/investments" element={<Layout><InvestmentsContainer /></Layout>} />
@@ -105,10 +73,9 @@ const App = () => {
 					<Route path="/terms-conditions" element={<Layout><TermsConditions /></Layout>} />
 					<Route path="/error" element={<ErrorPage />} />
 
-					<Route path="/login" element={<SignupLayout><LoginContainer /></SignupLayout>} />
+					<Route path="/login" element={<SignupLayout><LoginContainer locationSearch={location.search} /></SignupLayout>} />
 					<Route path="/signup" element={<SignupLayout><SignupContainer /></SignupLayout>} />
-					{/* <Route path="/" element={<SignupLayout><LoginContainer /></SignupLayout>} /> */}
-					{/* <Route index path="/dashboard" element={<Layout><Dashboard chartData={chartData} /></Layout>} /> */}
+					<Route path="*" element={<ErrorPage reason={"You do not have permission."}/>}/>
 				</Routes>
 			</div>
 		</div>

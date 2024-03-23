@@ -2,27 +2,29 @@
 import CoinCard from './components/CoinCard';
 import ConnectContainer from './containers/ConnectContainer';
 import CryptoContainer from './containers/CryptoContainer';
+import CryptoOneWeekChart from './components/dashboard-charts/CryptoOneWeekChart.jsx'; // used in CoinCard.jsx
 import Dashboard from './containers/Dashboard';
 import ErrorPage from './components/ErrorPage';
 import Footer from './components/Footer';
+import InputCheckbox from './components/InputCheckbox.jsx';
+import InvestmentsCard from './components/InvestmentsCard.jsx';
 import InvestmentsContainer from './containers/InvestmentsContainer';
+import LandingContainer from './containers/LandingContainer.jsx';
+import LoginContainer from './containers/LoginContainer.jsx';
 import Navbar from './components/Navbar';
 import NewsContainer from './containers/NewsContainer';
 import OneDayChart from './components/dashboard-charts/OneDayChart'; // used in Dashboard.jsx
 import OneDayPieChart from './components/dashboard-charts/OneDayPieChart';
 import OneWeekChart from './components/dashboard-charts/OneWeekChart';
-import SignIn from './components/SignIn.jsx';
+import Pagination from './components/Pagination.jsx';
 import Sidebar from './components/Sidebar';
+import SignIn from './components/SignIn.jsx';
+import SignupContainer from './containers/SignupContainer.jsx';
 import Spinner from './components/Spinner';
+import TermsConditions from './containers/TermsConditions.jsx';
 import TrendingCardContainer from './containers/card-containers/TrendingCardContainer';
 import TrendingContainer from './containers/TrendingContainer';
-import InvestmentsCard from './components/InvestmentsCard.jsx';
-import LoginContainer from './containers/LoginContainer.jsx';
-import SignupContainer from './containers/SignupContainer.jsx';
-import TermsConditions from './containers/TermsConditions.jsx';
-import InputCheckbox from './components/InputCheckbox.jsx';
-import CryptoOneWeekChart from './components/dashboard-charts/CryptoOneWeekChart.jsx'; // used in CoinCard.jsx
-import Pagination from './components/Pagination.jsx';
+
 export { 
     CoinCard, 
     ConnectContainer, 
@@ -47,7 +49,8 @@ export {
     TermsConditions,
     InputCheckbox,
     CryptoOneWeekChart,
-    Pagination
+    Pagination,
+    LandingContainer
 };
 
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, useLocation, redirect, useSearchParams } from 'react-router-dom';
 import axios from 'axios'; // axios.defaults.baseURL = REACT_BASE_URL;
-import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn, LoginContainer, SignupContainer, TermsConditions, ErrorPage } from './componentImports';
+import { Dashboard, Sidebar, Navbar, Footer, CryptoContainer, InvestmentsContainer, NewsContainer, ConnectContainer, TrendingContainer, SignIn, LoginContainer, SignupContainer, TermsConditions, ErrorPage, LandingContainer } from './componentImports';
 import { CryptiqueContext } from './CryptiqueContext';
 
 const Layout = ({ children }) => {
@@ -63,6 +63,7 @@ const App = () => {
 			<div className="pt-6">
 				<Routes>					
 					{/* <Route path="/" element={<Layout><Dashboard chartData={chartData} /></Layout>} /> */}
+					{/* <Route path="/" element={<LandingContainer />} /> */}
 					<Route path="/" element={<SignupLayout><LoginContainer locationSearch={location.search} /></SignupLayout>} />
 					<Route path="/dashboard" element={<Layout><Dashboard chartData={chartData} /></Layout>} />
 					<Route path="/all-coins" element={<Layout><CryptoContainer /></Layout>} />

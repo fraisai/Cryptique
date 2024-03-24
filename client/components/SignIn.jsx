@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, createContext } from 'react';
-import { Route, useLocation, Link, useNavigate } from 'react-router-dom';
+import { Route, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 import { GoogleSignInSVG, GithubSignInSVG, InputCheckbox } from '../componentImports';
 
@@ -7,9 +7,6 @@ export const AuthContext = createContext();
 
 
 const SignIn = ({locationSearch}) => {
-	let navigate = useNavigate();
-	let CLIENT_ID = '';
-	const location = useLocation();
 	const [remember, setRemember] = useState(false);
 	const loginRef = useRef({
 		email: '',
@@ -31,12 +28,12 @@ const SignIn = ({locationSearch}) => {
 
 	const handleGoogleLogin = () => {
 		console.log('google clicked');
-		alert('Sign in using Github (for now)');
+		alert('Sign in using Github (for now).');
 		return;
 	}
 
 	const handleFormSubmit = () => {
-		alert('Sign in using Github (for now)');
+		alert('Sign in using Github (for now).');
 		return;
 	}
 

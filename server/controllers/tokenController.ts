@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 const jwt = require("jsonwebtoken");
 
-module.exports = async (request: Request | any, response: Response, next: NextFunction) => {
+export const tokenController = async (request: Request | any, response: Response, next: NextFunction) => {
   try {
     //   get the token from the authorization header
     const token = await request.headers.authorization.split(" ")[1];
@@ -16,11 +16,13 @@ module.exports = async (request: Request | any, response: Response, next: NextFu
     request.user = user;
 
     // pass down functionality to the endpoint
-    next();
+    return next();
     
   } catch (error) {
-    response.status(401).json({
-      error: new Error("Invalid request!"),
-    });
+    console.log('Error in tokenController.ts', error);
+    return next(error);
+    // return response.status(401).json({
+    //   error: new Error("Invalid request!"),
+    // });
   }
 };

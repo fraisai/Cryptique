@@ -60,6 +60,9 @@ app.all('*', function(req, res, next: NextFunction) {
   if (res.statusCode === 404) {
     res.status(404).json('Resource does not exist');
   }
+
+  if (res.statusCode === 401) res.status(401).json('Request lacks valid authentication credentials');
+  if (res.statusCode === 403) res.status(403).json('Valid credentials but does not have privilege to perform action.')
   req.baseUrl
   next(err);
 });

@@ -83,7 +83,6 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   console.log("Express error handler:" , err.message);
   // return res.status(defaultErr.status).send(defaultErr.message);
   return res.status(200).json(defaultErr.message)
-
 });
 
 

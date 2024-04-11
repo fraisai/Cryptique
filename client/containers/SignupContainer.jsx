@@ -15,7 +15,7 @@ const SignupContainer = () => {
   const nav = useNavigate();
   const { state } = useLocation();
   const from = state ? state.from.pathname : '/signup';
-  console.log('FROM: ', from )
+  // console.log('FROM: ', from )
   const validatePass = (val) => { // min 6 letter password, with at least a symbol, upper and lower case letters and a number
     const regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!regex.test(val)) console.log('Enter valid password');
@@ -23,13 +23,13 @@ const SignupContainer = () => {
   
   const handleChange = (e) => {
     e.preventDefault();
-    const { name, value } = e.target
+    const { name, value } = e.target;
     if (name === 'password') validatePass(value);
     setRegisterFormData((prevState) => ({...prevState, [name]: value }));
   }
 
   const postSignup = async (form) => {
-    console.log('postSign', form)
+    // console.log('postSign', form)
     try {
       const res = await axios.post('/api/auth/register', {...form}, { headers: { 'Content-Type': 'application/json'}});
       if (res.status === 201 && res.data.message === "Success") nav('/');
@@ -43,8 +43,8 @@ const SignupContainer = () => {
   
   const handleSubmit = (e) => { // make post request to /api/auth/register
     e.preventDefault();
-    const { name, value } = e.target
-    setRegisterFormData({... registerFormData, [name]: value, submitted: true });
+    const { name, value } = e.target;
+    setRegisterFormData({...registerFormData, [name]: value, submitted: true });
     postSignup({...registerFormData});
     // console.log("registerFormData", registerFormData)
   }

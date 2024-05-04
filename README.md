@@ -15,9 +15,6 @@ Tech used in this app:
 
 
 <br><br>
-<div align="center">
-  <img src="./client/assets/readme/login-cryptique.gif" width="829" height="415">
-</div>
 
 <br><br>
 <div align="center">
@@ -27,10 +24,6 @@ Tech used in this app:
 
 <br><br>
 ![alt text](./client/assets/readme/dashboard.png)
-
-
-
 <br><br>
-<video width="320" height="240" controls>
-  <source src="./client/assets/readme/login-cryptique.mp4" type="video/mp4">
-</video>
+
+

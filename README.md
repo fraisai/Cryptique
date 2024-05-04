@@ -14,10 +14,18 @@ Tech used in this app:
 - Microservices: AWS Copilot (Amazon ECR/ECS), Docker
 
 
-<img src="./client/assets/readme/cryptos.gif" width="829" height="415">
+<br><br>
+<div align="center">
+  <img src="./client/assets/readme/cryptos.gif" width="829" height="415">
+</div>
 
+
+<br><br>
 ![alt text](./client/assets/readme/dashboard.png)
 
 
 
-
+<br><br>
+<video width="320" height="240" controls>
+  <source src="./client/assets/readme/login-cryptique.mp4" type="video/mp4">
+</video>

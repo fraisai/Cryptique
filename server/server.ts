@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || '5000';
 const logger = require('morgan');
 import { requestLogger, errorLogger } from './controllers/errorController';
-const endpoint = require('./controllers/endpointController');
+// const endpoint = require('./controllers/endpointController');
 
 // MONGO DB ATLAS
 import mongoDbConnect from './models/mongoConnect';
@@ -87,16 +87,16 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 });
 
 
-// Protected
-// free endpoint
-app.get("/free-endpoint", (request, response) => {
-  response.json({ message: "You are free to access me anytime" });
-});
+// // Protected
+// // free endpoint
+// app.get("/free-endpoint", (request, response) => {
+//   response.json({ message: "You are free to access me anytime" });
+// });
 
-// authentication endpoint
-app.get("/auth-endpoint", endpoint, (request, response) => {
-  response.json({ message: "You are authorized to access me" });
-});
+// // authentication endpoint
+// app.get("/auth-endpoint", endpoint, (request, response) => {
+//   response.json({ message: "You are authorized to access me" });
+// });
 
 
 app.use('/', (req, res) => {

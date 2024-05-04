@@ -16,6 +16,11 @@ Tech used in this app:
 
 <br><br>
 <div align="center">
+  <img src="./client/assets/readme/login-cryptique.gif" width="829" height="415">
+</div>
+
+<br><br>
+<div align="center">
   <img src="./client/assets/readme/cryptos.gif" width="829" height="415">
 </div>
 

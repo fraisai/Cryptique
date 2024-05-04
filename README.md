@@ -27,3 +27,8 @@ Tech used in this app:
 <br><br>
 
 
+![alt text](./client/assets/readme/signup.png)
+<br><br>
+
+![alt text](./client/assets/readme/login.png)
+<br><br>

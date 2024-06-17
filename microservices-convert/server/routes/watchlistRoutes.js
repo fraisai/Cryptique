@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-// const db = require('./db.json');
+const watchlist_card = require('./db/watchlist_card.csv');
 
 
 // GET all cards: watchlist/cards/
@@ -23,7 +23,6 @@ router.get('/cards/:id', async (req, res, next) => {
     try {
         const { id } = req.body; 
         const oneCard = await pool.query('SELECT * FROM watchlist_card WHERE _id = $1;', [id]);
-        // TEMPORARY DUMMY DATA
         return res.status(200).json(oneCard.rows);
     } catch (error) {
         console.error("watchlistCrudController.ts getCard: ", error);
@@ -36,7 +35,7 @@ router.post('/cards', async (req, res, next) => {
     try {
         const { id } = req.body;
         const card = await pool.query('INSERT INTO watchlist_card SELECT * FROM ');
-        return next();
+        return res.status(201).json(card);
     } catch(error) {
         console.error("watchlistCrudController.ts getCard: ", error);
         return next(error)

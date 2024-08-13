@@ -84,11 +84,3 @@ const App = () => {
 };
 
 export default App;
-
-/*
-fetch('api/crypt/coins/trending').then(res => res.json())
-        .then(res => {
-          const data = res
-          console.log("fetch api", data)
-        })
-*/

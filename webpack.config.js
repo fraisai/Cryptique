@@ -16,7 +16,7 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 
 module.exports = {
     mode: process.env.NODE_ENV,
-    entry: [ './client/index.js'], // top file in your React application: renders the app to the DOM -> go in from here so webpack can travel down every other component
+    entry: [ './src/client/index.js'], // top file in your React application: renders the app to the DOM -> go in from here so webpack can travel down every other component
     output: { // what to call output folder and the bundled JS file
         path: path.resolve(__dirname, 'build'),
         publicPath: '/', // every url that webpack encounters will be re-written to begin with '/'
@@ -94,14 +94,14 @@ module.exports = {
         new BundleAnalyzerPlugin(),
         // generates html files for bundles - use index.html file in the public folder as a template
         new HtmlWebpackPlugin({
-            favicon: path.resolve(__dirname, './client/assets/images/favicon/favicon.ico'),
-            template: './public/index.html'
+            favicon: path.resolve(__dirname, './src/client/assets/images/favicon/favicon.ico'),
+            template: './src/public/index.html'
         }),
         new webpack.DefinePlugin(envKeys),
         new CopyPlugin({
             patterns: [
                 {
-                    from: 'server/data/**/*',
+                    from: 'src/server/data/**/*',
                     // to: 'server/data' // becomes build/server/data/server/data
                 }
             ]

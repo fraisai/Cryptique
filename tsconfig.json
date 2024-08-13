@@ -7,7 +7,7 @@
         // "jsx": "react",                                      /* Transform JSX into React code - Specify what JSX code is generated. */
         // "types": ["node"],
         "module": "commonjs",                                /* Specify what module code is generated. */
-        "rootDir": "./server",                                  /* Specify the root folder within your source files. */
+        "rootDir": "./src/server",                                  /* Specify the root folder within your source files. */
         // "moduleResolution": "node",
         // "baseUrl": "src",
         "outDir": "./build/server",                                   /* all compiled files will be placed in dist folder Specify an output folder for all emitted files. */
@@ -19,7 +19,7 @@
         "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
 
         },
-    "include": ["./server/**/*", "node_modules/@types"],
+    "include": ["./src/server/**/*", "node_modules/@types"],
     "exclude": ["./lib/__tests__/**/*.test.ts"],
     "testEnvironment": "jsdom"
 }

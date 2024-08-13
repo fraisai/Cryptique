@@ -30,7 +30,6 @@ export const registerController = async (req: Request, res: Response, next: Next
             })
         } else {
             return res.status(200).redirect('/build'); // meta, amazon - these companies send a 200 status code and then redirect user to a different page if same email is entered
-            // res.status(200).redirect('back'); => in Express 4.x, use 'back' to automatically redirect back to the page the request came from
         }
     } catch (error) {
         console.log("ERROR in AUTHCONTROLLER FOR REGISTER", error)

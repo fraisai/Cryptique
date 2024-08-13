@@ -18,17 +18,17 @@ Tech used in this app:
 
 <br><br>
 <div align="center">
-  <img src="./client/assets/readme/cryptos.gif" width="829" height="415">
+  <img src="./src/client/assets/readme/cryptos.gif" width="829" height="415">
 </div>
 
 
 <br><br>
-![alt text](./client/assets/readme/dashboard.png)
+![alt text](./src/client/assets/readme/dashboard.png)
 <br><br>
 
 
-![alt text](./client/assets/readme/signup.png)
+![alt text](./src/client/assets/readme/signup.png)
 <br><br>
 
-![alt text](./client/assets/readme/login.png)
+![alt text](./src/client/assets/readme/login.png)
 <br><br>

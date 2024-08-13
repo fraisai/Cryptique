@@ -96,7 +96,6 @@ const SignIn = ({locationSearch}) => {
 						Sign in with Github
 					</button>
 					
-					
 					{/* GOOGLE SIGNIN */}
 					<button 
 						onClick={handleGoogleLogin} 

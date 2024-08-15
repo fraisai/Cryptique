@@ -11,28 +11,21 @@ const InvestmentsContainer = () => {
 	const [tweet, setTweet] = useState([]);
 
 	useEffect(() => {
+		/**
+		 * Get all saved cards in watchlist
+		 */
 		const getWatchlist = async () => {
-			const res = await axios.get('api/watch/get');
-			setList(res);
-			console.log(res);
-		};
-	});
-
-	const getList = async () => {
-		await axios
-			.get('/api/watch/get')
-			.then((response) => {
-				setList(response.data);
-			})
-			.catch((error) => {
+			try {
+				const res = await axios.get('/api/watchlist/cards');
+				setList(res.data);
+	
+			} catch (error) {
 				console.log('Error in GET request in Listodos.js', error.message);
-			});
-	};
-
-	useEffect(() => {
-		getList();
-	}, []); // ensures you make just 1 request by including []
-
+			}
+		};
+		getWatchlist();
+	});
+	
 	console.log('list from Listodos.js', list);
 
 	const deleteTodo = async (id) => {

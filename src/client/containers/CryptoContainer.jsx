@@ -29,7 +29,6 @@ const CryptoContainer = () => {
 		if (currPageRef.current === 1) setDisplayedCards(allMarket.slice(0, cardsPerPage));
 		if (currPageRef.current === totalPages) setDisplayedCards(allMarket.slice(cardsPerPage * ind));
 		if (currPageRef.current > 1 && currPageRef.current < totalPages) setDisplayedCards(allMarket.slice(cardsPerPage * ind, cardsPerPage * (ind + 1)));
-		// console.log('val, totalPages:', val, totalPages,'handlePage currPage, start, end:', currPageRef.current, cardsPerPage * currPageRef.current, cardsPerPage * currPageRef.current + cardsPerPage, 'cards: ', displayedCards)
 		return; 
 	}
 
@@ -87,10 +86,6 @@ const CryptoContainer = () => {
 				setAllMarket(await marketData.data); // ALL the cryptos in market				 
 				setTotalPages(Math.ceil(marketData.data.length / cardsPerPage));// calculate total number of pages
 				if (currPageRef.current === 1) setDisplayedCards(marketData.data.slice(0, cardsPerPage)); // display cards for the first page
-			
-				// const dummy = await axios.get('/api/crypt/coins/');
-				// if (JSON.stringify(dummy.data === "{}")) "empty object";
-				// console.log("dummy ", dummy, dummy.data, marketData)
 			} catch (error) {
 				setAllMarket([]);
 				if (axios.isCancel(error)) {

@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 const axios = require('axios');
 const pool = require('../models/sqlConnection'); // connect server to database aka connecting to the db.js file
-
 const dotenv = require('dotenv');
 dotenv.config();
 const { geckoTrendingOptions,  geckoAllCoinsMarketsOptions, coinGeckoMarketCharts24, geckoAllCoins } = require('../helpers/options');

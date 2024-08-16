@@ -44,24 +44,31 @@ const SearchBar = () => {
 	const debouncedResults = useMemo(() => debounce(getFilteredCoins, 300), []);
 
 	return (
-		<form>
-			<input 
-				list="locations" 
-				name="query" 
-				onChange={debouncedResults} 
-				placeholder="Type name or symbol" 
-				type="text" 
-				// defaultValue={''}
-			/>
+		<form className='flex items-center w-full' style={{ justifyContent: 'space-around'}}>
+			<div className='flex justify-between	 flex-row'>
+				<input 
+					list="locations" 
+					className='w-5/6 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block p-2.5 px-4'
+					name="query" 
+					onChange={debouncedResults} 
+					placeholder="Type name or symbol" 
+					type="text" 
+					// defaultValue={''}
+				/>
 
-			<datalist id="locations">
-				{query.length > 0 && // // required to avoid the dropdown list to display the locations fetched before
-					suggestion?.map((el, ind) => {
-						if (el.name.includes(query)) return <option key={ind} value={el.name} />;
-						else if (el.symbol.includes(query)) return (<option key={ind} value={el.symbol} />)
-						return '';
-					})}
-			</datalist>
+				<datalist id="locations">
+					{query.length > 0 && // // required to avoid the dropdown list to display the locations fetched before
+						suggestion?.map((el, ind) => {
+							if (el.name.includes(query)) return <option key={ind} value={el.name} />;
+							else if (el.symbol.includes(query)) return (<option key={ind} value={el.symbol} />)
+							return '';
+						})}
+				</datalist>
+
+				<button className="text-white bg-green-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 w-full" type="button">
+					Add to Watchlist
+				</button>
+			</div>
 		</form>
 	);
 };

@@ -27,7 +27,7 @@ const InvestmentsContainer = () => {
 	});
 
 	console.log('list from Listodos.js', cards);
-
+	
 	const deleteTodo = async (id) => {
 		try {
 			await axios
@@ -66,7 +66,6 @@ const InvestmentsContainer = () => {
 				<div className="grid gap-4 xl:grid-cols-1 2xl:grid-cols-1">
 					{/* WHITE BORDER */}
 					<div className="max-w-screen flex flex-col p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5"></div>
-
 
 					<div className="flex flex-col">
 						<div className="inline-block min-w-full align-middle">

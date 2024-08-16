@@ -18,7 +18,6 @@ const InvestmentsContainer = () => {
 			try {
 				const res = await axios.get('/api/watchlist/cards');
 				setList(res.data);
-	
 			} catch (error) {
 				console.log('Error in GET request in Listodos.js', error.message);
 			}
@@ -27,20 +26,30 @@ const InvestmentsContainer = () => {
 	});
 
 	console.log('list from Listodos.js', cards);
-	
-	const deleteTodo = async (id) => {
+
+	const deleteCard = async (id) => {
 		try {
 			await axios
-				// .delete(`/cryptotodo/${id}`)
-				.delete(`/v1/api/cryptodo/${id}`)
+				.delete(`/api/watchlist/cards/${id}`)
 				.then((res) => console.log('Delete in Listodos.js'))
 				.catch((error) => console.log('Delete error in Listodos.js', error.message));
-			window.location = '/cryptotodo';
+			// window.location = '/cryptotodo';
 		} catch (err) {
 			console.log('Error in Listodos.js');
 		}
 	};
 
+	const addCard = async (id) => {
+		try {
+			const card = await axios.get(`watchlist/cards/${id}`);
+			await axios.post('watchlist/cards', {
+				_id: card.id,
+
+			})
+		} catch (error) {
+			
+		}
+	}
 	const handleTweetSearch = async (ele) => {
 		console.log('tweetSearch', ele);
 		const newObj = {

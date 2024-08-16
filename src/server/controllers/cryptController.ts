@@ -25,23 +25,23 @@ export const getAllMarkets = async (req: Request, res: Response, next: NextFunct
   }
 };
 
-export const filterSearchResults = async (req: Request, res: Response, next: NextFunction) => { // GET crypt/filter?coin_query=
-  const { coin_query } = req.query;
+export const filterSearchResults = async (req: Request, res: Response, next: NextFunction) => { // GET crypt/filter?coinQuery=
+  const { coinQuery } = req.query;
   let len = 0;
-  if (coin_query === undefined) return;
-  else len = coin_query.length as number;
+  if (coinQuery === undefined) return;
+  else len = coinQuery.length as number;
   // SELECT * FROM customer WHERE last_name ~* '^D.*on.*'; => check whether the value of last_name begins with a "d" and contains the substring "on", which would match names like "Dickson", "Donald", and "Devon"
 
   try {
     const allData: Array<CoinType> = await allMarketsCoinsData; // temporary DUMMY DATA
 
     /**
-     * if coin_query.length is <= 3, then search both symbol and name
-     * if coin_query.length > 4 then search crypto name
+     * if coinQuery.length is <= 3, then search both symbol and name
+     * if coinQuery.length > 4 then search crypto name
      */
     let sql = '' as string;
-    if (len > 0 && len <= 3) sql = `SELECT name FROM meta WHERE name ILIKE '${coin_query}%' OR symbol ILIKE '${coin_query}%';`;
-    else sql = `SELECT name FROM meta WHERE name ILIKE '${coin_query}';`;
+    if (len > 0 && len <= 3) sql = `SELECT name FROM meta WHERE name ILIKE '${coinQuery}%' OR symbol ILIKE '${coinQuery}%';`;
+    else sql = `SELECT name FROM meta WHERE name ILIKE '${coinQuery}';`;
     const filtered = await pool.query(sql);
     return res.status(200).json(filtered.rows);
 

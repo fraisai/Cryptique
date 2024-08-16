@@ -1,17 +1,17 @@
 // in Crypto Cards => Add to Watchlist => 
 import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 const pool = require('../models/sqlModel'); // connect server to database aka connecting to the db.js file
-const watchlist_card = require('../data/watchlist_card.csv');
+const watchlist_cards = require('../data/watchlist_card.csv');
 
 /**
  * Get all watchlist cards
  */
 export const getAllCards = async(req: Request, res: Response, next: NextFunction): Promise<Response<string, any> | void> => { // GET: /watchlist/cards
     try {
-        const allCards = await pool.query('SELECT * FROM watchlist_card;'); // SELECT ALL FROM TABLE TODO
+        const allCards = await pool.query('SELECT * FROM watchlist_cards;'); // SELECT ALL FROM TABLE TODO
 
         // TEMPORARY dummy data
-        return res.status(200).json(watchlist_card);
+        return res.status(200).json(watchlist_cards);
         // ElephantSQL
         return res.status(200).json(allCards.rows); // aka sending back on the response object
     } catch(error: any | ErrorRequestHandler) {
@@ -25,8 +25,8 @@ export const getAllCards = async(req: Request, res: Response, next: NextFunction
  */
 export const getCard = async(req: Request, res: Response, next: NextFunction): Promise<Response<string, any> | void> => { // GET: /watchlist/cards/:id
     try {
-        const { id } = req.body; 
-        const oneCard = await pool.query('SELECT * FROM watchlist_card WHERE _id = $1;', [id]);
+        const { _id } = req.body; 
+        const oneCard = await pool.query('SELECT * FROM watchlist_cards WHERE _id = $1;', [id]);
 
         // TEMPORARY DUMMY DATA
 
@@ -42,9 +42,9 @@ export const getCard = async(req: Request, res: Response, next: NextFunction): P
 export const addCard = async(req: Request, res: Response, next: NextFunction): Promise<void> => { // POST: /watchlist/cards
     try {
         const { id } = req.body; // you are inserting into the column for description in the table named 'todo' (located in the database 'perntodo') the object description (from req.body)
-        // const newCard = await pool.query(`INSERT INTO watchlist_card(_id, _name, symbol, percent_change, equity, shares, price) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [name]);
+        // const newCard = await pool.query(`INSERT INTO watchlist_cards(_id, _name, symbol, percent_change, equity, shares, price) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [name]);
 
-        const card = await pool.query('INSERT INTO watchlist_card SELECT * FROM ');
+        const card = await pool.query('INSERT INTO watchlist_cards SELECT * FROM ');
 
         // ElephantSQL
         // res.status(200).json(newCard);
@@ -61,7 +61,7 @@ export const deleteCard = async(req: Request, res: Response, next: NextFunction)
         const { id } = req.params; // specify exactly what we want to delete
 
         // ElephantSQL
-        const deletedCard = await pool.query('DELETE FROM watchlist_card WHERE _id = $1 RETURN *;', [id]);
+        const deletedCard = await pool.query('DELETE FROM watchlist_cards WHERE _id = $1 RETURN *;', [id]);
         return res.status(200).json(deletedCard.rows);
     } catch (error: any | ErrorRequestHandler) {
         console.log("Error in DELETE request in server", error.message);
@@ -75,7 +75,7 @@ export const putCard = async(req: Request, res: Response, next: NextFunction): P
         const coin_id = req.params.id;
         const { shares, value } = req.body;
         if (!shares || !value ) return res.status(400).json({ error: 'Put request requires both shares & value.' });
-        const updateTodo = await pool.query(`UPDATE watchlist_card SET shares=$1 WHERE _id=$2 RETURNING * WHERE _id=$3;`, [shares, coin_id, coin_id]);
+        const updateTodo = await pool.query(`UPDATE watchlist_cards SET shares=$1 WHERE _id=$2 RETURNING * WHERE _id=$3;`, [shares, coin_id, coin_id]);
 
         return res.status(204).json('Item was edited.');
     } catch (error: any | ErrorRequestHandler) {
@@ -87,9 +87,9 @@ export const putCard = async(req: Request, res: Response, next: NextFunction): P
 // Left join the cards in watchlist with their corresponding rows in meta table (adds [null] for meta table data if join conditions are not equal)
 export const getWatchlistMetaCards = async(req: Request, res: Response, next: NextFunction) => { // GET: /watchlist/cards/info
     try {
-        const sql = `SELECT watchlist_card.*, meta.desc, meta.homepage_url, meta.img, meta.jsonb_meta
-        FROM watchlist_card LEFT JOIN meta
-        ON watchlist_card = meta.id;`;
+        const sql = `SELECT watchlist_cards.*, meta.desc, meta.homepage_url, meta.img, meta.jsonb_meta
+        FROM watchlist_cards LEFT JOIN meta
+        ON watchlist_cards = meta.id;`;
         const joinWatchlistMetaCards = await pool.query(sql);
         return res.status(200).json(joinWatchlistMetaCards.rows);
     } catch (error: any | ErrorRequestHandler ) {

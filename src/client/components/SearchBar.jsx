@@ -2,14 +2,14 @@ import React, { useState, useRef, useMemo } from 'react';
 import axios from 'axios';
 
 const SearchBar = () => {
-	const [query, setQuery] = useState(''); // state that hold API data
+	const [coinQuery, setCoinQuery] = useState(''); // state that holds API data
 	const [suggestion, setSuggestion] = useState([]); // returns the suggestion box
 
 	const getFilteredCoins = async (e) => {
-		setQuery(e.target.value); // query to send to backend
+		setCoinQuery(e.target.value); // query to send to backend
 		try {
 			if (query.length >= 1) {
-				const filteredResult = await axios.get(`api/crypt/filter?coin_name=${query}`);
+				const filteredResult = await axios.get(`api/crypt/filter?coin_name=${coinQuery}`);
 				setSuggestion(filteredResult?.data);
 			}
 		} catch (error) {

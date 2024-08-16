@@ -9,7 +9,7 @@ const name = ['BTC', 'ETH', 'Memecoin'];
 const InvestmentsContainer = () => {
 	const [cards, setCards] = useState([]);
 	const [tweet, setTweet] = useState([]);
-
+	const rowNames = ['Cryptocurrency', 'Symbol', 'Shares', 'Price', '% Change', 'Your Equity', 'Actions'];
 	useEffect(() => {
 		/**
 		 * Get all saved cards in watchlist
@@ -98,12 +98,17 @@ const InvestmentsContainer = () => {
 												</div>
 											</th>
 
-											<th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">
+											{rowNames.map(rowName => {
+												return(<th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">{rowName}</th>)
+											})}
+											
+											{/* <th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">
 												Cryptocurrency
 											</th>
 											<th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">
 												Symbol
 											</th>
+
 											<th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">
 												Shares
 											</th>
@@ -120,11 +125,11 @@ const InvestmentsContainer = () => {
 
 											<th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">
 												Actions
-											</th>
+											</th> */}
 										</tr>
 									</thead>
 
-									{name.map(el => <InvestmentsCard name={el} />)}
+									{name.map(el => <InvestmentsCard name={el} sellCard={deleteCard}/>)}
 								</tbody>
 							</table>
 						</div>

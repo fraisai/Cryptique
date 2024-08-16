@@ -24,7 +24,7 @@ const InvestmentsContainer = () => {
 			}
 		};
 		getWatchlist();
-	});
+	}, []);
 
 	console.log('list from InvestmentContainer.jsx', cards);
 
@@ -99,8 +99,8 @@ const InvestmentsContainer = () => {
 												</div>
 											</th>
 
-											{colNames.map(colName => {
-												return(<th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">{colName}</th>)
+											{colNames.map((colName, i) => {
+												return(<th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase " key={`${colName}_${i}`}>{colName}</th>)
 											})}
 
 											{/* <th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">

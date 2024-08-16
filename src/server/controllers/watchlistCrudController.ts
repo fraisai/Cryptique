@@ -3,12 +3,13 @@ import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 const pool = require('../models/sqlModel'); // connect server to database aka connecting to the db.js file
 const watchlist_cards = require('../data/watchlist_card.csv');
 
+// NOTE: ElephantSQL shut down - need to find free alternative for virtual sql database
 /**
  * Get all watchlist cards
  */
 export const getAllCards = async(req: Request, res: Response, next: NextFunction): Promise<Response<string, any> | void> => { // GET: /watchlist/cards
     try {
-        const allCards = await pool.query('SELECT * FROM watchlist_cards;'); // SELECT ALL FROM TABLE TODO
+        const allCards = await pool.query('SELECT * FROM watchlist_cards;'); // SELECT ALL FROM TABLE TODO - ElephantSQL shut down: need to find alternative
 
         // TEMPORARY dummy data
         return res.status(200).json(watchlist_cards);

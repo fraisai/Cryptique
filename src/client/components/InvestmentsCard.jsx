@@ -26,7 +26,7 @@ const InvestmentsCard = (props) => {
 			<td className="p-8 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">$9548.38</td>
 
 			<td className="p-8 space-x-2 whitespace-nowrap">
-				<button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
+				<button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300" onClick={() => alert('Bought crypto')}>
 					Buy
 				</button>
 

@@ -8,7 +8,7 @@ const SearchBar = () => {
 	const getFilteredCoins = async (e) => {
 		setCoinQuery(e.target.value); // query to send to backend
 		try {
-			if (query.length >= 1) {
+			if (coinQuery.length >= 1) {
 				const filteredResult = await axios.get(`api/crypt/filter?coin_name=${coinQuery}`);
 				setSuggestion(filteredResult?.data);
 			}
@@ -49,7 +49,7 @@ const SearchBar = () => {
 				<input 
 					list="locations" 
 					className='w-5/6 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block p-2.5 px-4'
-					name="query" 
+					name="coinQuery" 
 					onChange={debouncedResults} 
 					placeholder="Type name or symbol" 
 					type="text" 
@@ -57,10 +57,10 @@ const SearchBar = () => {
 				/>
 
 				<datalist id="locations">
-					{query.length > 0 && // // required to avoid the dropdown list to display the locations fetched before
+					{coinQuery.length > 0 && // // required to avoid the dropdown list to display the locations fetched before
 						suggestion?.map((el, ind) => {
-							if (el.name.includes(query)) return <option key={ind} value={el.name} />;
-							else if (el.symbol.includes(query)) return (<option key={ind} value={el.symbol} />)
+							if (el.name.includes(coinQuery)) return <option key={ind} value={el.name} />;
+							else if (el.symbol.includes(coinQuery)) return (<option key={ind} value={el.symbol} />)
 							return '';
 						})}
 				</datalist>

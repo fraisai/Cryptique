@@ -41,16 +41,22 @@ const InvestmentsContainer = () => {
 
 	const addCard = async (id) => {
 		try {
-			const card = await axios.get(`watchlist/cards/${id}`);
-			await axios.post('watchlist/cards', {
-				_id: card.id,
+			const card = await axios.get(`crypt/filter?coinQuery=${id}`);
 
+			const res = await axios.post('watchlist/cards', {
+				_id: card.id,
+				_name: card.name, 
+				symbol: card.symbol, 
+				percent_change: card.price_change_percentage_24h, 
+				equity: "in progress", 
+				shares: "in progress", 
+				price: card.price
 			})
 		} catch (error) {
-			console.log('Error in InvestmentContainer.jsx');
+			console.log('Error in InvestmentContainer.jsx, addCard');
 		}
 	}
-	
+
 	const handleTweetSearch = async (ele) => {
 		console.log('tweetSearch', ele);
 		const newObj = {
@@ -123,7 +129,6 @@ const InvestmentsContainer = () => {
 							</table>
 						</div>
 					</div>
-					
 				</div>
 				
 

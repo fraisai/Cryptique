@@ -42,16 +42,14 @@ export const getCard = async(req: Request, res: Response, next: NextFunction): P
 export const addCard = async(req: Request, res: Response, next: NextFunction): Promise<void> => { // POST: /watchlist/cards
     try {
         const { _id, _name, symbol, percent_change, equity, shares, price } = req.body;
-
         const newCard = await pool.query(`INSERT INTO watchlist_cards(_id, _name, symbol, percent_change, equity, shares, price) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [_id, _name, symbol, percent_change, equity, shares, price]);
-
         // const card = await pool.query('INSERT INTO watchlist_cards WHERE _id = $1');
 
         // ElephantSQL
         // res.status(200).json(newCard);
         return next();
     } catch(error: any | ErrorRequestHandler) {
-        console.error("watchlistCrudController.ts getCard: ", error);
+        console.error("watchlistCrudController.ts addCard: ", error);
         return next(error)
     }
 }
@@ -65,7 +63,7 @@ export const deleteCard = async(req: Request, res: Response, next: NextFunction)
         const deletedCard = await pool.query('DELETE FROM watchlist_cards WHERE _id = $1 RETURN *;', [_id]);
         return res.status(200).json(deletedCard.rows);
     } catch (error: any | ErrorRequestHandler) {
-        console.log("Error in DELETE request in server", error.message);
+        console.log("watchlistCrudController.ts deleteCard: ", error.message);
         return next(error);
     }
 }
@@ -80,7 +78,7 @@ export const putCard = async(req: Request, res: Response, next: NextFunction): P
 
         return res.status(204).json('Item was edited.');
     } catch (error: any | ErrorRequestHandler) {
-        console.log("Error in putCard request in server", error.message);
+        console.log("watchlistCrudController.ts putCard: ", error.message);
         return next(error);
     }
 }

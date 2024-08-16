@@ -19,23 +19,23 @@ const InvestmentsContainer = () => {
 				const res = await axios.get('/api/watchlist/cards');
 				setList(res.data);
 			} catch (error) {
-				console.log('Error in GET request in Listodos.js', error.message);
+				console.log('Error in GET request in InvestmentContainer.js', error.message);
 			}
 		};
 		getWatchlist();
 	});
 
-	console.log('list from Listodos.js', cards);
+	console.log('list from InvestmentContainer.jsx', cards);
 
 	const deleteCard = async (id) => {
 		try {
 			await axios
 				.delete(`/api/watchlist/cards/${id}`)
-				.then((res) => console.log('Delete in Listodos.js'))
-				.catch((error) => console.log('Delete error in Listodos.js', error.message));
+				.then((res) => console.log('Delete in InvestmentContainer.js'))
+				.catch((error) => console.log('Delete error in InvestmentContainer.js', error.message));
 			// window.location = '/cryptotodo';
 		} catch (err) {
-			console.log('Error in Listodos.js');
+			console.log('Error in InvestmentContainer.jsx');
 		}
 	};
 
@@ -47,9 +47,10 @@ const InvestmentsContainer = () => {
 
 			})
 		} catch (error) {
-			
+			console.log('Error in InvestmentContainer.jsx');
 		}
 	}
+	
 	const handleTweetSearch = async (ele) => {
 		console.log('tweetSearch', ele);
 		const newObj = {
@@ -59,7 +60,7 @@ const InvestmentsContainer = () => {
 			.post(`/twitter/${ele}`, newObj)
 			.then((res) => setTweet(res.data))
 			.catch((error) => {
-				console.log('Error in handleTweetSearch GET request in Listodos.js', error.message);
+				console.log('Error in handleTweetSearch GET request in InvestmentContainer.js', error.message);
 			});
 	};
 

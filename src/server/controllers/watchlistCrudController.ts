@@ -26,7 +26,7 @@ export const getAllCards = async(req: Request, res: Response, next: NextFunction
 export const getCard = async(req: Request, res: Response, next: NextFunction): Promise<Response<string, any> | void> => { // GET: /watchlist/cards/:id
     try {
         const { _id } = req.body; 
-        const oneCard = await pool.query('SELECT * FROM watchlist_cards WHERE _id = $1;', [id]);
+        const oneCard = await pool.query('SELECT * FROM watchlist_cards WHERE _id = $1;', [_id]);
 
         // TEMPORARY DUMMY DATA
 
@@ -41,7 +41,7 @@ export const getCard = async(req: Request, res: Response, next: NextFunction): P
 // Add a card to watchlist
 export const addCard = async(req: Request, res: Response, next: NextFunction): Promise<void> => { // POST: /watchlist/cards
     try {
-        const { id } = req.body; // you are inserting into the column for description in the table named 'todo' (located in the database 'perntodo') the object description (from req.body)
+        const { _id } = req.body; // you are inserting into the column for description in the table named 'todo' (located in the database 'perntodo') the object description (from req.body)
         // const newCard = await pool.query(`INSERT INTO watchlist_cards(_id, _name, symbol, percent_change, equity, shares, price) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [name]);
 
         const card = await pool.query('INSERT INTO watchlist_cards SELECT * FROM ');
@@ -58,10 +58,10 @@ export const addCard = async(req: Request, res: Response, next: NextFunction): P
 // Delete a card from watch list
 export const deleteCard = async(req: Request, res: Response, next: NextFunction): Promise<Response<Record<string, any>> | void> => { // DELETE /watchlist/cards/:id
     try {
-        const { id } = req.params; // specify exactly what we want to delete
+        const { _id } = req.params; // specify what we want to delete
 
         // ElephantSQL
-        const deletedCard = await pool.query('DELETE FROM watchlist_cards WHERE _id = $1 RETURN *;', [id]);
+        const deletedCard = await pool.query('DELETE FROM watchlist_cards WHERE _id = $1 RETURN *;', [_id]);
         return res.status(200).json(deletedCard.rows);
     } catch (error: any | ErrorRequestHandler) {
         console.log("Error in DELETE request in server", error.message);
@@ -69,7 +69,7 @@ export const deleteCard = async(req: Request, res: Response, next: NextFunction)
     }
 }
 
-// Edit a card in watch list
+// **Need to fix - changed the row names: update a card in watch list
 export const putCard = async(req: Request, res: Response, next: NextFunction): Promise<Response<string, any> | void> => { // PATCH: /watchlist/cards/:id
     try {
         const coin_id = req.params.id;

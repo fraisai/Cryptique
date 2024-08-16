@@ -9,7 +9,8 @@ const name = ['BTC', 'ETH', 'Memecoin'];
 const InvestmentsContainer = () => {
 	const [cards, setCards] = useState([]);
 	const [tweet, setTweet] = useState([]);
-	const rowNames = ['Cryptocurrency', 'Symbol', 'Shares', 'Price', '% Change', 'Your Equity', 'Actions'];
+	const colNames = ['Cryptocurrency', 'Symbol', 'Shares', 'Price', '% Change', 'Your Equity', 'Actions'];
+
 	useEffect(() => {
 		/**
 		 * Get all saved cards in watchlist
@@ -17,7 +18,7 @@ const InvestmentsContainer = () => {
 		const getWatchlist = async () => {
 			try {
 				const res = await axios.get('/api/watchlist/cards');
-				setList(res.data);
+				setCards(res.data);
 			} catch (error) {
 				console.log('Error in GET request in InvestmentContainer.js', error.message);
 			}
@@ -98,10 +99,10 @@ const InvestmentsContainer = () => {
 												</div>
 											</th>
 
-											{rowNames.map(rowName => {
-												return(<th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">{rowName}</th>)
+											{colNames.map(colName => {
+												return(<th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">{colName}</th>)
 											})}
-											
+
 											{/* <th scope="col" className="p-8 text-sm font-medium text-left text-gray-500 uppercase ">
 												Cryptocurrency
 											</th>
